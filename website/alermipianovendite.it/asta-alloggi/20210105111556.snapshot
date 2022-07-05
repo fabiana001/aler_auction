@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="it-IT" class="html_stretched responsive av-preloader-disabled av-default-lightbox  html_header_top html_logo_center html_bottom_nav_header html_menu_right html_slim html_header_sticky html_header_shrinking_disabled html_mobile_menu_phone html_header_searchicon_disabled html_content_align_center html_header_unstick_top_disabled html_header_stretch_disabled html_av-submenu-hidden html_av-submenu-display-click html_av-overlay-side html_av-overlay-side-classic html_av-submenu-noclone html_entry_id_63 av-cookies-consent-show-message-bar av-cookies-cookie-consent-enabled av-cookies-needs-opt-in av-cookies-essential-only av-cookies-user-needs-accept-button avia-cookie-check-browser-settings av-no-preview html_text_menu_active ">
+<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app200.us.archive.org';v.server_ms=630;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="/_static/js/playback.bundle.js?v=bQvHU8mx" charset="utf-8"></script>
+<script type="text/javascript" src="/_static/js/wombat.js?v=cRqOKCOw" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("https://alermipianovendite.it/asta-alloggi/","20210105111556","https://web.archive.org/","web","/_static/",
+	      "1609845356");
+</script>
+<link rel="stylesheet" type="text/css" href="/_static/css/banner-styles.css?v=bsmaklHF" />
+<link rel="stylesheet" type="text/css" href="/_static/css/iconochive.css?v=qtvMKcIJ" />
+<!-- End Wayback Rewrite JS Include -->
+
+<meta charset="UTF-8"/>
+
+
+<!-- mobile setting -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Scripts/CSS and wp_head hook -->
+
+				<script type="text/javascript">
+
+				function avia_cookie_check_sessionStorage()
+				{
+					//	FF throws error when all cookies blocked !!
+					var sessionBlocked = false;
+					try
+					{
+						var test = sessionStorage.getItem( 'aviaCookieRefused' ) != null;
+					}
+					catch(e)
+					{
+						sessionBlocked = true;
+					}
+					
+					var aviaCookieRefused = ! sessionBlocked ? sessionStorage.getItem( 'aviaCookieRefused' ) : null;
+					
+					var html = document.getElementsByTagName('html')[0];
+
+					/**
+					 * Set a class to avoid calls to sessionStorage
+					 */
+					if( sessionBlocked || aviaCookieRefused )
+					{
+						if( html.className.indexOf('av-cookies-session-refused') < 0 )
+						{
+							html.className += ' av-cookies-session-refused';
+						}
+					}
+					
+					if( sessionBlocked || aviaCookieRefused || document.cookie.match(/aviaCookieConsent/) )
+					{
+						if( html.className.indexOf('av-cookies-user-silent-accept') >= 0 )
+						{
+							 html.className = html.className.replace(/\bav-cookies-user-silent-accept\b/g, '');
+						}
+					}
+				}
+
+				avia_cookie_check_sessionStorage();
+
+			</script>
+			
+	<!-- This site is optimized with the Yoast SEO plugin v15.5 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Asta Alloggi - ALER Milano - Piano Vendite</title>
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+	<link rel="canonical" href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/asta-alloggi/"/>
+	<meta property="og:locale" content="it_IT"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:title" content="Asta Alloggi - ALER Milano - Piano Vendite"/>
+	<meta property="og:url" content="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/asta-alloggi/"/>
+	<meta property="og:site_name" content="ALER Milano - Piano Vendite"/>
+	<meta property="article:modified_time" content="2020-02-28T07:55:15+00:00"/>
+	<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:label1" content="Tempo di lettura stimato">
+	<meta name="twitter:data1" content="3 minuti">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://web.archive.org/web/20210105111556/https://schema.org","@graph":[{"@type":"WebSite","@id":"https://web.archive.org/web/20210105111556/https://alermipianovendite.it/#website","url":"https://web.archive.org/web/20210105111556/https://alermipianovendite.it/","name":"ALER Milano - Piano Vendite","description":"","potentialAction":[{"@type":"SearchAction","target":"https://web.archive.org/web/20210105111556/https://alermipianovendite.it/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"it-IT"},{"@type":"WebPage","@id":"https://web.archive.org/web/20210105111556/https://alermipianovendite.it/asta-alloggi/#webpage","url":"https://web.archive.org/web/20210105111556/https://alermipianovendite.it/asta-alloggi/","name":"Asta Alloggi - ALER Milano - Piano Vendite","isPartOf":{"@id":"https://web.archive.org/web/20210105111556/https://alermipianovendite.it/#website"},"datePublished":"2016-08-29T10:27:03+00:00","dateModified":"2020-02-28T07:55:15+00:00","inLanguage":"it-IT","potentialAction":[{"@type":"ReadAction","target":["https://web.archive.org/web/20210105111556/https://alermipianovendite.it/asta-alloggi/"]}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//web.archive.org/web/20210105111556/https://translate.google.com/"/>
+<link rel="dns-prefetch" href="//web.archive.org/web/20210105111556/https://s.w.org/"/>
+<link rel="alternate" type="application/rss+xml" title="ALER Milano - Piano Vendite » Feed" href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/feed/"/>
+<link rel="alternate" type="application/rss+xml" title="ALER Milano - Piano Vendite » Feed dei commenti" href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/comments/feed/"/>
+<!-- This site uses the Google Analytics by ExactMetrics plugin v6.4.0 - Using Analytics tracking - https://www.exactmetrics.com/ -->
+<script type="text/javascript" data-cfasync="false">
+    (window.gaDevIds=window.gaDevIds||[]).push("dNDMyYj");
+	var em_version         = '6.4.0';
+	var em_track_user      = true;
+	var em_no_track_reason = '';
+	
+	var disableStr = 'ga-disable-UA-120894645-2';
+
+	/* Function to detect opted out users */
+	function __gaTrackerIsOptedOut() {
+		return document.cookie.indexOf(disableStr + '=true') > -1;
+	}
+
+	/* Disable tracking if the opt-out cookie exists. */
+	if ( __gaTrackerIsOptedOut() ) {
+		window[disableStr] = true;
+	}
+
+	/* Opt-out function */
+	function __gaTrackerOptout() {
+	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	  window[disableStr] = true;
+	}
+
+	if ( 'undefined' === typeof gaOptout ) {
+		function gaOptout() {
+			__gaTrackerOptout();
+		}
+	}
+	
+	if ( em_track_user ) {
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//web.archive.org/web/20210105111556/https://www.google-analytics.com/analytics.js','__gaTracker');
+
+		__gaTracker('create', 'UA-120894645-2', 'auto');
+		__gaTracker('set', 'forceSSL', true);
+		__gaTracker('require', 'displayfeatures');
+		__gaTracker('require', 'linkid', 'linkid.js');
+		__gaTracker('send','pageview');
+	} else {
+		console.log( "" );
+		(function() {
+			/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+			var noopfn = function() {
+				return null;
+			};
+			var noopnullfn = function() {
+				return null;
+			};
+			var Tracker = function() {
+				return null;
+			};
+			var p = Tracker.prototype;
+			p.get = noopfn;
+			p.set = noopfn;
+			p.send = noopfn;
+			var __gaTracker = function() {
+				var len = arguments.length;
+				if ( len === 0 ) {
+					return;
+				}
+				var f = arguments[len-1];
+				if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+					console.log( 'Not running function __gaTracker(' + arguments[0] + " ....) because you are not being tracked. " + em_no_track_reason );
+					return;
+				}
+				try {
+					f.hitCallback();
+				} catch (ex) {
+
+				}
+			};
+			__gaTracker.create = function() {
+				return new Tracker();
+			};
+			__gaTracker.getByName = noopnullfn;
+			__gaTracker.getAll = function() {
+				return [];
+			};
+			__gaTracker.remove = noopfn;
+			window['__gaTracker'] = __gaTracker;
+					})();
+		}
+</script>
+<!-- / Google Analytics by ExactMetrics -->
+
+<!-- google webfont font replacement -->
+
+			<script type="text/javascript">
+
+				(function() {
+					
+					/*	check if webfonts are disabled by user setting via cookie - or user must opt in.	*/
+					var html = document.getElementsByTagName('html')[0];
+					var cookie_check = html.className.indexOf('av-cookies-needs-opt-in') >= 0 || html.className.indexOf('av-cookies-can-opt-out') >= 0;
+					var allow_continue = true;
+					var silent_accept_cookie = html.className.indexOf('av-cookies-user-silent-accept') >= 0;
+
+					if( cookie_check && ! silent_accept_cookie )
+					{
+						if( ! document.cookie.match(/aviaCookieConsent/) || html.className.indexOf('av-cookies-session-refused') >= 0 )
+						{
+							allow_continue = false;
+						}
+						else
+						{
+							if( ! document.cookie.match(/aviaPrivacyRefuseCookiesHideBar/) )
+							{
+								allow_continue = false;
+							}
+							else if( ! document.cookie.match(/aviaPrivacyEssentialCookiesEnabled/) )
+							{
+								allow_continue = false;
+							}
+							else if( document.cookie.match(/aviaPrivacyGoogleWebfontsDisabled/) )
+							{
+								allow_continue = false;
+							}
+						}
+					}
+					
+					if( allow_continue )
+					{
+						var f = document.createElement('link');
+					
+						f.type 	= 'text/css';
+						f.rel 	= 'stylesheet';
+						f.href 	= '//web.archive.org/web/20210105111556/https://fonts.googleapis.com/css?family=Open+Sans:400,600';
+						f.id 	= 'avia-google-webfont';
+
+						document.getElementsByTagName('head')[0].appendChild(f);
+					}
+				})();
+			
+			</script>
+					<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/web.archive.org\/web\/20210105111556\/https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/web.archive.org\/web\/20210105111556\/https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/web.archive.org\/web\/20210105111556\/https:\/\/alermipianovendite.it\/wp-includes\/js\/wp-emoji-release.min.js?ver=95efd33f5540f7cf41fac49256b28adb"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="https://web.archive.org/web/20210105111556cs_/https://alermipianovendite.it/wp-includes/css/dist/block-library/style.min.css?ver=95efd33f5540f7cf41fac49256b28adb" type="text/css" media="all"/>
+<link rel="stylesheet" id="contact-form-7-css" href="https://web.archive.org/web/20210105111556cs_/https://alermipianovendite.it/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.3.2" type="text/css" media="all"/>
+<link rel="stylesheet" id="google-language-translator-css" href="https://web.archive.org/web/20210105111556cs_/https://alermipianovendite.it/wp-content/plugins/google-language-translator/css/style.css?ver=6.0.8" type="text/css" media=""/>
+<link rel="stylesheet" id="theme-my-login-css" href="https://web.archive.org/web/20210105111556cs_/https://alermipianovendite.it/wp-content/plugins/theme-my-login/assets/styles/theme-my-login.min.css?ver=7.1.2" type="text/css" media="all"/>
+<link rel="stylesheet" id="exactmetrics-popular-posts-style-css" href="https://web.archive.org/web/20210105111556cs_/https://alermipianovendite.it/wp-content/plugins/google-analytics-dashboard-for-wp/assets/css/frontend.min.css?ver=6.4.0" type="text/css" media="all"/>
+<link rel="stylesheet" id="mediaelement-css" href="https://web.archive.org/web/20210105111556cs_/https://alermipianovendite.it/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.13-9993131" type="text/css" media="all"/>
+<link rel="stylesheet" id="wp-mediaelement-css" href="https://web.archive.org/web/20210105111556cs_/https://alermipianovendite.it/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=95efd33f5540f7cf41fac49256b28adb" type="text/css" media="all"/>
+<link rel="stylesheet" id="tablepress-default-css" href="https://web.archive.org/web/20210105111556cs_/https://alermipianovendite.it/wp-content/tablepress-combined.min.css?ver=3" type="text/css" media="all"/>
+<link rel="stylesheet" id="tablepress-responsive-tables-css" href="https://web.archive.org/web/20210105111556cs_/https://alermipianovendite.it/wp-content/plugins/tablepress-responsive-tables/css/tablepress-responsive.min.css?ver=1.7" type="text/css" media="all"/>
+<link rel="stylesheet" id="avia-merged-styles-css" href="https://web.archive.org/web/20210105111556cs_/https://alermipianovendite.it/wp-content/uploads/dynamic_avia/avia-merged-styles-ae9af8705f9c07d5b6aca6c5a6bc8485---5f7c67ed8a8be.css" type="text/css" media="all"/>
+<script type="text/javascript" src="https://web.archive.org/web/20210105111556js_/https://alermipianovendite.it/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp" id="jquery-core-js"></script>
+<script type="text/javascript" id="exactmetrics-frontend-script-js-extra">
+/* <![CDATA[ */
+var exactmetrics_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/web.archive.org\/web\/20210105111556\/https:\/\/alermipianovendite.it","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://web.archive.org/web/20210105111556js_/https://alermipianovendite.it/wp-content/plugins/google-analytics-dashboard-for-wp/assets/js/frontend.min.js?ver=6.4.0" id="exactmetrics-frontend-script-js"></script>
+<link rel="https://api.w.org/" href="https://alermipianovendite.it/wp-json/"/><link rel="alternate" type="application/json" href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/wp-json/wp/v2/pages/63"/><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://alermipianovendite.it/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://alermipianovendite.it/wp-includes/wlwmanifest.xml"/> 
+
+<link rel="shortlink" href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/?p=63"/>
+<link rel="alternate" type="application/json+oembed" href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/wp-json/oembed/1.0/embed?url=https%3A%2F%2Falermipianovendite.it%2Fasta-alloggi%2F"/>
+<link rel="alternate" type="text/xml+oembed" href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/wp-json/oembed/1.0/embed?url=https%3A%2F%2Falermipianovendite.it%2Fasta-alloggi%2F&amp;format=xml"/>
+<style type="text/css">p.hello { font-size:12px; color:darkgray; }#google_language_translator, #flags { text-align:left; }#google_language_translator { clear:both; }#flags { width:165px; }#flags a { display:inline-block; margin-right:2px; }#google_language_translator { width:auto !important; }.goog-tooltip {display: none !important;}.goog-tooltip:hover {display: none !important;}.goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}#google_language_translator select.goog-te-combo { color:#32373c; }#google_language_translator {color: transparent;}body { top:0px !important; }#glt-translate-trigger { left:20px; right:auto; }#glt-translate-trigger > span { color:#ffffff; }#glt-translate-trigger { background:#f89406; }.goog-te-gadget .goog-te-combo { width:100%; }</style><script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//web.archive.org/web/20210105111556/https://alermipianovendite.it/?wordfence_lh=1&hid=5FA3DFA2B73B1D081FDC839A48D13922');
+</script><link rel="profile" href="https://gmpg.org/xfn/11"/>
+<link rel="alternate" type="application/rss+xml" title="ALER Milano - Piano Vendite RSS2 Feed" href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/feed/"/>
+<link rel="pingback" href="https://alermipianovendite.it/xmlrpc.php"/>
+<!--[if lt IE 9]><script src="https://alermipianovendite.it/wp-content/themes/enfold/js/html5shiv.js"></script><![endif]-->
+<link rel="icon" href="https://web.archive.org/web/20210105111556im_/https://alermipianovendite.it/wp-content/uploads/2020/07/favicon.png" type="image/png">
+
+<!-- To speed up the rendering and to display the site as fast as possible to the user we include some styles and scripts for above the fold content inline -->
+<script type="text/javascript">'use strict';var avia_is_mobile=!1;if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)&&'ontouchstart' in document.documentElement){avia_is_mobile=!0;document.documentElement.className+=' avia_mobile '}
+else{document.documentElement.className+=' avia_desktop '};document.documentElement.className+=' js_active ';(function(){var e=['-webkit-','-moz-','-ms-',''],n='';for(var t in e){if(e[t]+'transform' in document.documentElement.style){document.documentElement.className+=' avia_transform ';n=e[t]+'transform'};if(e[t]+'perspective' in document.documentElement.style)document.documentElement.className+=' avia_transform3d '};if(typeof document.getElementsByClassName=='function'&&typeof document.documentElement.getBoundingClientRect=='function'&&avia_is_mobile==!1){if(n&&window.innerHeight>0){setTimeout(function(){var e=0,o={},a=0,t=document.getElementsByClassName('av-parallax'),i=window.pageYOffset||document.documentElement.scrollTop;for(e=0;e<t.length;e++){t[e].style.top='0px';o=t[e].getBoundingClientRect();a=Math.ceil((window.innerHeight+i-o.top)*0.3);t[e].style[n]='translate(0px, '+a+'px)';t[e].style.top='auto';t[e].className+=' enabled-parallax '}},50)}}})();</script><link rel="icon" href="https://web.archive.org/web/20210105111556im_/https://alermipianovendite.it/wp-content/uploads/2020/07/cropped-favicon-32x32.png" sizes="32x32"/>
+<link rel="icon" href="https://web.archive.org/web/20210105111556im_/https://alermipianovendite.it/wp-content/uploads/2020/07/cropped-favicon-192x192.png" sizes="192x192"/>
+<link rel="apple-touch-icon" href="https://web.archive.org/web/20210105111556im_/https://alermipianovendite.it/wp-content/uploads/2020/07/cropped-favicon-180x180.png"/>
+<meta name="msapplication-TileImage" content="https://alermipianovendite.it/wp-content/uploads/2020/07/cropped-favicon-270x270.png"/>
+<style type="text/css">
+@font-face {font-family: 'entypo-fontello'; font-weight: normal; font-style: normal; font-display: auto;
+src: url('https://web.archive.org/web/20210105111556im_/https://alermipianovendite.it/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.woff2') format('woff2'),
+url('https://web.archive.org/web/20210105111556im_/https://alermipianovendite.it/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.woff') format('woff'),
+url('https://web.archive.org/web/20210105111556im_/https://alermipianovendite.it/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.ttf') format('truetype'), 
+url('https://web.archive.org/web/20210105111556im_/https://alermipianovendite.it/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.svg#entypo-fontello') format('svg'),
+url('https://web.archive.org/web/20210105111556im_/https://alermipianovendite.it/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.eot'),
+url('https://web.archive.org/web/20210105111556im_/https://alermipianovendite.it/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.eot#iefix') format('embedded-opentype');
+} #top .avia-font-entypo-fontello, body .avia-font-entypo-fontello, html body [data-av_iconfont='entypo-fontello']:before{ font-family: 'entypo-fontello'; }
+</style>
+
+<!--
+Debugging Info for Theme support: 
+
+Theme: Enfold
+Version: 4.7.6.4
+Installed: enfold
+AviaFramework Version: 5.0
+AviaBuilder Version: 4.7.6.4
+aviaElementManager Version: 1.0.1
+- - - - - - - - - - -
+ChildTheme: Enfold Child
+ChildTheme Version: 1.0
+ChildTheme Installed: enfold
+
+ML:512-PU:67-PLA:21
+WP:5.5.3
+Compress: CSS:all theme files - JS:all theme files
+Updates: enabled - deprecated Envato API - register Envato Token
+PLAu:19
+-->
+</head>
+
+
+
+
+<body data-rsssl="1" id="top" class="page-template-default page page-id-63  rtl_columns stretched open_sans" itemscope="itemscope" itemtype="https://schema.org/WebPage"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+</style>
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display:none;direction:ltr;">
+<div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;">
+<div id="wm-ipp-inside">
+  <div style="position:relative;">
+    <div id="wm-logo" style="float:left;width:110px;padding-top:12px;">
+      <a href="/web/" title="Wayback Machine home page"><img src="/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="/_static/images/toolbar/wayback-toolbar-logo-100.png, /_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, /_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0" /></a>
+    </div>
+    <div class="r" style="float:right;">
+      <div id="wm-btns" style="text-align:right;height:25px;">
+                  <div id="wm-save-snapshot-success">success</div>
+          <div id="wm-save-snapshot-fail">fail</div>
+          <a id="wm-save-snapshot-open" href="#"
+	     title="Share via My Web Archive" >
+            <span class="iconochive-web"></span>
+          </a>
+          <a href="https://archive.org/account/login.php"
+             title="Sign In"
+             id="wm-sign-in"
+          >
+            <span class="iconochive-person"></span>
+          </a>
+          <span id="wm-save-snapshot-in-progress" class="iconochive-web"></span>
+        	<a href="http://faq.web.archive.org/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+	<a id="wm-tb-close" href="#close" onclick="__wm.h(event);return false;" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
+      </div>
+      <div id="wm-share">
+          <a href="/web/20210105111556/http://web.archive.org/screenshot/https://alermipianovendite.it/asta-alloggi/"
+             id="wm-screenshot"
+             title="screenshot">
+            <span class="wm-icon-screen-shot"></span>
+          </a>
+	<a id="wm-share-facebook" href="#" data-url="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/asta-alloggi/" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+	<a id="wm-share-twitter" href="#" data-url="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/asta-alloggi/" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
+      </div>
+    </div>
+    <table class="c" style="">
+      <tbody>
+	<tr>
+	  <td class="u" colspan="2">
+	    <form target="_top" method="get" action="/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="https://alermipianovendite.it/asta-alloggi/" onfocus="this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20210105111556" /><input type="submit" value="Go" /></form>
+	  </td>
+	  <td class="n" rowspan="2" style="width:110px;">
+	    <table>
+	      <tbody>
+		<!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+		<tr class="m">
+		  <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20201128101647/https://alermipianovendite.it/asta-alloggi/" title="28 Nov 2020"><strong>Nov</strong></a></td>
+		  <td class="c" id="displayMonthEl" title="You are here: 11:15:56 Jan 05, 2021">JAN</td>
+		  <td class="f" nowrap="nowrap">Feb</td>
+		</tr>
+		<!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+		<tr class="d">
+		  <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20201128101647/https://alermipianovendite.it/asta-alloggi/" title="10:16:47 Nov 28, 2020"><img src="/_static/images/toolbar/wm_tb_prv_on.png" alt="Previous capture" width="14" height="16" border="0" /></a></td>
+		  <td class="c" id="displayDayEl" style="width:34px;font-size:24px;white-space:nowrap;" title="You are here: 11:15:56 Jan 05, 2021">05</td>
+		  <td class="f" nowrap="nowrap"><img src="/_static/images/toolbar/wm_tb_nxt_off.png" alt="Next capture" width="14" height="16" border="0" /></td>
+		</tr>
+		<!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+		<tr class="y">
+		  <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20190923221343/http://www.alermipianovendite.it:80/asta-alloggi" title="23 Sep 2019"><strong>2019</strong></a></td>
+		  <td class="c" id="displayYearEl" title="You are here: 11:15:56 Jan 05, 2021">2021</td>
+		  <td class="f" nowrap="nowrap">2022</td>
+		</tr>
+	      </tbody>
+	    </table>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="s">
+	    	    <div id="wm-nav-captures">
+	      	      <a class="t" href="/web/20210105111556*/https://alermipianovendite.it/asta-alloggi/" title="See a list of every capture for this URL">58 captures</a>
+	      <div class="r" title="Timespan for captures of this URL">27 Oct 2016 - 05 Jan 2021</div>
+	      </div>
+	  </td>
+	  <td class="k">
+	    <a href="" id="wm-graph-anchor">
+	      <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+		<canvas id="wm-sparkline-canvas" width="650" height="27" border="0"></canvas>
+	      </div>
+	    </a>
+	  </td>
+	</tr>
+      </tbody>
+    </table>
+    <div style="position:absolute;bottom:0;right:2px;text-align:right;">
+      <a id="wm-expand" class="wm-btn wm-closed" href="#expand" onclick="__wm.ex(event);return false;"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span style="font-size:80%">About this capture</span></a>
+    </div>
+  </div>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
+                    <div id="wm-capinfo-collected-by">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center">COLLECTED BY</div>
+    <div style="padding:3px;position:relative" id="wm-collected-by-content">
+            <div style="display:inline-block;vertical-align:top;width:50%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/archiveteam);"></span>
+		Organization: <a style="color:#33f;" href="https://archive.org/details/archiveteam" target="_new"><span class="wm-title">Archive Team</span></a>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  <img align=right src="http://archiveteam.org/images/e/e6/Archiveteam.jpg" width=200> Formed in 2009, the Archive Team (not to be confused with the archive.org Archive-It Team) is a rogue archivist collective dedicated to saving copies of rapidly dying or deleted websites for the sake of history and digital heritage. The group is 100% composed of volunteers and interested parties, and has expanded into a large amount of related projects for saving online and digital history.
+<p>
+History is littered with hundreds of conflicts over the future of a community, group, location or business that were "resolved" when one of the parties stepped ahead and destroyed what was there. With the original point of contention destroyed, the debates would fall to the wayside. Archive Team believes that by duplicated condemned data, the conversation and debate can continue, as well as the richness and insight gained by keeping the materials. Our projects have ranged in size from a single volunteer downloading the data to a small-but-critical site, to over 100 volunteers stepping forward to acquire terabytes of user-created data to save for future generations.
+<p>
+The main site for Archive Team is at <a href="http://www.archiveteam.org">archiveteam.org</a> and contains up to the date information on various projects, manifestos, plans and walkthroughs.
+<p>
+This collection contains the output of many Archive Team projects, both ongoing and completed. Thanks to the generous providing of disk space by the Internet Archive, multi-terabyte datasets can be made available, as well as in use by the <a href="http://archive.org/web/web.php">Wayback Machine</a>, providing a path back to lost websites and work. 
+<p>
+Our collection has grown to the point of having sub-collections for the type of data we acquire. If you are seeking to browse the contents of these collections, the Wayback Machine is the best first stop. Otherwise, you are free to dig into the stacks to see what you may find.
+<p>
+<b>The Archive Team Panic Downloads</b> are full pulldowns of currently extant websites, meant to serve as emergency backups for needed sites that are in danger of closing, or which will be missed dearly if suddenly lost due to hard drive crashes or server failures. 
+<p>
+	</div>
+	      </div>
+      <div style="display:inline-block;vertical-align:top;width:49%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/archiveteam_urls)"></span>
+		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/archiveteam_urls" target="_new"><span class="wm-title">Archive Team: URLs</span></a></div>
+	      </div>
+    </div>
+    </div>
+    <div id="wm-capinfo-timestamps">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div>
+      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
+      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="/_static/images/loading.gif" alt="loading" /></div>
+    </div>
+    </div>
+  </div></div></div></div><div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;platform=wb&amp;referer=https%3A//web.archive.org/web/20210105111556/https%3A//alermipianovendite.it/asta-alloggi/"
+	    scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><script type="text/javascript">
+__wm.bt(650,27,25,2,"web","https://alermipianovendite.it/asta-alloggi/","20210105111556",1996,"/_static/",["/_static/css/banner-styles.css?v=bsmaklHF","/_static/css/iconochive.css?v=qtvMKcIJ"]);
+  __wm.rw(1);
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+	
+	<div id="wrap_all">
+
+	
+<header id="header" class="all_colors header_color light_bg_color  av_header_top av_logo_center av_bottom_nav_header av_menu_right av_slim av_header_sticky av_header_shrinking_disabled av_header_stretch_disabled av_mobile_menu_phone av_header_searchicon_disabled av_header_unstick_top_disabled av_seperator_small_border" role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
+
+		<div id="header_main" class="container_wrap container_wrap_logo">
+	
+        <div class="container av-logo-container"><div class="inner-container"><span class="logo"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/"><img height="100" width="300" src="https://web.archive.org/web/20210105111556im_/https://www.alermipianovendite.it/wp-content/uploads/2016/08/ALER-LOGO.png" alt="ALER Milano - Piano Vendite" title=""/></a></span></div></div><div id="header_main_alternate" class="container_wrap"><div class="container"><nav class="main_menu" data-selectname="Seleziona una pagina" role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement"><div class="avia-menu av-main-nav-wrap"><ul id="avia-menu" class="menu av-main-nav"><li id="menu-item-8593" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-top-level menu-item-top-level-1"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Home</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-10261" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-2"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/diritto-di-prelazione/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Diritto di prelazione</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-10260" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-3"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/contatti/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Contatti</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li class="av-burger-menu-main menu-item-avia-special ">
+	        			<a href="#" aria-label="Menu" aria-hidden="false">
+							<span class="av-hamburger av-hamburger--spin av-js-hamburger">
+								<span class="av-hamburger-box">
+						          <span class="av-hamburger-inner"></span>
+						          <strong>Menu</strong>
+								</span>
+							</span>
+							<span class="avia_hidden_link_text">Menu</span>
+						</a>
+	        		   </li></ul></div></nav></div> </div> 
+		<!-- end container_wrap-->
+		</div>
+		<div class="header_bg"></div>
+
+<!-- end header -->
+</header>
+		
+	<div id="main" class="all_colors" data-scroll-offset="88">
+
+	<div class="main_color container_wrap_first container_wrap fullsize" style=" "><div class="container"><main role="main" itemprop="mainContentOfPage" class="template-page content  av-content-full alpha units"><div class="post-entry post-entry-type-page post-entry-63"><div class="entry-content-wrapper clearfix"><div style="padding-bottom:10px; font-size:30px;" class="av-special-heading av-special-heading-h3  blockquote modern-quote modern-centered  avia-builder-el-0  el_before_av_hr  avia-builder-el-first  av-inherit-size "><h3 class="av-special-heading-tag " itemprop="headline">Aste Cessione Alloggi</h3><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
+<div class="hr hr-default   avia-builder-el-1  el_after_av_heading  el_before_av_section  avia-builder-el-last "><span class="hr-inner "><span class="hr-inner-style"></span></span></div>
+</div></div></main><!-- close content main element --></div></div><div id="av_section_1" class="avia-section alternate_color avia-section-default avia-shadow  avia-bg-style-scroll  avia-builder-el-2  el_after_av_hr  el_before_av_section   container_wrap fullsize" style=" "><div class="av-section-color-overlay-wrap"><a href="#next-section" title="" class="scroll-down-link " aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello"></a><div class="container"><div class="template-page content  av-content-full alpha units"><div class="post-entry post-entry-type-page post-entry-63"><div class="entry-content-wrapper clearfix">
+<div class="flex_column av_one_half  flex_column_div av-zero-column-padding first  avia-builder-el-3  el_before_av_one_half  avia-builder-el-first  " style="border-radius:0px; "><div style="padding-bottom:20px; " class="av-special-heading av-special-heading-h2    avia-builder-el-4  el_before_av_blog  avia-builder-el-first  "><h2 class="av-special-heading-tag " itemprop="headline">Aste Alloggi</h2><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
+<div class="av-alb-blogposts template-blog  av-blog-meta-author-disabled av-blog-meta-comments-disabled av-blog-meta-category-disabled av-blog-meta-date-disabled av-blog-meta-html-info-disabled av-blog-meta-tag-disabled " itemscope="itemscope" itemtype="https://schema.org/Blog"><article class="post-entry post-entry-type-standard post-entry-10608 post-loop-1 post-parity-odd post-entry-last single-big  post-10608 post type-post status-publish format-standard hentry category-asteceal" itemscope="itemscope" itemtype="https://schema.org/BlogPosting"><div class="blog-meta"></div><div class="entry-content-wrapper clearfix standard-content"><header class="entry-content-header"><h2 class="post-title entry-title " itemprop="headline">	<a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/asta-alloggi-21-gennaio-2021/" rel="bookmark" title="Link Permanente: Asta Alloggi 21 gennaio 2021">Asta Alloggi 21 gennaio 2021			<span class="post-format-icon minor-meta"></span>	</a></h2><span class="post-meta-infos"><time class="date-container minor-meta updated">15 Dicembre 2020</time><span class="text-sep text-sep-date">/</span><span class="comment-container minor-meta"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/asta-alloggi-21-gennaio-2021/#respond" class="comments-link">0 Commenti</a></span><span class="text-sep text-sep-comment">/</span><span class="blog-categories minor-meta">in <a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/category/asteceal/" rel="tag">Aste Cessione Alloggi</a> </span><span class="text-sep text-sep-cat">/</span><span class="blog-author minor-meta">da <span class="entry-author-link" itemprop="author"><span class="author"><span class="fn"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/author/u2036d/" title="Articoli scritti da U2036D" rel="author">U2036D</a></span></span></span></span></span></header><div class="entry-content" itemprop="text"><div class="read-more-link"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/asta-alloggi-21-gennaio-2021/" class="more-link">Continua a leggere<span class="more-link-arrow"></span></a></div>
+</div><footer class="entry-footer"></footer><div class="post_delimiter"></div></div><div class="post_author_timeline"></div><span class="hidden">
+				<span class="av-structured-data" itemprop="image" itemscope="itemscope" itemtype="https://schema.org/ImageObject">
+						<span itemprop="url">https://www.alermipianovendite.it/wp-content/uploads/2016/08/ALER-LOGO.png</span>
+						<span itemprop="height">0</span>
+						<span itemprop="width">0</span>
+				</span>
+				<span class="av-structured-data" itemprop="publisher" itemtype="https://schema.org/Organization" itemscope="itemscope">
+						<span itemprop="name">U2036D</span>
+						<span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+							<span itemprop="url">https://www.alermipianovendite.it/wp-content/uploads/2016/08/ALER-LOGO.png</span>
+						 </span>
+				</span><span class="av-structured-data" itemprop="author" itemscope="itemscope" itemtype="https://schema.org/Person"><span itemprop="name">U2036D</span></span><span class="av-structured-data" itemprop="datePublished" datetime="2020-12-15T09:00:14+01:00">2020-12-15 09:00:14</span><span class="av-structured-data" itemprop="dateModified" itemtype="https://schema.org/dateModified">2020-12-23 13:01:57</span><span class="av-structured-data" itemprop="mainEntityOfPage" itemtype="https://schema.org/mainEntityOfPage"><span itemprop="name">Asta Alloggi 21 gennaio 2021</span></span></span></article><div class="single-big"></div></div></div><div class="flex_column av_one_half  flex_column_div av-zero-column-padding   avia-builder-el-6  el_after_av_one_half  avia-builder-el-last  " style="border-radius:0px; "></div></div></div></div><!-- close content main div --></div></div></div><div id="av_section_2" class="avia-section alternate_color avia-section-default avia-shadow  avia-bg-style-scroll  avia-builder-el-7  el_after_av_section  avia-builder-el-last   container_wrap fullsize" style="background-color: #e6efe6;  "><div class="container"><div class="template-page content  av-content-full alpha units"><div class="post-entry post-entry-type-page post-entry-63"><div class="entry-content-wrapper clearfix">
+<div class="flex_column av_one_half  flex_column_div av-zero-column-padding first  avia-builder-el-8  el_before_av_one_half  avia-builder-el-first  " style="border-radius:0px; "><div style="padding-bottom:20px; " class="av-special-heading av-special-heading-h2    avia-builder-el-9  el_before_av_blog  avia-builder-el-first  "><h2 class="av-special-heading-tag " itemprop="headline">Aste Terminate</h2><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
+<div class="av-alb-blogposts template-blog  av-blog-meta-author-disabled av-blog-meta-comments-disabled av-blog-meta-category-disabled av-blog-meta-date-disabled av-blog-meta-html-info-disabled av-blog-meta-tag-disabled " itemscope="itemscope" itemtype="https://schema.org/Blog"><article class="post-entry post-entry-type-standard post-entry-10501 post-loop-2 post-parity-even post-entry-last single-big  post-10501 post type-post status-publish format-standard hentry category-asta-cessione-alloggi-terminate" itemscope="itemscope" itemtype="https://schema.org/BlogPosting"><div class="blog-meta"></div><div class="entry-content-wrapper clearfix standard-content"><header class="entry-content-header"><h2 class="post-title entry-title " itemprop="headline">	<a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/esiti-piano-vendite-2020-2022/" rel="bookmark" title="Link Permanente: Esiti piano vendite 2020-2022">Esiti piano vendite 2020-2022			<span class="post-format-icon minor-meta"></span>	</a></h2><span class="post-meta-infos"><time class="date-container minor-meta updated">22 Luglio 2020</time><span class="text-sep text-sep-date">/</span><span class="comment-container minor-meta"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/esiti-piano-vendite-2020-2022/#respond" class="comments-link">0 Commenti</a></span><span class="text-sep text-sep-comment">/</span><span class="blog-categories minor-meta">in <a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/category/asta-cessione-alloggi-terminate/" rel="tag">Asta Cessione Alloggi - Terminate</a> </span><span class="text-sep text-sep-cat">/</span><span class="blog-author minor-meta">da <span class="entry-author-link" itemprop="author"><span class="author"><span class="fn"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/author/u4388v/" title="Articoli scritti da U4388V" rel="author">U4388V</a></span></span></span></span></span></header><div class="entry-content" itemprop="text"><div class="read-more-link"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/esiti-piano-vendite-2020-2022/" class="more-link">Continua a leggere<span class="more-link-arrow"></span></a></div>
+</div><footer class="entry-footer"></footer><div class="post_delimiter"></div></div><div class="post_author_timeline"></div><span class="hidden">
+				<span class="av-structured-data" itemprop="image" itemscope="itemscope" itemtype="https://schema.org/ImageObject">
+						<span itemprop="url">https://www.alermipianovendite.it/wp-content/uploads/2016/08/ALER-LOGO.png</span>
+						<span itemprop="height">0</span>
+						<span itemprop="width">0</span>
+				</span>
+				<span class="av-structured-data" itemprop="publisher" itemtype="https://schema.org/Organization" itemscope="itemscope">
+						<span itemprop="name">U4388V</span>
+						<span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+							<span itemprop="url">https://www.alermipianovendite.it/wp-content/uploads/2016/08/ALER-LOGO.png</span>
+						 </span>
+				</span><span class="av-structured-data" itemprop="author" itemscope="itemscope" itemtype="https://schema.org/Person"><span itemprop="name">U4388V</span></span><span class="av-structured-data" itemprop="datePublished" datetime="2020-07-22T14:45:04+02:00">2020-07-22 14:45:04</span><span class="av-structured-data" itemprop="dateModified" itemtype="https://schema.org/dateModified">2020-07-23 11:49:12</span><span class="av-structured-data" itemprop="mainEntityOfPage" itemtype="https://schema.org/mainEntityOfPage"><span itemprop="name">Esiti piano vendite 2020-2022</span></span></span></article><article class="post-entry post-entry-type-standard post-entry-10391 post-loop-3 post-parity-odd single-big  post-10391 post type-post status-publish format-standard hentry category-asta-cessione-alloggi-terminate" itemscope="itemscope" itemtype="https://schema.org/BlogPosting"><div class="blog-meta"></div><div class="entry-content-wrapper clearfix standard-content"><header class="entry-content-header"><h2 class="post-title entry-title " itemprop="headline">	<a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/esiti-piano-vendite-2014-2019/" rel="bookmark" title="Link Permanente: Esiti piano vendite 2014-2019">Esiti piano vendite 2014-2019			<span class="post-format-icon minor-meta"></span>	</a></h2><span class="post-meta-infos"><time class="date-container minor-meta updated">9 Luglio 2020</time><span class="text-sep text-sep-date">/</span><span class="comment-container minor-meta"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/esiti-piano-vendite-2014-2019/#respond" class="comments-link">0 Commenti</a></span><span class="text-sep text-sep-comment">/</span><span class="blog-categories minor-meta">in <a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/category/asta-cessione-alloggi-terminate/" rel="tag">Asta Cessione Alloggi - Terminate</a> </span><span class="text-sep text-sep-cat">/</span><span class="blog-author minor-meta">da <span class="entry-author-link" itemprop="author"><span class="author"><span class="fn"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/author/u4388v/" title="Articoli scritti da U4388V" rel="author">U4388V</a></span></span></span></span></span></header><div class="entry-content" itemprop="text"><div class="read-more-link"><a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/esiti-piano-vendite-2014-2019/" class="more-link">Continua a leggere<span class="more-link-arrow"></span></a></div>
+</div><footer class="entry-footer"></footer><div class="post_delimiter"></div></div><div class="post_author_timeline"></div><span class="hidden">
+				<span class="av-structured-data" itemprop="image" itemscope="itemscope" itemtype="https://schema.org/ImageObject">
+						<span itemprop="url">https://www.alermipianovendite.it/wp-content/uploads/2016/08/ALER-LOGO.png</span>
+						<span itemprop="height">0</span>
+						<span itemprop="width">0</span>
+				</span>
+				<span class="av-structured-data" itemprop="publisher" itemtype="https://schema.org/Organization" itemscope="itemscope">
+						<span itemprop="name">U4388V</span>
+						<span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+							<span itemprop="url">https://www.alermipianovendite.it/wp-content/uploads/2016/08/ALER-LOGO.png</span>
+						 </span>
+				</span><span class="av-structured-data" itemprop="author" itemscope="itemscope" itemtype="https://schema.org/Person"><span itemprop="name">U4388V</span></span><span class="av-structured-data" itemprop="datePublished" datetime="2020-07-09T10:22:07+02:00">2020-07-09 10:22:07</span><span class="av-structured-data" itemprop="dateModified" itemtype="https://schema.org/dateModified">2020-07-13 17:53:56</span><span class="av-structured-data" itemprop="mainEntityOfPage" itemtype="https://schema.org/mainEntityOfPage"><span itemprop="name">Esiti piano vendite 2014-2019</span></span></span></article></div></div><div class="flex_column av_one_half  flex_column_div av-zero-column-padding   avia-builder-el-11  el_after_av_one_half  avia-builder-el-last  " style="border-radius:0px; "></div></p>
+</div></div></div><!-- close content main div --> <!-- section close by builder template -->		</div><!--end builder template--></div><!-- close default .container_wrap element -->						<div class="container_wrap footer_color" id="footer">
+
+					<div class="container">
+
+						<div class="flex_column   first el_before_"><section id="text-2" class="widget clearfix widget_text">			<div class="textwidget"><p><img loading="lazy" src="https://web.archive.org/web/20210105111556im_/https://www.alermipianovendite.it/wp-content/uploads/2016/08/ALER-LOGO.png" alt="logoaler" width="200" height="145"/></p>
+<p style="text-align: justify;">ALER Milano &ndash; Azienda Lombarda per l&rsquo;Edilizia Residenziale &ndash; &egrave; un ente pubblico di natura economica, dotato di personalit&agrave; giuridica, di autonomia imprenditoriale e organizzativa, patrimoniale e contabile e di proprio statuto approvato dal Consiglio Regionale. ALER Milano ha il compito di soddisfare il fabbisogno di edilizia residenziale pubblica sul territorio di Milano e provincia e gestisce attualmente circa 60mila alloggi di propriet&agrave;.</p>
+<p style="text-align: justify;"><a href="https://web.archive.org/web/20210105111556/http://www.aler.mi.it/" target="_blank" rel="noopener noreferrer">Visita il sito</a><br/>
+<a target="_blank" href="/web/20210105111556/https://alermipianovendite.it/privacy-policy" rel="noopener noreferrer">Privacy Policy</a><br/>
+<a target="_blank" href="/web/20210105111556/https://alermipianovendite.it/cookie-policy" rel="noopener noreferrer">Cookie Policy</a></p>
+</div>
+		<span class="seperator extralight-border"></span></section></div>
+					</div>
+
+				<!-- ####### END FOOTER CONTAINER ####### -->
+				</div>
+
+	
+
+	
+				<footer class="container_wrap socket_color" id="socket" role="contentinfo" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
+                    <div class="container">
+
+                        <span class="copyright">© Copyright - Azienda Lombarda per l'Edilizia Residenziale, Viale Romagna 26 - 20133 - MILANO </span>
+
+                        
+                    </div>
+
+	            <!-- ####### END SOCKET CONTAINER ####### -->
+				</footer>
+
+
+					<!-- end main -->
+		</div>
+		
+		<!-- end wrap_all --></div>
+
+<a href="#top" title="Scorrere verso l’alto" id="scroll-top-link" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello"><span class="avia_hidden_link_text">Scorrere verso l&rsquo;alto</span></a>
+
+<div id="fb-root"></div>
+
+<div class="avia-cookie-consent-wrap" aria-hidden="true"><div class="avia-cookie-consent cookiebar-hidden  avia-cookiemessage-bottom" aria-hidden="true" data-contents="62795fa64eb0b62acc3b5bb8b8e65aed||v1.0"><div class="container"><p class="avia_cookie_text">Questo sito utilizza solo Cookie tecnici e nessun Cookie di terze parti. Continuando la navigazione acconsenti all'utilizzo di tali cookie.</p><a href="#" class="avia-button avia-color-theme-color-highlight avia-cookie-consent-button avia-cookie-consent-button-1  avia-cookie-close-bar ">OK</a><a href="/web/20210105111556/https://alermipianovendite.it/cookie-policy/" class="avia-button avia-color-theme-color-highlight avia-cookie-consent-button avia-cookie-consent-button-2 av-extra-cookie-btn  avia-cookie-link-btn ">Cookie Policy</a></div></div><div id="av-consent-extra-info" class="av-inline-modal main_color avia-hide-popup-close"><div style="padding-bottom:10px; margin:10px 0 0 0; " class="av-special-heading av-special-heading-h3  blockquote modern-quote  "><h3 class="av-special-heading-tag " itemprop="headline">Impostazioni Cookie e Privacy</h3><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div><br/><div style=" margin-top:0px; margin-bottom:0px;" class="hr hr-custom hr-left hr-icon-no  "><span class="hr-inner  inner-border-av-border-thin" style=" width:100%;"><span class="hr-inner-style"></span></span></div><br/><div class="tabcontainer   sidebar_tab sidebar_tab_left noborder_tabs " role="tablist">
+<section class="av_tab_section"><div aria-controls="tab-id-1-content" role="tab" tabindex="0" data-fake-id="#tab-id-1" class="tab active_tab">Come usiamo i cookie</div>
+<div id="tab-id-1-content" class="tab_content active_tab_content" aria-hidden="false">
+<div class="tab_inner_content invers-color">
+<p>Potremmo richiedere che i cookie siano attivi sul tuo dispositivo. Utilizziamo i cookie per farci sapere quando visitate i nostri siti web, come interagite con noi, per arricchire la vostra esperienza utente e per personalizzare il vostro rapporto con il nostro sito web.</p>
+<p>Clicca sulle diverse rubriche delle categorie per saperne di più. Puoi anche modificare alcune delle tue preferenze. Tieni presente che il blocco di alcuni tipi di cookie potrebbe influire sulla tua esperienza sui nostri siti Web e sui servizi che siamo in grado di offrire.</p>
+
+</div>
+</div>
+</section>
+<section class="av_tab_section"><div aria-controls="tab-id-2-content" role="tab" tabindex="0" data-fake-id="#tab-id-2" class="tab ">Cookie essenziali del sito Web</div>
+<div id="tab-id-2-content" class="tab_content " aria-hidden="true">
+<div class="tab_inner_content invers-color">
+<p>Questi cookie sono strettamente necessari per fornirvi i servizi disponibili attraverso il nostro sito web e per utilizzare alcune delle sue caratteristiche.</p>
+<p>Poiché questi cookie sono strettamente necessari per la consegna del sito web, il loro rifiuto avrà un impatto sul funzionamento del nostro sito web. È sempre possibile bloccare o cancellare i cookie modificando le impostazioni del browser e forzare il blocco di tutti i cookie su questo sito web. Ma questo vi chiederà sempre di accettare/rifiutare i cookie quando visitate il nostro sito.</p>
+<p>Rispettiamo pienamente se si desidera rifiutare i cookie, ma per evitare di chiedervi gentilmente più e più volte di permettere di memorizzare i cookie per questo. L&rsquo;utente è libero di rinunciare in qualsiasi momento o optare per altri cookie per ottenere un&rsquo;esperienza migliore. Se rifiuti i cookie, rimuoveremo tutti i cookie impostati nel nostro dominio.</p>
+<p>Vi forniamo un elenco dei cookie memorizzati sul vostro computer nel nostro dominio in modo che possiate controllare cosa abbiamo memorizzato. Per motivi di sicurezza non siamo in grado di mostrare o modificare i cookie di altri domini. Puoi controllarli nelle impostazioni di sicurezza del tuo browser.</p>
+<div class="av-switch-aviaPrivacyRefuseCookiesHideBar av-toggle-switch av-cookie-disable-external-toggle av-cookie-save-checked av-cookie-default-checked"><label><input type="checkbox" checked="checked" id="aviaPrivacyRefuseCookiesHideBar" class="aviaPrivacyRefuseCookiesHideBar " name="aviaPrivacyRefuseCookiesHideBar"><span class="toggle-track"></span><span class="toggle-label-content">Controlla per abilitare l&rsquo;oscuramento permanente della barra dei messaggi e rifiuta tutti i cookie se non accetti l'opzione. Abbiamo bisogno di 2 cookie per memorizzare questa impostazione. Altrimenti ti verrà richiesto di nuovo all&rsquo;apertura di una nuova finestra del browser o di una nuova scheda.</span></label></div>
+<div class="av-switch-aviaPrivacyEssentialCookiesEnabled av-toggle-switch av-cookie-disable-external-toggle av-cookie-save-checked av-cookie-default-checked"><label><input type="checkbox" checked="checked" id="aviaPrivacyEssentialCookiesEnabled" class="aviaPrivacyEssentialCookiesEnabled " name="aviaPrivacyEssentialCookiesEnabled"><span class="toggle-track"></span><span class="toggle-label-content">Clicca per attivare/disattivare i cookie essenziali del sito.</span></label></div>
+
+</div>
+</div>
+</section>
+<section class="av_tab_section"><div aria-controls="tab-id-3-content" role="tab" tabindex="0" data-fake-id="#tab-id-3" class="tab ">Altri servizi esterni</div>
+<div id="tab-id-3-content" class="tab_content " aria-hidden="true">
+<div class="tab_inner_content invers-color">
+<p>Utilizziamo anche diversi servizi esterni come Google Webfonts, Google Maps e fornitori esterni di video. Poiché questi fornitori possono raccogliere dati personali come il tuo indirizzo IP, ti permettiamo di bloccarli qui. Si prega di notare che questo potrebbe ridurre notevolmente la funzionalità e l&rsquo;aspetto del nostro sito. Le modifiche avranno effetto una volta ricaricata la pagina.</p>
+<p>Google Fonts:</p>
+<div class="av-switch-aviaPrivacyGoogleWebfontsDisabled av-toggle-switch av-cookie-disable-external-toggle av-cookie-save-unchecked av-cookie-default-unchecked"><label><input type="checkbox" id="aviaPrivacyGoogleWebfontsDisabled" class="aviaPrivacyGoogleWebfontsDisabled " name="aviaPrivacyGoogleWebfontsDisabled"><span class="toggle-track"></span><span class="toggle-label-content">Fare clic per attivare/disattivare Google Webfonts.</span></label></div>
+<p>Impostazioni Google di Enfold:</p>
+<div class="av-switch-aviaPrivacyGoogleMapsDisabled av-toggle-switch av-cookie-disable-external-toggle av-cookie-save-unchecked av-cookie-default-unchecked"><label><input type="checkbox" id="aviaPrivacyGoogleMapsDisabled" class="aviaPrivacyGoogleMapsDisabled " name="aviaPrivacyGoogleMapsDisabled"><span class="toggle-track"></span><span class="toggle-label-content">Clicca per attivare/disattivare Google Maps.</span></label></div>
+<p>Cerca impostazioni:</p>
+<div class="av-switch-aviaPrivacyGoogleReCaptchaDisabled av-toggle-switch av-cookie-disable-external-toggle av-cookie-save-unchecked av-cookie-default-unchecked"><label><input type="checkbox" id="aviaPrivacyGoogleReCaptchaDisabled" class="aviaPrivacyGoogleReCaptchaDisabled " name="aviaPrivacyGoogleReCaptchaDisabled"><span class="toggle-track"></span><span class="toggle-label-content">Fare clic per attivare/disattivare Google reCaptcha.</span></label></div>
+<p>Vimeo and Youtube video embeds:</p>
+<div class="av-switch-aviaPrivacyVideoEmbedsDisabled av-toggle-switch av-cookie-disable-external-toggle av-cookie-save-unchecked av-cookie-default-unchecked"><label><input type="checkbox" id="aviaPrivacyVideoEmbedsDisabled" class="aviaPrivacyVideoEmbedsDisabled " name="aviaPrivacyVideoEmbedsDisabled"><span class="toggle-track"></span><span class="toggle-label-content">Fai clic per abilitare/disabilitare gli incorporamenti video.</span></label></div>
+
+</div>
+</div>
+</section>
+<section class="av_tab_section"><div aria-controls="tab-id-4-content" role="tab" tabindex="0" data-fake-id="#tab-id-4" class="tab ">Privacy Policy</div>
+<div id="tab-id-4-content" class="tab_content " aria-hidden="true">
+<div class="tab_inner_content invers-color">
+<p>Puoi leggere i nostri cookie e le nostre impostazioni sulla privacy in dettaglio nella nostra pagina sulla privacy. </p>
+<a href="https://web.archive.org/web/20210105111556/https://alermipianovendite.it/?page_id=3" target="_blank">Privacy Policy</a>
+
+</div>
+</div>
+</section>
+</div>
+<div class="avia-cookie-consent-modal-buttons-wrap"><a href="#" class="avia-button avia-color-theme-color-highlight avia-cookie-consent-button avia-cookie-consent-button-3  avia-cookie-close-bar avia-cookie-consent-modal-button" title="Consentire l’utilizzo dei cookie, è sempre possibile modificare i cookie e i servizi utilizzati">Accettare le impostazioni</a><a href="#" class="avia-button avia-color-theme-color-highlight avia-cookie-consent-button avia-cookie-consent-button-4 av-extra-cookie-btn avia-cookie-consent-modal-button avia-cookie-hide-notification" title="Non consentire l’uso di cookie o servizi - alcune funzionalità del nostro sito potrebbero non funzionare come previsto.">Nascondi solo la notifica</a></div></div></div><div id="flags" style="display:none" class="size18"><ul id="sortable" class="ui-sortable"><li id="English"><a href="#" title="English" class="nturl notranslate en flag united-states"></a></li></ul></div><div id="glt-footer"><div id="google_language_translator" class="default-language-en"></div></div><script>function GoogleLanguageTranslatorInit() { new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages:'en', autoDisplay: false}, 'google_language_translator');}</script>
+ <script type="text/javascript">
+ /* <![CDATA[ */  
+var avia_framework_globals = avia_framework_globals || {};
+    avia_framework_globals.frameworkUrl = 'https://web.archive.org/web/20210105111556/https://alermipianovendite.it/wp-content/themes/enfold/framework/';
+    avia_framework_globals.installedAt = 'https://web.archive.org/web/20210105111556/https://alermipianovendite.it/wp-content/themes/enfold/';
+    avia_framework_globals.ajaxurl = 'https://web.archive.org/web/20210105111556/https://alermipianovendite.it/wp-admin/admin-ajax.php';
+/* ]]> */ 
+</script>
+ 
+ <script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/web.archive.org\/web\/20210105111556\/https:\/\/alermipianovendite.it\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://web.archive.org/web/20210105111556js_/https://alermipianovendite.it/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.3.2" id="contact-form-7-js"></script>
+<script type="text/javascript" src="https://web.archive.org/web/20210105111556js_/https://alermipianovendite.it/wp-content/plugins/google-language-translator/js/scripts.js?ver=6.0.8" id="scripts-js"></script>
+<script type="text/javascript" src="//web.archive.org/web/20210105111556js_/https://translate.google.com/translate_a/element.js?cb=GoogleLanguageTranslatorInit" id="scripts-google-js"></script>
+<script type="text/javascript" id="theme-my-login-js-extra">
+/* <![CDATA[ */
+var themeMyLogin = {"action":"","errors":[]};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://web.archive.org/web/20210105111556js_/https://alermipianovendite.it/wp-content/plugins/theme-my-login/assets/scripts/theme-my-login.min.js?ver=7.1.2" id="theme-my-login-js"></script>
+<script type="text/javascript" id="mediaelement-core-js-before">
+var mejsL10n = {"language":"it","strings":{"mejs.download-file":"Scarica il file","mejs.install-flash":"Stai usando un browser che non ha Flash player abilitato o installato. Attiva il tuo plugin Flash player o scarica l'ultima versione da https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen":"Schermo intero","mejs.play":"Play","mejs.pause":"Pausa","mejs.time-slider":"Time Slider","mejs.time-help-text":"Usa i tasti freccia sinistra\/destra per avanzare di un secondo, su\/gi\u00f9 per avanzare di 10 secondi.","mejs.live-broadcast":"Diretta streaming","mejs.volume-help-text":"Usa i tasti freccia su\/gi\u00f9 per aumentare o diminuire il volume.","mejs.unmute":"Togli il muto","mejs.mute":"Muto","mejs.volume-slider":"Cursore del volume","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.captions-subtitles":"Didascalie\/Sottotitoli","mejs.captions-chapters":"Capitoli","mejs.none":"Nessuna","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanese","mejs.arabic":"Arabo","mejs.belarusian":"Bielorusso","mejs.bulgarian":"Bulgaro","mejs.catalan":"Catalano","mejs.chinese":"Cinese","mejs.chinese-simplified":"Cinese (semplificato)","mejs.chinese-traditional":"Cinese (tradizionale)","mejs.croatian":"Croato","mejs.czech":"Ceco","mejs.danish":"Danese","mejs.dutch":"Olandese","mejs.english":"Inglese","mejs.estonian":"Estone","mejs.filipino":"Filippino","mejs.finnish":"Finlandese","mejs.french":"Francese","mejs.galician":"Galician","mejs.german":"Tedesco","mejs.greek":"Greco","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Ebraico","mejs.hindi":"Hindi","mejs.hungarian":"Ungherese","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesiano","mejs.irish":"Irish","mejs.italian":"Italiano","mejs.japanese":"Giapponese","mejs.korean":"Coreano","mejs.latvian":"Lettone","mejs.lithuanian":"Lituano","mejs.macedonian":"Macedone","mejs.malay":"Malese","mejs.maltese":"Maltese","mejs.norwegian":"Norvegese","mejs.persian":"Persiano","mejs.polish":"Polacco","mejs.portuguese":"Portoghese","mejs.romanian":"Romeno","mejs.russian":"Russo","mejs.serbian":"Serbo","mejs.slovak":"Slovak","mejs.slovenian":"Sloveno","mejs.spanish":"Spagnolo","mejs.swahili":"Swahili","mejs.swedish":"Svedese","mejs.tagalog":"Tagalog","mejs.thai":"Thailandese","mejs.turkish":"Turco","mejs.ukrainian":"Ucraino","mejs.vietnamese":"Vietnamita","mejs.welsh":"Gallese","mejs.yiddish":"Yiddish"}};
+</script>
+<script type="text/javascript" src="https://web.archive.org/web/20210105111556js_/https://alermipianovendite.it/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.13-9993131" id="mediaelement-core-js"></script>
+<script type="text/javascript" src="https://web.archive.org/web/20210105111556js_/https://alermipianovendite.it/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=95efd33f5540f7cf41fac49256b28adb" id="mediaelement-migrate-js"></script>
+<script type="text/javascript" id="mediaelement-js-extra">
+/* <![CDATA[ */
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://web.archive.org/web/20210105111556js_/https://alermipianovendite.it/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=95efd33f5540f7cf41fac49256b28adb" id="wp-mediaelement-js"></script>
+<script type="text/javascript" id="avia-cookie-js-js-extra">
+/* <![CDATA[ */
+var AviaPrivacyCookieConsent = {"?":"Uso sconosciuto","aviaCookieConsent":"L\u2019uso e la memorizzazione dei cookie \u00e8 stata accettata - restrizioni impostate in altri cookie","aviaPrivacyRefuseCookiesHideBar":"Nascondi la barra dei messaggi dei cookie nella pagina seguente e rifiuta i cookie se non consentito - aviaPrivacyEssentialCookiesEnabled deve essere impostato","aviaPrivacyEssentialCookiesEnabled":"Consentire la memorizzazione dei cookie essenziali del sito e di altri cookie e l\u2019uso delle funzioni se non opt-out","aviaPrivacyVideoEmbedsDisabled":"Non consentire l\u2019incorporazione di video","aviaPrivacyGoogleTrackingDisabled":"Non consentire Google Analytics","aviaPrivacyGoogleWebfontsDisabled":"Non consentire l\u2019uso di Google Webfonts","aviaPrivacyGoogleMapsDisabled":"Non consentire l\u2019accesso a Google Maps","aviaPrivacyGoogleReCaptchaDisabled":"Non consentire Google reCaptcha","aviaPrivacyMustOptInSetting":"Le impostazioni sono per gli utenti che devono optare per i cookie e i servizi","PHPSESSID":"Cookie interno del sito operativo - Tiene traccia della tua sessione","XDEBUG_SESSION":"Cookie interno del sito operativo - Cookie di sessione del debugger PHP","wp-settings*":"Cookie interno del sito operativo","wordpress*":"Cookie interno del sito operativo","tk_ai*":"Negozio di cookie interno","woocommerce*":"Negozio di cookie interno","wp_woocommerce*":"Negozio di cookie interno","wp-wpml*":"Necessario per gestire diverse lingue"};
+var AviaPrivacyCookieAdditionalData = {"cookie_refuse_button_alert":"When refusing all cookies this site migsht not be able to work as expected. Please check our settings page and opt out for cookies or functions you do not want to use and accept cookies. You will be shown this message every time you open a new window or a new tab.\n\nAre you sure you want to continue?","no_cookies_found":"Nessun cookie accessibile trovato nel dominio","admin_keep_cookies":["PHPSESSID","wp-*","wordpress*","XDEBUG*"],"remove_custom_cookies":[],"no_lightbox":"Abbiamo bisogno di una lightbox per mostrare il popup modale. Si prega di abilitare la lightbox integrata nella scheda Opzioni tema o di includere il proprio plugin modal window.\\n \\n \u00c8 necessario collegare questo plugin in JavaScript con funzioni di callback wrapper - vedi avia_cookie_consent_modal_callback in file enfold \\jsvia-snippet-cookieconsent.js "};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://web.archive.org/web/20210105111556js_/https://alermipianovendite.it/wp-includes/js/wp-embed.min.js?ver=95efd33f5540f7cf41fac49256b28adb" id="wp-embed-js"></script>
+<script type="text/javascript" id="avia-footer-scripts-js-extra">
+/* <![CDATA[ */
+var AviaPrivacyCookieConsent = {"?":"Uso sconosciuto","aviaCookieConsent":"L\u2019uso e la memorizzazione dei cookie \u00e8 stata accettata - restrizioni impostate in altri cookie","aviaPrivacyRefuseCookiesHideBar":"Nascondi la barra dei messaggi dei cookie nella pagina seguente e rifiuta i cookie se non consentito - aviaPrivacyEssentialCookiesEnabled deve essere impostato","aviaPrivacyEssentialCookiesEnabled":"Consentire la memorizzazione dei cookie essenziali del sito e di altri cookie e l\u2019uso delle funzioni se non opt-out","aviaPrivacyVideoEmbedsDisabled":"Non consentire l\u2019incorporazione di video","aviaPrivacyGoogleTrackingDisabled":"Non consentire Google Analytics","aviaPrivacyGoogleWebfontsDisabled":"Non consentire l\u2019uso di Google Webfonts","aviaPrivacyGoogleMapsDisabled":"Non consentire l\u2019accesso a Google Maps","aviaPrivacyGoogleReCaptchaDisabled":"Non consentire Google reCaptcha","aviaPrivacyMustOptInSetting":"Le impostazioni sono per gli utenti che devono optare per i cookie e i servizi","PHPSESSID":"Cookie interno del sito operativo - Tiene traccia della tua sessione","XDEBUG_SESSION":"Cookie interno del sito operativo - Cookie di sessione del debugger PHP","wp-settings*":"Cookie interno del sito operativo","wordpress*":"Cookie interno del sito operativo","tk_ai*":"Negozio di cookie interno","woocommerce*":"Negozio di cookie interno","wp_woocommerce*":"Negozio di cookie interno","wp-wpml*":"Necessario per gestire diverse lingue"};
+var AviaPrivacyCookieAdditionalData = {"cookie_refuse_button_alert":"When refusing all cookies this site migsht not be able to work as expected. Please check our settings page and opt out for cookies or functions you do not want to use and accept cookies. You will be shown this message every time you open a new window or a new tab.\n\nAre you sure you want to continue?","no_cookies_found":"Nessun cookie accessibile trovato nel dominio","admin_keep_cookies":["PHPSESSID","wp-*","wordpress*","XDEBUG*"],"remove_custom_cookies":[],"no_lightbox":"Abbiamo bisogno di una lightbox per mostrare il popup modale. Si prega di abilitare la lightbox integrata nella scheda Opzioni tema o di includere il proprio plugin modal window.\\n \\n \u00c8 necessario collegare questo plugin in JavaScript con funzioni di callback wrapper - vedi avia_cookie_consent_modal_callback in file enfold \\jsvia-snippet-cookieconsent.js "};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://web.archive.org/web/20210105111556js_/https://alermipianovendite.it/wp-content/uploads/dynamic_avia/avia-footer-scripts-a1060248135391c7ba2787006982486e---5f7c67eea155e.js" id="avia-footer-scripts-js"></script>
+<script type="text/javascript">function av_privacy_cookie_setter( cookie_name ) {var cookie_check = jQuery('html').hasClass('av-cookies-needs-opt-in') || jQuery('html').hasClass('av-cookies-can-opt-out');var toggle = jQuery('.' + cookie_name);toggle.each(function(){var container = jQuery(this).closest('.av-toggle-switch');if( cookie_check && ! document.cookie.match(/aviaCookieConsent/) ){this.checked = container.hasClass( 'av-cookie-default-checked' );}else if( cookie_check && document.cookie.match(/aviaCookieConsent/) && ! document.cookie.match(/aviaPrivacyEssentialCookiesEnabled/) && cookie_name != 'aviaPrivacyRefuseCookiesHideBar' ){if( cookie_name == 'aviaPrivacyEssentialCookiesEnabled' ){this.checked = false;}else{this.checked = container.hasClass( 'av-cookie-default-checked' );}}else{if( container.hasClass('av-cookie-save-checked') ){this.checked = document.cookie.match(cookie_name) ? true : false;}else{this.checked = document.cookie.match(cookie_name) ? false : true;}}});jQuery('.' + 'av-switch-' + cookie_name).addClass('active');toggle.on('click', function(){/* sync if more checkboxes exist because user added them to normal page content */var check = this.checked;jQuery('.' + cookie_name).each( function(){this.checked = check;});var silent_accept_cookie = jQuery('html').hasClass('av-cookies-user-silent-accept');if( ! silent_accept_cookie && cookie_check && ! document.cookie.match(/aviaCookieConsent/) || sessionStorage.getItem( 'aviaCookieRefused' ) ){return;}var container = jQuery(this).closest('.av-toggle-switch');var action = '';if( container.hasClass('av-cookie-save-checked') ){action = this.checked ? 'save' : 'remove';}else{action = this.checked ? 'remove' : 'save';}if('remove' == action){document.cookie = cookie_name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';}else{var theDate = new Date();var oneYearLater = new Date( theDate.getTime() + 31536000000 );document.cookie = cookie_name + '=true; Path=/; Expires='+oneYearLater.toGMTString()+';';}});}; av_privacy_cookie_setter('aviaPrivacyRefuseCookiesHideBar');  av_privacy_cookie_setter('aviaPrivacyEssentialCookiesEnabled');  av_privacy_cookie_setter('aviaPrivacyGoogleWebfontsDisabled');  av_privacy_cookie_setter('aviaPrivacyGoogleMapsDisabled');  av_privacy_cookie_setter('aviaPrivacyGoogleReCaptchaDisabled');  av_privacy_cookie_setter('aviaPrivacyVideoEmbedsDisabled'); </script></body>
+</html>
+<!--
+     FILE ARCHIVED ON 11:15:56 Jan 05, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 10:52:16 Mar 16, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 458.531
+  exclusion.robots: 0.262
+  exclusion.robots.policy: 0.252
+  RedisCDXSource: 4.718
+  esindex: 0.031
+  LoadShardBlock: 422.813 (3)
+  PetaboxLoader3.resolve: 282.663 (4)
+  PetaboxLoader3.datanode: 188.764 (5)
+  CDXLines.iter: 26.772 (3)
+  load_resource: 159.845
+  loaddict: 73.021
+-->
