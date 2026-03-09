@@ -1,0 +1,8 @@
+.env
+
+# Added automatically by assistant
+.DS_Store
+.env
+.venv/
+.python-version
+.git/
