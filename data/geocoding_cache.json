@@ -1,0 +1,2362 @@
+{
+  "VIA DOMENICO CUCCHIARI '12, MILANO, Italy": {
+    "lat": 45.488653,
+    "lng": 9.1655052
+  },
+  "VIA GASPARE ASELLI '18, MILANO, Italy": {
+    "lat": 45.4707963,
+    "lng": 9.230781499999999
+  },
+  "PIAZZALE SELINUNTE 11, MILANO, Italy": {
+    "lat": 45.4727691,
+    "lng": 9.137080599999999
+  },
+  "VIA ILLIRICO '3, MILANO, Italy": {
+    "lat": 45.46932289999999,
+    "lng": 9.2322157
+  },
+  "VIA TEANO '21, MILANO, Italy": {
+    "lat": 45.527894,
+    "lng": 9.1622795
+  },
+  "VIA ROMUALDO BONFADINI '98, MILANO, Italy": {
+    "lat": 45.4441447,
+    "lng": 9.2447383
+  },
+  "VIA CONCILIO VATICANO II '4, MILANO, Italy": {
+    "lat": 45.5121099,
+    "lng": 9.146617299999999
+  },
+  "VIA DELLE BETULLE '1, MILANO, Italy": {
+    "lat": 45.4534892,
+    "lng": 9.0857607
+  },
+  "VIA ALESSANDRO LITTA MODIGNANI '115, MILANO, Italy": {
+    "lat": 45.5196101,
+    "lng": 9.1541917
+  },
+  "VIA FRANCESCO CILEA '28, MILANO, Italy": {
+    "lat": 45.4958906,
+    "lng": 9.105999299999999
+  },
+  "VIA FRANCESCO CILEA '96, MILANO, Italy": {
+    "lat": 45.4967668,
+    "lng": 9.1015804
+  },
+  "VIA EUGENIO CURIEL '27, CORSICO, Italy": {
+    "lat": 45.4407359,
+    "lng": 9.093511
+  },
+  "VIA EUGENIO CURIEL '35, CORSICO, Italy": {
+    "lat": 45.44077590000001,
+    "lng": 9.0943193
+  },
+  "VIALE ITALIA '42, CORSICO, Italy": {
+    "lat": 45.4350725,
+    "lng": 9.0946307
+  },
+  "VIALE ITALIA '36, CORSICO, Italy": {
+    "lat": 45.43565,
+    "lng": 9.095419399999999
+  },
+  "VIA MARZABOTTO '20, CORSICO, Italy": {
+    "lat": 45.4390515,
+    "lng": 9.0962572
+  },
+  "VIA BENVENUTO CELLINI '8, CORSICO, Italy": {
+    "lat": 45.43547359999999,
+    "lng": 9.0938989
+  },
+  "VIA GIACOMO LEOPARDI '109, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5383865,
+    "lng": 9.224882899999999
+  },
+  "VIA GIUSEPPE ROVANI '317, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5355122,
+    "lng": 9.221328999999999
+  },
+  "VIA GIOACCHINO ROSSINI '12, PIEVE EMANUELE, Italy": {
+    "lat": 45.3425941,
+    "lng": 9.195323
+  },
+  "VIA GIUSEPPE VERDI '15, PIEVE EMANUELE, Italy": {
+    "lat": 45.3408094,
+    "lng": 9.1990027
+  },
+  "VIA PADRE SECCHI '135, LEGNANO, Italy": {
+    "lat": 45.6015468,
+    "lng": 8.940325
+  },
+  "VIA CARLO AMORETTI '15, MILANO, Italy": {
+    "lat": 45.5190815,
+    "lng": 9.1375133
+  },
+  "VIA GINIBISSA '53, ABBIATEGRASSO, Italy": {
+    "lat": 45.4091657,
+    "lng": 8.9133441
+  },
+  "VIALE GIOVANNI SUZZANI '243, MILANO, Italy": {
+    "lat": 45.5233916,
+    "lng": 9.2071563
+  },
+  "VIA RICCARDO BALSAMO CRIVELLI '8, MILANO, Italy": {
+    "lat": 45.4394794,
+    "lng": 9.1371256
+  },
+  "VIA LUCCA '8, MILANO, Italy": {
+    "lat": 45.4562952,
+    "lng": 9.1134708
+  },
+  "VIA FELICE MARITANO 14, SAN DONATO MILANESE, Italy": {
+    "lat": 45.413376,
+    "lng": 9.276745
+  },
+  "VIA SEM BENELLI '16, MILANO, Italy": {
+    "lat": 45.4982346,
+    "lng": 9.1214985
+  },
+  "VIA URUGUAY '9, MILANO, Italy": {
+    "lat": 45.4957884,
+    "lng": 9.122368
+  },
+  "VIA SAVONA '16, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5319587,
+    "lng": 9.2536756
+  },
+  "PIAZZA ANDREA FUSINA 2, MILANO, Italy": {
+    "lat": 45.46895960000001,
+    "lng": 9.2304629
+  },
+  "VIA FILIPPO ABBIATI 1, MILANO, Italy": {
+    "lat": 45.4727813,
+    "lng": 9.1414665
+  },
+  "PIAZZA CARDINALE PIETRO GASPARRI 4, MILANO, Italy": {
+    "lat": 45.5253373,
+    "lng": 9.1638235
+  },
+  "VIA ROMUALDO BONFADINI 94, MILANO, Italy": {
+    "lat": 45.4443423,
+    "lng": 9.242782300000002
+  },
+  "VIA LUIGI SORDELLO 10, MILANO, Italy": {
+    "lat": 45.44355059999999,
+    "lng": 9.2438867
+  },
+  "VIA ROMUALDO BONFADINI 98, MILANO, Italy": {
+    "lat": 45.4441447,
+    "lng": 9.2447383
+  },
+  "VIA DEI SALICI 41, MILANO, Italy": {
+    "lat": 45.452355,
+    "lng": 9.079362999999999
+  },
+  "VIA DEI SALICI 75, MILANO, Italy": {
+    "lat": 45.4530155,
+    "lng": 9.0791443
+  },
+  "VIA BETULLE 4, ROZZANO, Italy": {
+    "lat": 45.3810485,
+    "lng": 9.1575395
+  },
+  "VIA LILLA' 3, ROZZANO, Italy": {
+    "lat": 45.3806134,
+    "lng": 9.1587827
+  },
+  "VIA FILIPPO DE PISIS 37, MILANO, Italy": {
+    "lat": 45.5118186,
+    "lng": 9.1431814
+  },
+  "VIA FILIPPO DE PISIS 39, MILANO, Italy": {
+    "lat": 45.511974,
+    "lng": 9.143129799999999
+  },
+  "VIA FILIPPO DE PISIS 45, MILANO, Italy": {
+    "lat": 45.5126068,
+    "lng": 9.1429496
+  },
+  "VIA EUGENIO CURIEL 25, CORSICO, Italy": {
+    "lat": 45.440744,
+    "lng": 9.0935369
+  },
+  "VIA AGOSTINO DE PRETIS 1, MILANO, Italy": {
+    "lat": 45.4318665,
+    "lng": 9.153686100000002
+  },
+  "VIA AGOSTINO DE PRETIS 9, MILANO, Italy": {
+    "lat": 45.43134,
+    "lng": 9.15347
+  },
+  "VIA DEGLI ANEMONI 1, MILANO, Italy": {
+    "lat": 45.4550638,
+    "lng": 9.1321167
+  },
+  "VIA DEGLI ANEMONI 5, MILANO, Italy": {
+    "lat": 45.4544934,
+    "lng": 9.131609899999999
+  },
+  "VIA MAC MAHON 107, MILANO, Italy": {
+    "lat": 45.4961297,
+    "lng": 9.1545433
+  },
+  "VIA PADRE REGINALDO GIULIANI 42, LEGNANO, Italy": {
+    "lat": 45.6061966,
+    "lng": 8.914538799999999
+  },
+  "VIA PADRE REGINALDO GIULIANI 40, LEGNANO, Italy": {
+    "lat": 45.6057789,
+    "lng": 8.9149162
+  },
+  "VIA GIACOMO LEOPARDI 109, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5383865,
+    "lng": 9.224882899999999
+  },
+  "VIA GUGLIELMO MARCONI 29, BINASCO, Italy": {
+    "lat": 45.32931809999999,
+    "lng": 9.093204
+  },
+  "VIA CALATAFIMI 15, MILANO, Italy": {
+    "lat": 45.4542972,
+    "lng": 9.1841843
+  },
+  "VIA NEGROLI 23, MILANO, Italy": {
+    "lat": 45.4650405,
+    "lng": 9.2323529
+  },
+  "VIA CLAUDIO TREVES 38, TREZZANO SUL NAVIGLIO, Italy": {
+    "lat": 45.4179584,
+    "lng": 9.0636508
+  },
+  "VIA LONGARONE 16, MILANO, Italy": {
+    "lat": 45.5198036,
+    "lng": 9.1411904
+  },
+  "VIA LONGARONE 18, MILANO, Italy": {
+    "lat": 45.5200109,
+    "lng": 9.1419255
+  },
+  "VIA LUIGI CHIARELLI 8, MILANO, Italy": {
+    "lat": 45.4922625,
+    "lng": 9.1218766
+  },
+  "VIA FORLI' 74, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5326916,
+    "lng": 9.254484999999999
+  },
+  "VIA BELTRAME CRISTIANI 1, MILANO, Italy": {
+    "lat": 45.4687522,
+    "lng": 9.1815955
+  },
+  "VIA RAFFAELLO GIOLLI 25, MILANO, Italy": {
+    "lat": 45.5265163,
+    "lng": 9.210816
+  },
+  "VIA RAFFAELLO GIOLLI 24, MILANO, Italy": {
+    "lat": 45.5268926,
+    "lng": 9.2110553
+  },
+  "VIALE GIOVANNI SUZZANI 294, MILANO, Italy": {
+    "lat": 45.5280221,
+    "lng": 9.2102893
+  },
+  "VIA PATERNO' 7, MILANO, Italy": {
+    "lat": 45.43958749999999,
+    "lng": 9.139711199999999
+  },
+  "VIA GIUSEPPE DI VITTORIO 19.H, LOCATE DI TRIULZI, Italy": {
+    "lat": 45.3540455,
+    "lng": 9.2226795
+  },
+  "VIA GIACINTO SERRATI MENOTTI 29, MILANO, Italy": {
+    "lat": 45.4408504,
+    "lng": 9.2620117
+  },
+  "VIA VAL MALENCO 2, MILANO, Italy": {
+    "lat": 45.5195996,
+    "lng": 9.1338703
+  },
+  "VIA SEM BENELLI 16, MILANO, Italy": {
+    "lat": 45.4982346,
+    "lng": 9.1214985
+  },
+  "VIA URUGUAY 32, MILANO, Italy": {
+    "lat": 45.4977333,
+    "lng": 9.1176696
+  },
+  "VIA GASPARE ASELLI '6, MILANO, Italy": {
+    "lat": 45.469256,
+    "lng": 9.2304274
+  },
+  "VIA DALMAZIO BIRAGO '2, MILANO, Italy": {
+    "lat": 45.4688944,
+    "lng": 9.2313868
+  },
+  "VIA LORENTEGGIO '201, MILANO, Italy": {
+    "lat": 45.4466822,
+    "lng": 9.1270857
+  },
+  "VIA LORENTEGGIO '203, MILANO, Italy": {
+    "lat": 45.4464832,
+    "lng": 9.1264857
+  },
+  "VIA GIOVANNI AMBROGIO DE PREDIS '11, MILANO, Italy": {
+    "lat": 45.4976125,
+    "lng": 9.1503077
+  },
+  "VIA ORBETELLO '4, MILANO, Italy": {
+    "lat": 45.5020859,
+    "lng": 9.2462711
+  },
+  "VIA ESCULAPIO '4, MILANO, Italy": {
+    "lat": 45.5247587,
+    "lng": 9.1613276
+  },
+  "PIAZZA CARDINALE PIETRO GASPARRI '4, MILANO, Italy": {
+    "lat": 45.5253373,
+    "lng": 9.1638235
+  },
+  "VIA GIACOMO QUARENGHI '8, MILANO, Italy": {
+    "lat": 45.4950323,
+    "lng": 9.1220428
+  },
+  "VIA CONCILIO VATICANO II '1, MILANO, Italy": {
+    "lat": 45.513186,
+    "lng": 9.1479713
+  },
+  "VIA DEI SALICI '59, MILANO, Italy": {
+    "lat": 45.4532952,
+    "lng": 9.0788876
+  },
+  "VIA FRANCESCO CILEA '58, MILANO, Italy": {
+    "lat": 45.4966702,
+    "lng": 9.1040995
+  },
+  "VIA FRANCESCO CILEA '130, MILANO, Italy": {
+    "lat": 45.50233,
+    "lng": 9.094857
+  },
+  "VIA AGOSTINO DE PRETIS '87, MILANO, Italy": {
+    "lat": 45.4295951,
+    "lng": 9.153989500000002
+  },
+  "VIA PADRE REGINALDO GIULIANI '40, LEGNANO, Italy": {
+    "lat": 45.6057789,
+    "lng": 8.9149162
+  },
+  "VIA LONGARONE '33, MILANO, Italy": {
+    "lat": 45.51994639999999,
+    "lng": 9.139579
+  },
+  "VIA RAFFAELLO GIOLLI '21, MILANO, Italy": {
+    "lat": 45.5261,
+    "lng": 9.2105743
+  },
+  "VIA POSTUMIA '24, MILANO, Italy": {
+    "lat": 45.4714835,
+    "lng": 9.1158325
+  },
+  "VIA BENJAMIN CONSTANT '22.A, MILANO, Italy": {
+    "lat": 45.4718718,
+    "lng": 9.1139993
+  },
+  "VIA CARLO MARX '12, MILANO, Italy": {
+    "lat": 45.4713645,
+    "lng": 9.1116321
+  },
+  "VIA CARLO MARX '3.A, MILANO, Italy": {
+    "lat": 45.470463,
+    "lng": 9.111275599999999
+  },
+  "VIA HARAR '7, MILANO, Italy": {
+    "lat": 45.4760669,
+    "lng": 9.1173693
+  },
+  "VIA VAL SABBIA '6, MILANO, Italy": {
+    "lat": 45.5267403,
+    "lng": 9.1600953
+  },
+  "VIA SANTUARIO DEL SACRO CUORE '3, MILANO, Italy": {
+    "lat": 45.52408690000001,
+    "lng": 9.162856
+  },
+  "VIALE UNGHERIA '4, MILANO, Italy": {
+    "lat": 45.4454631,
+    "lng": 9.242944699999999
+  },
+  "VIA ALESSANDRO LITTA MODIGNANI '91, MILANO, Italy": {
+    "lat": 45.5208834,
+    "lng": 9.153070399999999
+  },
+  "VIA ALESSANDRO LITTA MODIGNANI '111, MILANO, Italy": {
+    "lat": 45.5203548,
+    "lng": 9.1541778
+  },
+  "VIA ALESSANDRO LITTA MODIGNANI '105, MILANO, Italy": {
+    "lat": 45.52056349999999,
+    "lng": 9.1525942
+  },
+  "VIA ARTURO GRAF '48, MILANO, Italy": {
+    "lat": 45.5127736,
+    "lng": 9.1440532
+  },
+  "VIA ARTURO GRAF '60, MILANO, Italy": {
+    "lat": 45.5127166,
+    "lng": 9.1446109
+  },
+  "VIA FILIPPO DE PISIS '31, MILANO, Italy": {
+    "lat": 45.5120273,
+    "lng": 9.1425694
+  },
+  "VIA FILIPPO DE PISIS '49, MILANO, Italy": {
+    "lat": 45.5097763,
+    "lng": 9.146884000000002
+  },
+  "VIA FRANCESCO CILEA '160, MILANO, Italy": {
+    "lat": 45.5018357,
+    "lng": 9.094764099999999
+  },
+  "VIA FRANCESCO ANTONIO MUTTONI '1, MILANO, Italy": {
+    "lat": 45.4987015,
+    "lng": 9.1091395
+  },
+  "VIA EUGENIO CURIEL '14, CORSICO, Italy": {
+    "lat": 45.4392656,
+    "lng": 9.0935854
+  },
+  "VIA AGOSTINO DE PRETIS '109, MILANO, Italy": {
+    "lat": 45.4297124,
+    "lng": 9.1570181
+  },
+  "VIA AGOSTINO DE PRETIS '59, MILANO, Italy": {
+    "lat": 45.4285203,
+    "lng": 9.1511027
+  },
+  "VIA AGOSTINO DE PRETIS '65, MILANO, Italy": {
+    "lat": 45.428653,
+    "lng": 9.151633799999999
+  },
+  "VIA DELLE GENZIANE '3, MILANO, Italy": {
+    "lat": 45.453181,
+    "lng": 9.1276225
+  },
+  "VIA DEI TIGLI '12, GORGONZOLA, Italy": {
+    "lat": 45.5268619,
+    "lng": 9.408451999999999
+  },
+  "VIA ANTONIO GRAMSCI '51, RHO, Italy": {
+    "lat": 45.5396588,
+    "lng": 9.025941999999999
+  },
+  "VIA ALBERTO PEPERE '5, MILANO, Italy": {
+    "lat": 45.4396598,
+    "lng": 9.1387273
+  },
+  "VIA JACOPINO DA TRADATE 14, MILANO, Italy": {
+    "lat": 45.4958111,
+    "lng": 9.1513064
+  },
+  "VIALE TIBALDI 74, MILANO, Italy": {
+    "lat": 45.4453658,
+    "lng": 9.1870317
+  },
+  "ALZAIA NAVIGLIO PAVESE 34, MILANO, Italy": {
+    "lat": 45.4482231,
+    "lng": 9.1765224
+  },
+  "PIAZZALE SELINUNTE 4, MILANO, Italy": {
+    "lat": 45.4717491,
+    "lng": 9.138160599999999
+  },
+  "VIA ILLIRICO 1, MILANO, Italy": {
+    "lat": 45.46938189999999,
+    "lng": 9.2323007
+  },
+  "VIA ILLIRICO 3, MILANO, Italy": {
+    "lat": 45.46932289999999,
+    "lng": 9.2322157
+  },
+  "VIA ESCULAPIO 4, MILANO, Italy": {
+    "lat": 45.5247587,
+    "lng": 9.1613276
+  },
+  "VIA SANTUARIO DEL SACRO CUORE 3, MILANO, Italy": {
+    "lat": 45.52408690000001,
+    "lng": 9.162856
+  },
+  "VIA EMANUELE KANT 3, MILANO, Italy": {
+    "lat": 45.4965828,
+    "lng": 9.1192912
+  },
+  "VIA GIACOMO QUARENGHI 34, MILANO, Italy": {
+    "lat": 45.49813710000001,
+    "lng": 9.1143544
+  },
+  "VIA CONCILIO VATICANO II 10, MILANO, Italy": {
+    "lat": 45.5125339,
+    "lng": 9.149252299999999
+  },
+  "VIA DEI LARICI 4, MILANO, Italy": {
+    "lat": 45.4536436,
+    "lng": 9.0837303
+  },
+  "VIA DEI LARICI 12, MILANO, Italy": {
+    "lat": 45.4535898,
+    "lng": 9.0829065
+  },
+  "VIA DEI LARICI 14, MILANO, Italy": {
+    "lat": 45.4535777,
+    "lng": 9.0827232
+  },
+  "VIA DEI LARICI 32, MILANO, Italy": {
+    "lat": 45.4540452,
+    "lng": 9.0835402
+  },
+  "VIA DEI LARICI 28, MILANO, Italy": {
+    "lat": 45.4542224,
+    "lng": 9.0830304
+  },
+  "VIA DELLE BETULLE 5, MILANO, Italy": {
+    "lat": 45.4529664,
+    "lng": 9.0844418
+  },
+  "VIA COSTANTINO BARONI 63, MILANO, Italy": {
+    "lat": 45.4063471,
+    "lng": 9.1705582
+  },
+  "VIA UGO BETTI 191, MILANO, Italy": {
+    "lat": 45.496793,
+    "lng": 9.1095525
+  },
+  "VIA UGO BETTI 173, MILANO, Italy": {
+    "lat": 45.4968319,
+    "lng": 9.109078199999999
+  },
+  "VIA UGO BETTI 167, MILANO, Italy": {
+    "lat": 45.496449,
+    "lng": 9.108695899999999
+  },
+  "VIA UGO BETTI 43, MILANO, Italy": {
+    "lat": 45.4923033,
+    "lng": 9.110556899999999
+  },
+  "VIA UGO BETTI 141, MILANO, Italy": {
+    "lat": 45.49535849999999,
+    "lng": 9.1076826
+  },
+  "VIA UGO BETTI 55, MILANO, Italy": {
+    "lat": 45.4924378,
+    "lng": 9.108884699999999
+  },
+  "VIA UGO OJETTI 3, MILANO, Italy": {
+    "lat": 45.49345479999999,
+    "lng": 9.1132116
+  },
+  "VIA ALESSANDRO LITTA MODIGNANI 93, MILANO, Italy": {
+    "lat": 45.52086180000001,
+    "lng": 9.1532206
+  },
+  "VIA FILIPPO DE PISIS 47, MILANO, Italy": {
+    "lat": 45.51178059999999,
+    "lng": 9.144363799999999
+  },
+  "VIA ENRICO FALCK 9, MILANO, Italy": {
+    "lat": 45.4982919,
+    "lng": 9.1049171
+  },
+  "VIA ENRICO FALCK 21, MILANO, Italy": {
+    "lat": 45.49776920000001,
+    "lng": 9.1039101
+  },
+  "VIA APPENNINI 41, MILANO, Italy": {
+    "lat": 45.5017577,
+    "lng": 9.106207399999999
+  },
+  "VIA FRANCESCO CILEA 152, MILANO, Italy": {
+    "lat": 45.5014107,
+    "lng": 9.0950693
+  },
+  "VIA GIACOMO QUARENGHI 43, MILANO, Italy": {
+    "lat": 45.4988765,
+    "lng": 9.1102546
+  },
+  "VIA AGOSTINO DE PRETIS 73, MILANO, Italy": {
+    "lat": 45.4291802,
+    "lng": 9.1525005
+  },
+  "VIA AGOSTINO DE PRETIS 79, MILANO, Italy": {
+    "lat": 45.4289369,
+    "lng": 9.154655199999999
+  },
+  "VIA CATANIA 40, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.53273129999999,
+    "lng": 9.2565368
+  },
+  "VIA CASCINA DEI PRATI 23, MILANO, Italy": {
+    "lat": 45.514371,
+    "lng": 9.152124599999999
+  },
+  "VIA FRANCESCO VIGANO' 8, MILANO, Italy": {
+    "lat": 45.4824122,
+    "lng": 9.1897006
+  },
+  "VIA POSTUMIA 28, MILANO, Italy": {
+    "lat": 45.4714217,
+    "lng": 9.1154606
+  },
+  "VIA BENJAMIN CONSTANT 22.A, MILANO, Italy": {
+    "lat": 45.4718718,
+    "lng": 9.1139993
+  },
+  "VIA BENJAMIN CONSTANT 2, MILANO, Italy": {
+    "lat": 45.471866,
+    "lng": 9.1119453
+  },
+  "VIA CARLO MARX 10.A, MILANO, Italy": {
+    "lat": 45.4710359,
+    "lng": 9.113033699999999
+  },
+  "VIA FELICITE' ROBERT LAMENNAIS 9, MILANO, Italy": {
+    "lat": 45.468503,
+    "lng": 9.182402699999999
+  },
+  "VIA BENJAMIN CONSTANT 1, MILANO, Italy": {
+    "lat": 45.4719262,
+    "lng": 9.1119343
+  },
+  "VIA CAMILLO GIUSSANI 13, MILANO, Italy": {
+    "lat": 45.4409854,
+    "lng": 9.137878299999999
+  },
+  "VIA CAMILLO GIUSSANI 23, MILANO, Italy": {
+    "lat": 45.4409879,
+    "lng": 9.1391349
+  },
+  "VIA CAMILLO GIUSSANI 20, MILANO, Italy": {
+    "lat": 45.44094870000001,
+    "lng": 9.1396508
+  },
+  "VIA LUCCA 36, MILANO, Italy": {
+    "lat": 45.4552789,
+    "lng": 9.1093194
+  },
+  "VIA XXV APRILE 235, CINISELLO BALSAMO, Italy": {
+    "lat": 45.553817,
+    "lng": 9.1977988
+  },
+  "VIA BRAMANTINO '3, MILANO, Italy": {
+    "lat": 45.497191,
+    "lng": 9.1524468
+  },
+  "VIA GIOSUE' BORSI '18, MILANO, Italy": {
+    "lat": 45.447726,
+    "lng": 9.173301000000002
+  },
+  "VIA CANALETTO '10, MILANO, Italy": {
+    "lat": 45.4694104,
+    "lng": 9.2278349
+  },
+  "VIA FILIPPO ABBIATI '1, MILANO, Italy": {
+    "lat": 45.4727813,
+    "lng": 9.1414665
+  },
+  "VIA FILIPPO ABBIATI '2, MILANO, Italy": {
+    "lat": 45.4729362,
+    "lng": 9.1412101
+  },
+  "VIA DANIELE RICCIARELLI '12, MILANO, Italy": {
+    "lat": 45.47220739999999,
+    "lng": 9.1421159
+  },
+  "VIA ANGELO INGANNI '64, MILANO, Italy": {
+    "lat": 45.45424089999999,
+    "lng": 9.125661899999999
+  },
+  "VIALE OMERO '17, MILANO, Italy": {
+    "lat": 45.4337994,
+    "lng": 9.224649
+  },
+  "VIA CONSOLE MARCELLO '38, MILANO, Italy": {
+    "lat": 45.5023092,
+    "lng": 9.1437065
+  },
+  "VIA DEGLI IPPOCASTANI '6, MILANO, Italy": {
+    "lat": 45.4523281,
+    "lng": 9.084994
+  },
+  "VIA ENRICO DE NICOLA '32, MILANO, Italy": {
+    "lat": 45.4306591,
+    "lng": 9.1575863
+  },
+  "VIA AGOSTINO DE PRETIS '1, MILANO, Italy": {
+    "lat": 45.4318665,
+    "lng": 9.153686100000002
+  },
+  "VIA AGOSTINO DE PRETIS '99, MILANO, Italy": {
+    "lat": 45.4297382,
+    "lng": 9.1555518
+  },
+  "VIA AGOSTINO DE PRETIS '51, MILANO, Italy": {
+    "lat": 45.4289176,
+    "lng": 9.1502722
+  },
+  "VIA AGOSTINO DE PRETIS '67, MILANO, Italy": {
+    "lat": 45.4290755,
+    "lng": 9.1518611
+  },
+  "VIA PADRE REGINALDO GIULIANI '42, LEGNANO, Italy": {
+    "lat": 45.6061966,
+    "lng": 8.914538799999999
+  },
+  "VIA LEONARDO DA VINCI '37, CASSANO D'ADDA, Italy": {
+    "lat": 45.52480629999999,
+    "lng": 9.5116174
+  },
+  "VIA STRAUSS '8, PIEVE EMANUELE, Italy": {
+    "lat": 45.3442298,
+    "lng": 9.1975044
+  },
+  "VIA LONGARONE '16, MILANO, Italy": {
+    "lat": 45.5198036,
+    "lng": 9.1411904
+  },
+  "VIA LONGARONE '41, MILANO, Italy": {
+    "lat": 45.5200709,
+    "lng": 9.1405707
+  },
+  "VIA LUIGI CHIARELLI '12, MILANO, Italy": {
+    "lat": 45.4915044,
+    "lng": 9.1217812
+  },
+  "VIA CAMILLO GIUSSANI '29, MILANO, Italy": {
+    "lat": 45.4410633,
+    "lng": 9.1399972
+  },
+  "VIA CAMILLO GIUSSANI '20, MILANO, Italy": {
+    "lat": 45.44094870000001,
+    "lng": 9.1396508
+  },
+  "VIALE PALMIRO TOGLIATTI '17.Q, LOCATE DI TRIULZI, Italy": {
+    "lat": 45.3542755,
+    "lng": 9.221378099999999
+  },
+  "VIALE PALMIRO TOGLIATTI '15, LOCATE DI TRIULZI, Italy": {
+    "lat": 45.3547906,
+    "lng": 9.2221228
+  },
+  "VIA FELICE GAIO '14, CERRO MAGGIORE, Italy": {
+    "lat": 45.5803287,
+    "lng": 8.9790303
+  },
+  "VIA TRENTO '23, CORBETTA, Italy": {
+    "lat": 45.4721967,
+    "lng": 8.9249575
+  },
+  "VIA FILIPPO ABBIATI '5, MILANO, Italy": {
+    "lat": 45.4718115,
+    "lng": 9.1399668
+  },
+  "VIA DANIELE RICCIARELLI '14, MILANO, Italy": {
+    "lat": 45.4718879,
+    "lng": 9.1417925
+  },
+  "VIA PRENESTE '4, MILANO, Italy": {
+    "lat": 45.4714569,
+    "lng": 9.1342948
+  },
+  "VIA DALMAZIO BIRAGO '4, MILANO, Italy": {
+    "lat": 45.4697434,
+    "lng": 9.231377300000002
+  },
+  "VIA GIACOMO QUARENGHI '34, MILANO, Italy": {
+    "lat": 45.49813710000001,
+    "lng": 9.1143544
+  },
+  "VIA CONCILIO VATICANO II '2, MILANO, Italy": {
+    "lat": 45.5133145,
+    "lng": 9.1471619
+  },
+  "VIA DEI SALICI '9, MILANO, Italy": {
+    "lat": 45.451835,
+    "lng": 9.0804127
+  },
+  "VIA COSTANTINO BARONI '83, MILANO, Italy": {
+    "lat": 45.4059922,
+    "lng": 9.1708698
+  },
+  "VIA COSTANTINO BARONI '63, MILANO, Italy": {
+    "lat": 45.4063471,
+    "lng": 9.1705582
+  },
+  "VIA COSTANTINO BARONI '61, MILANO, Italy": {
+    "lat": 45.40624469999999,
+    "lng": 9.170387200000002
+  },
+  "VIA COSTANTINO BARONI '69, MILANO, Italy": {
+    "lat": 45.4063797,
+    "lng": 9.1712131
+  },
+  "VIA COSTANTINO BARONI '128, MILANO, Italy": {
+    "lat": 45.4048927,
+    "lng": 9.1712042
+  },
+  "VIA BETULLE '4, ROZZANO, Italy": {
+    "lat": 45.3810485,
+    "lng": 9.1575395
+  },
+  "VIA APPENNINI '41, MILANO, Italy": {
+    "lat": 45.5017577,
+    "lng": 9.106207399999999
+  },
+  "VIA APPENNINI '37, MILANO, Italy": {
+    "lat": 45.5015455,
+    "lng": 9.106437
+  },
+  "VIA APPENNINI '53, MILANO, Italy": {
+    "lat": 45.5014775,
+    "lng": 9.1050147
+  },
+  "VIA EUGENIO CURIEL '16, CORSICO, Italy": {
+    "lat": 45.4392037,
+    "lng": 9.0936887
+  },
+  "VIA MARZABOTTO '2, CORSICO, Italy": {
+    "lat": 45.4396728,
+    "lng": 9.0957198
+  },
+  "VIA AGOSTINO DE PRETIS '83, MILANO, Italy": {
+    "lat": 45.4294847,
+    "lng": 9.1535929
+  },
+  "VIA AGOSTINO DE PRETIS '23, MILANO, Italy": {
+    "lat": 45.4308197,
+    "lng": 9.152536099999999
+  },
+  "VIA AGOSTINO DE PRETIS '35, MILANO, Italy": {
+    "lat": 45.4300718,
+    "lng": 9.1515035
+  },
+  "VIA AGOSTINO DE PRETIS '37, MILANO, Italy": {
+    "lat": 45.4300572,
+    "lng": 9.151487099999999
+  },
+  "VIA AGOSTINO DE PRETIS '43, MILANO, Italy": {
+    "lat": 45.4297215,
+    "lng": 9.1510566
+  },
+  "VIALE LAZIO '15, ROZZANO, Italy": {
+    "lat": 45.385802,
+    "lng": 9.162022
+  },
+  "VIALE LAZIO '23, ROZZANO, Italy": {
+    "lat": 45.3860351,
+    "lng": 9.1606805
+  },
+  "VIALE LAZIO '26, ROZZANO, Italy": {
+    "lat": 45.3861742,
+    "lng": 9.1624857
+  },
+  "VIALE LAZIO '50, ROZZANO, Italy": {
+    "lat": 45.3863694,
+    "lng": 9.160711899999999
+  },
+  "VIALE LAZIO '88, ROZZANO, Italy": {
+    "lat": 45.387696,
+    "lng": 9.157292900000002
+  },
+  "VIALE LAZIO '86, ROZZANO, Italy": {
+    "lat": 45.38769,
+    "lng": 9.157325000000002
+  },
+  "VIA CATANIA '50, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5331046,
+    "lng": 9.2562748
+  },
+  "VIA ALDO MORO '11, RHO, Italy": {
+    "lat": 45.5394122,
+    "lng": 9.025141999999999
+  },
+  "VIA GIUSEPPE DI VITTORIO '12/D, TREZZANO SUL NAVIGLIO, Italy": {
+    "lat": 45.4236718,
+    "lng": 9.069274799999999
+  },
+  "VIA GIOVANNI PASCOLI '4, MILANO, Italy": {
+    "lat": 45.4738427,
+    "lng": 9.2185495
+  },
+  "VIA ANGELO INGANNI '52, MILANO, Italy": {
+    "lat": 45.4526829,
+    "lng": 9.125173499999999
+  },
+  "VIA COMASINA '57, MILANO, Italy": {
+    "lat": 45.5274963,
+    "lng": 9.162652399999999
+  },
+  "VIALE UNGHERIA '46, MILANO, Italy": {
+    "lat": 45.445544,
+    "lng": 9.2535248
+  },
+  "VIALE UNGHERIA '48, MILANO, Italy": {
+    "lat": 45.4458969,
+    "lng": 9.253746999999999
+  },
+  "VIA DEI SALICI '47, MILANO, Italy": {
+    "lat": 45.452143,
+    "lng": 9.0789853
+  },
+  "VIA DEI LARICI '14, MILANO, Italy": {
+    "lat": 45.4535777,
+    "lng": 9.0827232
+  },
+  "VIA DEI LARICI '26, MILANO, Italy": {
+    "lat": 45.4542102,
+    "lng": 9.0828283
+  },
+  "VIA PINI '2, ROZZANO, Italy": {
+    "lat": 45.38471270000001,
+    "lng": 9.1592462
+  },
+  "VIA FILIPPO DE PISIS '23, MILANO, Italy": {
+    "lat": 45.5120699,
+    "lng": 9.141374899999999
+  },
+  "VIA FILIPPO DE PISIS '61, MILANO, Italy": {
+    "lat": 45.5121474,
+    "lng": 9.1447921
+  },
+  "VIA FRANCESCO CILEA '32, MILANO, Italy": {
+    "lat": 45.49560160000001,
+    "lng": 9.1056121
+  },
+  "VIA FRANCESCO CILEA '94, MILANO, Italy": {
+    "lat": 45.4966814,
+    "lng": 9.1017251
+  },
+  "VIA EUGENIO CURIEL '17, CORSICO, Italy": {
+    "lat": 45.4398136,
+    "lng": 9.092854299999999
+  },
+  "VIA EUGENIO CURIEL '13, CORSICO, Italy": {
+    "lat": 45.4398269,
+    "lng": 9.0927343
+  },
+  "VIA ENRICO DE NICOLA '26, MILANO, Italy": {
+    "lat": 45.4307897,
+    "lng": 9.1571532
+  },
+  "VIA ENRICO DE NICOLA '34, MILANO, Italy": {
+    "lat": 45.4305709,
+    "lng": 9.157920899999999
+  },
+  "VIA ENRICO DE NICOLA '38, MILANO, Italy": {
+    "lat": 45.43055150000001,
+    "lng": 9.1580512
+  },
+  "VIA AGOSTINO DE PRETIS '3, MILANO, Italy": {
+    "lat": 45.4317259,
+    "lng": 9.153734499999999
+  },
+  "VIA AGOSTINO DE PRETIS '11, MILANO, Italy": {
+    "lat": 45.4310662,
+    "lng": 9.1536937
+  },
+  "VIA ALEX VISCONTI '15, MILANO, Italy": {
+    "lat": 45.5029979,
+    "lng": 9.1028478
+  },
+  "VIA GIUSEPPE ROVANI '311, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5354898,
+    "lng": 9.2219512
+  },
+  "VIA CARDINALE MEZZOFANTI '26.3, MILANO, Italy": {
+    "lat": 45.4642626,
+    "lng": 9.2351553
+  },
+  "VIA NEGROLI '23, MILANO, Italy": {
+    "lat": 45.4650405,
+    "lng": 9.2323529
+  },
+  "VIA ARMANDO SPADINI '11, MILANO, Italy": {
+    "lat": 45.5274719,
+    "lng": 9.158553699999999
+  },
+  "VIA SAVONA '80, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.53322499999999,
+    "lng": 9.2541494
+  },
+  "VIA GASPARE ASELLI '14, MILANO, Italy": {
+    "lat": 45.4702345,
+    "lng": 9.2303695
+  },
+  "VIA VIGILIO INAMA '20, MILANO, Italy": {
+    "lat": 45.4724862,
+    "lng": 9.2327193
+  },
+  "VIA MARIO MORGANTINI '3, MILANO, Italy": {
+    "lat": 45.4708266,
+    "lng": 9.1363273
+  },
+  "VIA ILLIRICO '1, MILANO, Italy": {
+    "lat": 45.46938189999999,
+    "lng": 9.2323007
+  },
+  "VIA ORBETELLO '2, MILANO, Italy": {
+    "lat": 45.5026025,
+    "lng": 9.2454387
+  },
+  "VIALE UNGHERIA '2, MILANO, Italy": {
+    "lat": 45.4452145,
+    "lng": 9.2423989
+  },
+  "VIA ROMUALDO BONFADINI '94, MILANO, Italy": {
+    "lat": 45.4443423,
+    "lng": 9.242782300000002
+  },
+  "VIA UGO BETTI '8, MILANO, Italy": {
+    "lat": 45.4928669,
+    "lng": 9.114265699999999
+  },
+  "VIA UGO BETTI '42, MILANO, Italy": {
+    "lat": 45.4926871,
+    "lng": 9.1116047
+  },
+  "VIA UGO BETTI '157, MILANO, Italy": {
+    "lat": 45.49571419999999,
+    "lng": 9.108897299999999
+  },
+  "VIA ARTURO GRAF '26, MILANO, Italy": {
+    "lat": 45.5123547,
+    "lng": 9.1412824
+  },
+  "VIA ARTURO GRAF '36, MILANO, Italy": {
+    "lat": 45.5129588,
+    "lng": 9.1427946
+  },
+  "VIA ARTURO GRAF '56, MILANO, Italy": {
+    "lat": 45.5130759,
+    "lng": 9.144549699999999
+  },
+  "VIA FRANCESCO CILEA '38, MILANO, Italy": {
+    "lat": 45.4957479,
+    "lng": 9.1051006
+  },
+  "VIA APPENNINI '51, MILANO, Italy": {
+    "lat": 45.5015315,
+    "lng": 9.1051108
+  },
+  "VIA VAL DEVERO '19, MILANO, Italy": {
+    "lat": 45.4591657,
+    "lng": 9.11084
+  },
+  "VIALE TOMMASO EDISON '446, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5238883,
+    "lng": 9.2290991
+  },
+  "VIA MODENA '2, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5324549,
+    "lng": 9.233222099999999
+  },
+  "VIA LEONARDO DA VINCI '23, CASSANO D'ADDA, Italy": {
+    "lat": 45.52408630000001,
+    "lng": 9.5114583
+  },
+  "VIA PAPA GIOVANNI XXIII '101, BRESSO, Italy": {
+    "lat": 45.5292292,
+    "lng": 9.187273399999999
+  },
+  "VIA GABRIO CASATI '5, LEGNANO, Italy": {
+    "lat": 45.5959359,
+    "lng": 8.8957737
+  },
+  "VIA ARMANDO SPADINI '15, MILANO, Italy": {
+    "lat": 45.5288231,
+    "lng": 9.157137299999999
+  },
+  "VILLAGGIO INA CASA '54.8, CESATE, Italy": {
+    "lat": 45.5895903,
+    "lng": 9.0735351
+  },
+  "VIA VAL LAGARINA '69, MILANO, Italy": {
+    "lat": 45.5211272,
+    "lng": 9.1326825
+  },
+  "VIALE ARGONNE 35, MILANO, Italy": {
+    "lat": 45.4685336,
+    "lng": 9.2276311
+  },
+  "VIA MEDEGHINO 24, MILANO, Italy": {
+    "lat": 45.4315448,
+    "lng": 9.1801865
+  },
+  "VIA ORBETELLO 4, MILANO, Italy": {
+    "lat": 45.5020859,
+    "lng": 9.2462711
+  },
+  "VIA NARNI 1, MILANO, Italy": {
+    "lat": 45.5035519,
+    "lng": 9.2463331
+  },
+  "VIA BRA' 1, MILANO, Italy": {
+    "lat": 45.5026959,
+    "lng": 9.2470728
+  },
+  "VIA BRIVIO 6, MILANO, Italy": {
+    "lat": 45.5032328,
+    "lng": 9.144122699999999
+  },
+  "VIALE UNGHERIA 21.4, MILANO, Italy": {
+    "lat": 45.4459834,
+    "lng": 9.2487488
+  },
+  "VIALE UNGHERIA 2, MILANO, Italy": {
+    "lat": 45.4452145,
+    "lng": 9.2423989
+  },
+  "VIALE UNGHERIA 4, MILANO, Italy": {
+    "lat": 45.4454631,
+    "lng": 9.242944699999999
+  },
+  "VIA DELLE BETULLE 1, MILANO, Italy": {
+    "lat": 45.4534892,
+    "lng": 9.0857607
+  },
+  "VIA MICHELE SAPONARO 24, MILANO, Italy": {
+    "lat": 45.4086872,
+    "lng": 9.173682999999999
+  },
+  "VIA MICHELE SAPONARO 24/26, MILANO, Italy": {
+    "lat": 45.4086872,
+    "lng": 9.173682999999999
+  },
+  "VIA BIANCOSPINI 14, ROZZANO, Italy": {
+    "lat": 45.3840072,
+    "lng": 9.1572549
+  },
+  "VIA BIANCOSPINI 20, ROZZANO, Italy": {
+    "lat": 45.3844638,
+    "lng": 9.1570586
+  },
+  "VIA ALESSANDRO LITTA MODIGNANI 117, MILANO, Italy": {
+    "lat": 45.5195366,
+    "lng": 9.1546013
+  },
+  "VIA FILIPPO DE PISIS 33, MILANO, Italy": {
+    "lat": 45.5121647,
+    "lng": 9.1425284
+  },
+  "VIA FILIPPO DE PISIS 43, MILANO, Italy": {
+    "lat": 45.51232700000001,
+    "lng": 9.1431126
+  },
+  "VIA FILIPPO DE PISIS 53, MILANO, Italy": {
+    "lat": 45.512203,
+    "lng": 9.1442296
+  },
+  "VIA ENRICO FALCK 7, MILANO, Italy": {
+    "lat": 45.49824520000001,
+    "lng": 9.105038
+  },
+  "VIA FRANCESCO CILEA 42, MILANO, Italy": {
+    "lat": 45.4955378,
+    "lng": 9.1049692
+  },
+  "VIA APPENNINI 63, MILANO, Italy": {
+    "lat": 45.5025544,
+    "lng": 9.105231
+  },
+  "VIA APPENNINI 43, MILANO, Italy": {
+    "lat": 45.5018752,
+    "lng": 9.1061304
+  },
+  "VIA APPENNINI 35, MILANO, Italy": {
+    "lat": 45.5014264,
+    "lng": 9.1065719
+  },
+  "VIA BENVENUTO CELLINI 26, CORSICO, Italy": {
+    "lat": 45.43648899999999,
+    "lng": 9.092739
+  },
+  "VIA AGOSTINO DE PRETIS 3, MILANO, Italy": {
+    "lat": 45.4317259,
+    "lng": 9.153734499999999
+  },
+  "VIA AGOSTINO DE PRETIS 5, MILANO, Italy": {
+    "lat": 45.4315357,
+    "lng": 9.1535757
+  },
+  "VIA AGOSTINO DE PRETIS 119, MILANO, Italy": {
+    "lat": 45.42969739999999,
+    "lng": 9.1578733
+  },
+  "VIA AGOSTINO DE PRETIS 53, MILANO, Italy": {
+    "lat": 45.4288935,
+    "lng": 9.150380199999999
+  },
+  "VIA ENRICO DE NICOLA 4, MILANO, Italy": {
+    "lat": 45.4313576,
+    "lng": 9.154795
+  },
+  "VIA AGOSTINO DE PRETIS 77, MILANO, Italy": {
+    "lat": 45.4292952,
+    "lng": 9.1529045
+  },
+  "VIA AGOSTINO DE PRETIS 87, MILANO, Italy": {
+    "lat": 45.4295951,
+    "lng": 9.153989500000002
+  },
+  "VIALE TOMMASO EDISON 446, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5238883,
+    "lng": 9.2290991
+  },
+  "VIA ANTONIO GRAMSCI 51, RHO, Italy": {
+    "lat": 45.5396588,
+    "lng": 9.025941999999999
+  },
+  "VIALE GIOVANNI SUZZANI 300, MILANO, Italy": {
+    "lat": 45.5278666,
+    "lng": 9.211306900000002
+  },
+  "VIA CARLO MARX 28, MILANO, Italy": {
+    "lat": 45.4734755,
+    "lng": 9.1112061
+  },
+  "VIALE EUROPA 13.B, BUSSERO, Italy": {
+    "lat": 45.5314574,
+    "lng": 9.374262
+  },
+  "VIA URUGUAY 9, MILANO, Italy": {
+    "lat": 45.4957884,
+    "lng": 9.122368
+  },
+  "VIA GIUSEPPE RIPAMONTI '36, MILANO, Italy": {
+    "lat": 45.4473885,
+    "lng": 9.1974827
+  },
+  "VIA GIOVANNI PASCOLI '2, MILANO, Italy": {
+    "lat": 45.473588,
+    "lng": 9.218115899999999
+  },
+  "VIA MAC MAHON '111, MILANO, Italy": {
+    "lat": 45.4972783,
+    "lng": 9.153262699999999
+  },
+  "VIA BRAMANTINO '9, MILANO, Italy": {
+    "lat": 45.4963166,
+    "lng": 9.151626799999999
+  },
+  "VIA JACOPINO DA TRADATE '14, MILANO, Italy": {
+    "lat": 45.4958111,
+    "lng": 9.1513064
+  },
+  "VIA MAC MAHON '117, MILANO, Italy": {
+    "lat": 45.49797969999999,
+    "lng": 9.1514992
+  },
+  "VIA JACOPINO DA TRADATE '13, MILANO, Italy": {
+    "lat": 45.49670039999999,
+    "lng": 9.1494049
+  },
+  "VIA BRA' '1, MILANO, Italy": {
+    "lat": 45.5026959,
+    "lng": 9.2470728
+  },
+  "VIA ORESTE SALOMONE '91, MILANO, Italy": {
+    "lat": 45.444717,
+    "lng": 9.2417096
+  },
+  "VIA GIACOMO QUARENGHI '32, MILANO, Italy": {
+    "lat": 45.4973849,
+    "lng": 9.114723099999999
+  },
+  "VIA DEGLI ONTANI '34, MILANO, Italy": {
+    "lat": 45.4549173,
+    "lng": 9.0781672
+  },
+  "VIA DEI SALICI '37, MILANO, Italy": {
+    "lat": 45.4520097,
+    "lng": 9.079201099999999
+  },
+  "VIA DEGLI IPPOCASTANI '12, MILANO, Italy": {
+    "lat": 45.4520288,
+    "lng": 9.0838115
+  },
+  "VIA COSTANTINO BARONI '65, MILANO, Italy": {
+    "lat": 45.4062504,
+    "lng": 9.1709973
+  },
+  "VIA UGO BETTI '101, MILANO, Italy": {
+    "lat": 45.4937814,
+    "lng": 9.1083632
+  },
+  "VIA ALESSANDRO LITTA MODIGNANI '103, MILANO, Italy": {
+    "lat": 45.520865,
+    "lng": 9.152407
+  },
+  "VIA ARTURO GRAF '20, MILANO, Italy": {
+    "lat": 45.51226579999999,
+    "lng": 9.1413748
+  },
+  "VIA APPENNINI '31/A, MILANO, Italy": {
+    "lat": 45.5003827,
+    "lng": 9.1053868
+  },
+  "VIA ENRICO FALCK '19, MILANO, Italy": {
+    "lat": 45.4985005,
+    "lng": 9.104650399999999
+  },
+  "VIA ENRICO FALCK '11, MILANO, Italy": {
+    "lat": 45.498361,
+    "lng": 9.1046851
+  },
+  "VIA BENVENUTO CELLINI '22, CORSICO, Italy": {
+    "lat": 45.4366409,
+    "lng": 9.0931271
+  },
+  "VIA GIUSEPPE ROVANI '291, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.535694,
+    "lng": 9.223099999999999
+  },
+  "VIA FRATELLI BANDIERA '200, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5347518,
+    "lng": 9.222615200000002
+  },
+  "VIA FRATELLI BANDIERA '202, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5347355,
+    "lng": 9.2221455
+  },
+  "VIA DELLA MARTINELLA '3, MILANO, Italy": {
+    "lat": 45.45957569999999,
+    "lng": 9.1129723
+  },
+  "VIA GIUSEPPE MAZZINI '21, NERVIANO, Italy": {
+    "lat": 45.5578374,
+    "lng": 8.9744101
+  },
+  "VIA MAC MAHON 117, MILANO, Italy": {
+    "lat": 45.49797969999999,
+    "lng": 9.1514992
+  },
+  "VIA ORBETELLO 8, MILANO, Italy": {
+    "lat": 45.50171,
+    "lng": 9.24687
+  },
+  "VIA COMASINA 57, MILANO, Italy": {
+    "lat": 45.5274963,
+    "lng": 9.162652399999999
+  },
+  "VIA ORESTE SALOMONE 91, MILANO, Italy": {
+    "lat": 45.444717,
+    "lng": 9.2417096
+  },
+  "VIA DEL CARDELLINO 55, MILANO, Italy": {
+    "lat": 45.4541969,
+    "lng": 9.120733099999999
+  },
+  "VIA DEGLI ONTANI 40, MILANO, Italy": {
+    "lat": 45.4549065,
+    "lng": 9.078703200000001
+  },
+  "VIA DEGLI ABETI 4, MILANO, Italy": {
+    "lat": 45.4526288,
+    "lng": 9.0842967
+  },
+  "VIA DEI SALICI 10, MILANO, Italy": {
+    "lat": 45.4536019,
+    "lng": 9.078348799999999
+  },
+  "VIA COSTANTINO BARONI 69, MILANO, Italy": {
+    "lat": 45.4063797,
+    "lng": 9.1712131
+  },
+  "VIA ALESSANDRO LITTA MODIGNANI 113, MILANO, Italy": {
+    "lat": 45.5200046,
+    "lng": 9.1543487
+  },
+  "VIA ALESSANDRO LITTA MODIGNANI 105, MILANO, Italy": {
+    "lat": 45.52056349999999,
+    "lng": 9.1525942
+  },
+  "VIA ARTURO GRAF 48, MILANO, Italy": {
+    "lat": 45.5127736,
+    "lng": 9.1440532
+  },
+  "VIA ARTURO GRAF 50, MILANO, Italy": {
+    "lat": 45.5126393,
+    "lng": 9.144091399999999
+  },
+  "VIA FILIPPO DE PISIS 21, MILANO, Italy": {
+    "lat": 45.5119334,
+    "lng": 9.141419299999999
+  },
+  "VIA APPENNINI 1, MILANO, Italy": {
+    "lat": 45.4998716,
+    "lng": 9.1069012
+  },
+  "VIA AGOSTINO DE PRETIS 93, MILANO, Italy": {
+    "lat": 45.4297418,
+    "lng": 9.1550177
+  },
+  "VIA AGOSTINO DE PRETIS 101, MILANO, Italy": {
+    "lat": 45.4297314,
+    "lng": 9.1559417
+  },
+  "VIA ARMANDO SPADINI 15, MILANO, Italy": {
+    "lat": 45.5288231,
+    "lng": 9.157137299999999
+  },
+  "VIA LUIGI CHIARELLI 20, MILANO, Italy": {
+    "lat": 45.492047,
+    "lng": 9.1234114
+  },
+  "VIA BOLLA 22, MILANO, Italy": {
+    "lat": 45.5037362,
+    "lng": 9.1086394
+  },
+  "VIA BOLLA 14, MILANO, Italy": {
+    "lat": 45.5033197,
+    "lng": 9.1089594
+  },
+  "VIA BOLLA 16, MILANO, Italy": {
+    "lat": 45.5034806,
+    "lng": 9.1091344
+  },
+  "VIA ADOLFO OMODEO 25, MILANO, Italy": {
+    "lat": 45.4910165,
+    "lng": 9.1159228
+  },
+  "VIA PALMANOVA 53, MILANO, Italy": {
+    "lat": 45.4953844,
+    "lng": 9.2345258
+  },
+  "VIA BELTRAME CRISTIANI 13, MILANO, Italy": {
+    "lat": 45.5225349,
+    "lng": 9.2054866
+  },
+  "VIA RAFFAELLO GIOLLI 23, MILANO, Italy": {
+    "lat": 45.5263157,
+    "lng": 9.2106987
+  },
+  "VIA ALBERTO PEPERE 3, MILANO, Italy": {
+    "lat": 45.4398738,
+    "lng": 9.1385972
+  },
+  "VIA BOLOGNA 15, CANEGRATE, Italy": {
+    "lat": 45.5624519,
+    "lng": 8.9243317
+  },
+  "VIA VAL LAGARINA 77, MILANO, Italy": {
+    "lat": 45.521445,
+    "lng": 9.1333569
+  },
+  "VIA JACOPINO DA TRADATE 8, MILANO, Italy": {
+    "lat": 45.4953308,
+    "lng": 9.151710099999999
+  },
+  "PIAZZA MONTE FALTERONA 13, MILANO, Italy": {
+    "lat": 45.4742971,
+    "lng": 9.139844400000001
+  },
+  "VIA MAC MAHON 119, MILANO, Italy": {
+    "lat": 45.4985339,
+    "lng": 9.1515042
+  },
+  "VIA ORBETELLO 2, MILANO, Italy": {
+    "lat": 45.5026025,
+    "lng": 9.2454387
+  },
+  "VIA TEANO 21, MILANO, Italy": {
+    "lat": 45.527894,
+    "lng": 9.1622795
+  },
+  "VIA CONSOLE MARCELLO 38, MILANO, Italy": {
+    "lat": 45.5023092,
+    "lng": 9.1437065
+  },
+  "VIA DEI SALICI 65, MILANO, Italy": {
+    "lat": 45.453303,
+    "lng": 9.0790008
+  },
+  "VIA DEGLI IPPOCASTANI 8, MILANO, Italy": {
+    "lat": 45.4521996,
+    "lng": 9.0841718
+  },
+  "VIA DEI LARICI 8, MILANO, Italy": {
+    "lat": 45.4536141,
+    "lng": 9.0832806
+  },
+  "VIA DEI SALICI 6, MILANO, Italy": {
+    "lat": 45.4526062,
+    "lng": 9.079915800000002
+  },
+  "VIA COSTANTINO BARONI 79, MILANO, Italy": {
+    "lat": 45.4027185,
+    "lng": 9.167612799999999
+  },
+  "VIA ALESSANDRO LITTA MODIGNANI 109, MILANO, Italy": {
+    "lat": 45.5201141,
+    "lng": 9.1536464
+  },
+  "VIA FRANCESCO CILEA 72, MILANO, Italy": {
+    "lat": 45.496127,
+    "lng": 9.102791400000001
+  },
+  "VIA APPENNINI 69, MILANO, Italy": {
+    "lat": 45.50251110000001,
+    "lng": 9.1045325
+  },
+  "VIA ENRICO DE NICOLA 20, MILANO, Italy": {
+    "lat": 45.4309375,
+    "lng": 9.1565365
+  },
+  "VIA ENRICO DE NICOLA 32, MILANO, Italy": {
+    "lat": 45.4306591,
+    "lng": 9.1575863
+  },
+  "VIA ENRICO DE NICOLA 34, MILANO, Italy": {
+    "lat": 45.4305709,
+    "lng": 9.157920899999999
+  },
+  "VIA DELLE CAMELIE 4, MILANO, Italy": {
+    "lat": 45.4539813,
+    "lng": 9.131937100000002
+  },
+  "VIA FRATELLI BANDIERA 200, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5347518,
+    "lng": 9.222615200000002
+  },
+  "VIA BOLIVIA 41, PADERNO DUGNANO, Italy": {
+    "lat": 45.5793481,
+    "lng": 9.1547336
+  },
+  "VIA JOHN FITZGERALD KENNEDY 9, CAMBIAGO, Italy": {
+    "lat": 45.5654163,
+    "lng": 9.398944
+  },
+  "VIA CESARE BATTISTI 23, SETTIMO MILANESE, Italy": {
+    "lat": 45.4868734,
+    "lng": 9.0547302
+  },
+  "VIA ANTONIO LABRIOLA 9, LAINATE, Italy": {
+    "lat": 45.5749658,
+    "lng": 9.033672
+  },
+  "VIA LUIGI CHIARELLI 12, MILANO, Italy": {
+    "lat": 45.4915044,
+    "lng": 9.1217812
+  },
+  "VIA AURORA 12, PADERNO DUGNANO, Italy": {
+    "lat": 45.57224180000001,
+    "lng": 9.1663322
+  },
+  "VIA RAFFAELLO GIOLLI 22, MILANO, Italy": {
+    "lat": 45.5271433,
+    "lng": 9.2116765
+  },
+  "VIA VITERBO 41, MILANO, Italy": {
+    "lat": 45.4556517,
+    "lng": 9.1057662
+  },
+  "VIA VITERBO 39, MILANO, Italy": {
+    "lat": 45.4557654,
+    "lng": 9.1058031
+  },
+  "VIALE EUROPA 13.A, BUSSERO, Italy": {
+    "lat": 45.5314574,
+    "lng": 9.374262
+  },
+  "VIA MONTE GRAPPA 3, ABBIATEGRASSO, Italy": {
+    "lat": 45.405962,
+    "lng": 8.9124825
+  },
+  "VIA PADRE ANTONIO ROSMINI 5, BUSTO GAROLFO, Italy": {
+    "lat": 45.550246,
+    "lng": 8.8738153
+  },
+  "VIA GIOVANNI PASCOLI 4, MILANO, Italy": {
+    "lat": 45.4738427,
+    "lng": 9.2185495
+  },
+  "PIAZZA PREALPI 4, MILANO, Italy": {
+    "lat": 45.4947411,
+    "lng": 9.152406599999999
+  },
+  "VIA URUGUAY 15, MILANO, Italy": {
+    "lat": 45.4966513,
+    "lng": 9.1205059
+  },
+  "VIA CONCILIO VATICANO II 3, MILANO, Italy": {
+    "lat": 45.512809,
+    "lng": 9.148708
+  },
+  "VIA CONCILIO VATICANO II 4, MILANO, Italy": {
+    "lat": 45.5121099,
+    "lng": 9.146617299999999
+  },
+  "VIA DEGLI ONTANI 42, MILANO, Italy": {
+    "lat": 45.4550898,
+    "lng": 9.0787914
+  },
+  "VIA DEI SALICI 5, MILANO, Italy": {
+    "lat": 45.452042,
+    "lng": 9.0802377
+  },
+  "VIA COSTANTINO BARONI 230, MILANO, Italy": {
+    "lat": 45.40379009999999,
+    "lng": 9.1715362
+  },
+  "VIA COSTANTINO BARONI 256, MILANO, Italy": {
+    "lat": 45.4032218,
+    "lng": 9.1731829
+  },
+  "VIA FILIPPO DE PISIS 49, MILANO, Italy": {
+    "lat": 45.5097763,
+    "lng": 9.146884000000002
+  },
+  "VIA FRANCESCO CILEA 26, MILANO, Italy": {
+    "lat": 45.4963815,
+    "lng": 9.1064755
+  },
+  "VIA FRANCESCO CILEA 28, MILANO, Italy": {
+    "lat": 45.4958906,
+    "lng": 9.105999299999999
+  },
+  "VIA FRANCESCO CILEA 32, MILANO, Italy": {
+    "lat": 45.49560160000001,
+    "lng": 9.1056121
+  },
+  "VIA FRANCESCO CILEA 50, MILANO, Italy": {
+    "lat": 45.4956261,
+    "lng": 9.1039179
+  },
+  "VIA FRANCESCO CILEA 40, MILANO, Italy": {
+    "lat": 45.4956385,
+    "lng": 9.1050349
+  },
+  "VIA FRANCESCO CILEA 156, MILANO, Italy": {
+    "lat": 45.5040695,
+    "lng": 9.0956128
+  },
+  "VIA BENVENUTO CELLINI 8, CORSICO, Italy": {
+    "lat": 45.43547359999999,
+    "lng": 9.0938989
+  },
+  "VIA AGOSTINO DE PRETIS 97, MILANO, Italy": {
+    "lat": 45.4297653,
+    "lng": 9.1558808
+  },
+  "VIA AGOSTINO DE PRETIS 99, MILANO, Italy": {
+    "lat": 45.4297382,
+    "lng": 9.1555518
+  },
+  "VIA AGOSTINO DE PRETIS 105, MILANO, Italy": {
+    "lat": 45.4297237,
+    "lng": 9.156373
+  },
+  "VIA AGOSTINO DE PRETIS 111, MILANO, Italy": {
+    "lat": 45.4297096,
+    "lng": 9.1571886
+  },
+  "VIA AGOSTINO DE PRETIS 109, MILANO, Italy": {
+    "lat": 45.4297124,
+    "lng": 9.1570181
+  },
+  "VIA AGOSTINO DE PRETIS 45, MILANO, Italy": {
+    "lat": 45.4295408,
+    "lng": 9.1507607
+  },
+  "VIA GIOACCHINO ROSSINI 10, PIEVE EMANUELE, Italy": {
+    "lat": 45.3424029,
+    "lng": 9.195747599999999
+  },
+  "VIA VALLEGGIO 22, COMO, Italy": {
+    "lat": 45.8001994,
+    "lng": 9.095747399999999
+  },
+  "VIA GABRIO CASATI 86, MAGENTA, Italy": {
+    "lat": 45.5556141,
+    "lng": 8.9789507
+  },
+  "VIA RAFFAELLO GIOLLI 28, MILANO, Italy": {
+    "lat": 45.527347,
+    "lng": 9.2109816
+  },
+  "VIA VITERBO 33, MILANO, Italy": {
+    "lat": 45.4558483,
+    "lng": 9.106793999999999
+  },
+  "VIA LUCCA 22, MILANO, Italy": {
+    "lat": 45.4556185,
+    "lng": 9.1109336
+  },
+  "VIA LUCCA 52, MILANO, Italy": {
+    "lat": 45.45469079999999,
+    "lng": 9.1060687
+  },
+  "VIA BOLOGNA 17, CANEGRATE, Italy": {
+    "lat": 45.56247270000001,
+    "lng": 8.9234745
+  },
+  "VIA BOLOGNA 23, CANEGRATE, Italy": {
+    "lat": 45.562016,
+    "lng": 8.9219894
+  },
+  "VIA VAL LAGARINA 42, MILANO, Italy": {
+    "lat": 45.5207474,
+    "lng": 9.134303599999999
+  },
+  "VIA TEANO 8, MAGENTA, Italy": {
+    "lat": 45.4672328,
+    "lng": 8.894715900000001
+  },
+  "VIA ERCOLE FERRARIO '7, MILANO, Italy": {
+    "lat": 45.4614193,
+    "lng": 9.160548799999999
+  },
+  "VIA JACOPINO DA TRADATE '8, MILANO, Italy": {
+    "lat": 45.4953308,
+    "lng": 9.151710099999999
+  },
+  "VIALE TIBALDI '70, MILANO, Italy": {
+    "lat": 45.4448113,
+    "lng": 9.1864356
+  },
+  "VIA GIACINTO GIGANTE '3, MILANO, Italy": {
+    "lat": 45.4707118,
+    "lng": 9.1388939
+  },
+  "VIA MEDEGHINO '24, MILANO, Italy": {
+    "lat": 45.4315448,
+    "lng": 9.1801865
+  },
+  "PIAZZA GASPARRI '4, MILANO, Italy": {
+    "lat": 45.5258026,
+    "lng": 9.164304999999999
+  },
+  "VIA DEGLI ABETI '24, MILANO, Italy": {
+    "lat": 45.4517257,
+    "lng": 9.0824758
+  },
+  "VIA DEI LARICI '4, MILANO, Italy": {
+    "lat": 45.4536436,
+    "lng": 9.0837303
+  },
+  "VIA DEI LARICI '32, MILANO, Italy": {
+    "lat": 45.4540452,
+    "lng": 9.0835402
+  },
+  "VIA DEI SALICI '10, MILANO, Italy": {
+    "lat": 45.4536019,
+    "lng": 9.078348799999999
+  },
+  "VIA COSTANTINO BARONI '252, MILANO, Italy": {
+    "lat": 45.4034565,
+    "lng": 9.1730083
+  },
+  "VIA UGO BETTI '44, MILANO, Italy": {
+    "lat": 45.49274,
+    "lng": 9.111509500000002
+  },
+  "VIA FILIPPO DE PISIS '11, MILANO, Italy": {
+    "lat": 45.5116819,
+    "lng": 9.141002900000002
+  },
+  "VIA FRANCESCO CILEA '24, MILANO, Italy": {
+    "lat": 45.4963521,
+    "lng": 9.1064698
+  },
+  "VIA EUGENIO CURIEL '41, CORSICO, Italy": {
+    "lat": 45.4404403,
+    "lng": 9.094533199999999
+  },
+  "VIA AGOSTINO DE PRETIS '93, MILANO, Italy": {
+    "lat": 45.4297418,
+    "lng": 9.1550177
+  },
+  "VIA AGOSTINO DE PRETIS '101, MILANO, Italy": {
+    "lat": 45.4297314,
+    "lng": 9.1559417
+  },
+  "VIA AGOSTINO DE PRETIS '73, MILANO, Italy": {
+    "lat": 45.4291802,
+    "lng": 9.1525005
+  },
+  "VIALE LIGURIA '52, COLOGNO MONZESE, Italy": {
+    "lat": 45.5252677,
+    "lng": 9.2683845
+  },
+  "VIA ANTONIO LISSONI '9, MILANO, Italy": {
+    "lat": 45.52267980000001,
+    "lng": 9.2074809
+  },
+  "VIA JAN SIBELIUS '12, MILANO, Italy": {
+    "lat": 45.5206471,
+    "lng": 9.2077526
+  },
+  "VIA CAMILLO GIUSSANI '23, MILANO, Italy": {
+    "lat": 45.4409879,
+    "lng": 9.1391349
+  },
+  "VIA SAVONA '16, SESTO S. GIOVANNI, Italy": {
+    "lat": 45.5319587,
+    "lng": 9.2536756
+  },
+  "VIA ALESSANDRO LITTA MODIGNANI '109, MILANO, Italy": {
+    "lat": 45.5201141,
+    "lng": 9.1536464
+  },
+  "VIA ARTURO GRAF '32, MILANO, Italy": {
+    "lat": 45.5125986,
+    "lng": 9.142392
+  },
+  "VIA ARTURO GRAF '52, MILANO, Italy": {
+    "lat": 45.5124895,
+    "lng": 9.1441381
+  },
+  "VIA FILIPPO DE PISIS '35, MILANO, Italy": {
+    "lat": 45.5123143,
+    "lng": 9.1424834
+  },
+  "VIA FRANCESCO CILEA '136, MILANO, Italy": {
+    "lat": 45.5027358,
+    "lng": 9.0946361
+  },
+  "VIA EUGENIO CURIEL '24, CORSICO, Italy": {
+    "lat": 45.4400077,
+    "lng": 9.094439999999999
+  },
+  "VIA BENVENUTO CELLINI '32, CORSICO, Italy": {
+    "lat": 45.4359305,
+    "lng": 9.0934995
+  },
+  "VIA AGOSTINO DE PRETIS '19, MILANO, Italy": {
+    "lat": 45.43084169999999,
+    "lng": 9.1525664
+  },
+  "VIA AGOSTINO DE PRETIS '31, MILANO, Italy": {
+    "lat": 45.4303107,
+    "lng": 9.1518622
+  },
+  "VIA BASSANO DEL GRAPPA '32, MILANO, Italy": {
+    "lat": 45.49458,
+    "lng": 9.2275315
+  },
+  "VIA GIUSEPPE ROVANI '289, SESTO SAN GIOVANNI, Italy": {
+    "lat": 45.5356643,
+    "lng": 9.223258699999999
+  },
+  "VIA ACHILLE GRANDI '17, SEGRATE, Italy": {
+    "lat": 45.49368399999999,
+    "lng": 9.2960197
+  },
+  "VIA ALDO TARABELLA '5, MILANO, Italy": {
+    "lat": 45.4958773,
+    "lng": 9.2343465
+  },
+  "VIA BOLOGNA '35, MELZO, Italy": {
+    "lat": 45.4946716,
+    "lng": 9.4277892
+  },
+  "VIA CAMILLO GIUSSANI '5, MILANO, Italy": {
+    "lat": 45.4402747,
+    "lng": 9.1373193
+  },
+  "VIA VAL TROMPIA '5, MILANO, Italy": {
+    "lat": 45.5182701,
+    "lng": 9.1303632
+  },
+  "PIAZZA PREALPI '4, MILANO, Italy": {
+    "lat": 45.4947411,
+    "lng": 9.152406599999999
+  },
+  "VIA DELLE BETULLE '23, MILANO, Italy": {
+    "lat": 45.4529296,
+    "lng": 9.079931199999999
+  },
+  "VIA MICHELE SAPONARO '38, MILANO, Italy": {
+    "lat": 45.4059408,
+    "lng": 9.172390799999999
+  },
+  "VIA MICHELE SAPONARO '38/36, MILANO, Italy": {
+    "lat": 45.4059408,
+    "lng": 9.172390799999999
+  },
+  "VIA UGO BETTI '55, MILANO, Italy": {
+    "lat": 45.4924378,
+    "lng": 9.108884699999999
+  },
+  "VIA ARTURO GRAF '38, MILANO, Italy": {
+    "lat": 45.5128114,
+    "lng": 9.1428519
+  },
+  "VIA FILIPPO DE PISIS '65, MILANO, Italy": {
+    "lat": 45.51243350000001,
+    "lng": 9.144701099999999
+  },
+  "VIA FRANCESCO CILEA '56, MILANO, Italy": {
+    "lat": 45.49654169999999,
+    "lng": 9.104095
+  },
+  "VIA APPENNINI '55, MILANO, Italy": {
+    "lat": 45.5020894,
+    "lng": 9.105774499999999
+  },
+  "VIA EUGENIO CURIEL '21, CORSICO, Italy": {
+    "lat": 45.4402177,
+    "lng": 9.094316599999999
+  },
+  "VIA EUGENIO CURIEL '25, CORSICO, Italy": {
+    "lat": 45.440744,
+    "lng": 9.0935369
+  },
+  "VIA EUGENIO CURIEL '39, CORSICO, Italy": {
+    "lat": 45.440584,
+    "lng": 9.0944416
+  },
+  "VIA ALEX VISCONTI '23, MILANO, Italy": {
+    "lat": 45.5031981,
+    "lng": 9.1027427
+  },
+  "VIA BRENNERO '6, LEGNANO, Italy": {
+    "lat": 45.6061178,
+    "lng": 8.9149709
+  },
+  "VIA BOLIVIA '41, PADERNO DUGNANO, Italy": {
+    "lat": 45.5793481,
+    "lng": 9.1547336
+  },
+  "VIA GUGLIELMO MARCONI '29, BINASCO, Italy": {
+    "lat": 45.32931809999999,
+    "lng": 9.093204
+  },
+  "VIA JOHN FITZGERALD KENNEDY '9, CAMBIAGO, Italy": {
+    "lat": 45.5654163,
+    "lng": 9.398944
+  },
+  "VIA LONGARONE '21, MILANO, Italy": {
+    "lat": 45.51970499999999,
+    "lng": 9.1383263
+  },
+  "VIA AURORA '12, PADERNO DUGNANO, Italy": {
+    "lat": 45.57224180000001,
+    "lng": 9.1663322
+  },
+  "VIA GIOVANNI XXIII '2, PERO, Italy": {
+    "lat": 45.5109147,
+    "lng": 9.0785386
+  },
+  "VIA CARLO MARX '26, MILANO, Italy": {
+    "lat": 45.4724842,
+    "lng": 9.1114107
+  },
+  "VIA FELICITE' ROBERT LAMENNAIS '9.A, MILANO, Italy": {
+    "lat": 45.4310384,
+    "lng": 9.2004715
+  },
+  "VIA CAMILLO GIUSSANI '11, MILANO, Italy": {
+    "lat": 45.4406132,
+    "lng": 9.1380182
+  },
+  "VIA GIAN BATTISTA TIEPOLO '1, MILANO, Italy": {
+    "lat": 45.4730283,
+    "lng": 9.2183566
+  },
+  "VIA LIPARI '6, MILANO, Italy": {
+    "lat": 45.4611511,
+    "lng": 9.1614802
+  },
+  "VIA DEI SALICI '21, CESANO BOSCONE, Italy": {
+    "lat": 45.4509645,
+    "lng": 9.080339799999999
+  },
+  "VIA UGO OJETTI '42, MILANO, Italy": {
+    "lat": 45.4949097,
+    "lng": 9.1116002
+  },
+  "VIA UGO BETTI '52, MILANO, Italy": {
+    "lat": 45.4932963,
+    "lng": 9.1112235
+  },
+  "VIA FILIPPO DE PISIS '63, MILANO, Italy": {
+    "lat": 45.5122857,
+    "lng": 9.1447481
+  },
+  "VIA APPENNINI '3, MILANO, Italy": {
+    "lat": 45.4999829,
+    "lng": 9.1067719
+  },
+  "VIA EUGENIO CURIEL '11, CORSICO, Italy": {
+    "lat": 45.43972309999999,
+    "lng": 9.0926259
+  },
+  "VIA EUGENIO CURIEL '38, CORSICO, Italy": {
+    "lat": 45.4401746,
+    "lng": 9.095141
+  },
+  "VIA EUGENIO CURIEL '28, CORSICO, Italy": {
+    "lat": 45.4398974,
+    "lng": 9.0941326
+  },
+  "VIA GIOVANNI PASCOLI '10, PREGNANA MILANESE, Italy": {
+    "lat": 45.5137378,
+    "lng": 9.0083788
+  },
+  "VIA CESARE BATTISTI '23, SETTIMO MILANESE, Italy": {
+    "lat": 45.4868734,
+    "lng": 9.0547302
+  },
+  "VIA BELTRAME CRISTIANI '3, MILANO, Italy": {
+    "lat": 45.5225349,
+    "lng": 9.2054866
+  },
+  "VIA BELTRAME CRISTIANI '1, MILANO, Italy": {
+    "lat": 45.4687522,
+    "lng": 9.1815955
+  },
+  "VIA ANTONIO LISSONI '7, MILANO, Italy": {
+    "lat": 45.5226361,
+    "lng": 9.207261299999999
+  },
+  "VIALE GIOVANNI SUZZANI '300, MILANO, Italy": {
+    "lat": 45.5278666,
+    "lng": 9.211306900000002
+  },
+  "VIA RAFFAELLO GIOLLI '11, MILANO, Italy": {
+    "lat": 45.525217,
+    "lng": 9.210090899999999
+  },
+  "VIA BENJAMIN CONSTANT '10, MILANO, Italy": {
+    "lat": 45.4718107,
+    "lng": 9.1132214
+  },
+  "VIA CAMILLO GIUSSANI '28, MILANO, Italy": {
+    "lat": 45.4406014,
+    "lng": 9.1397967
+  },
+  "VIA RICCARDO BALSAMO CRIVELLI '14, MILANO, Italy": {
+    "lat": 45.439986,
+    "lng": 9.1366845
+  },
+  "VIA PATERNO' '7, MILANO, Italy": {
+    "lat": 45.43958749999999,
+    "lng": 9.139711199999999
+  },
+  "VIA G. DE PREDIS 7, MILANO, Italy": {
+    "lat": 45.4960594,
+    "lng": 9.152804399999999
+  },
+  "PIAZZA PIETRO GASPARRI 4, MILANO, Italy": {
+    "lat": 45.5258026,
+    "lng": 9.164304999999999
+  },
+  "VIA DEI LARICI 25, MILANO, Italy": {
+    "lat": 45.4537384,
+    "lng": 9.082148
+  },
+  "VIA DEI LARICI 29, MILANO, Italy": {
+    "lat": 45.4540718,
+    "lng": 9.082103
+  },
+  "VIA DEI LARICI 33, MILANO, Italy": {
+    "lat": 45.4544123,
+    "lng": 9.082056999999999
+  },
+  "VIA DEGLI IPPOCASTANI 4, MILANO, Italy": {
+    "lat": 45.4528967,
+    "lng": 9.085319499999999
+  },
+  "VIA UGO BETTI 15, MILANO, Italy": {
+    "lat": 45.49135099999999,
+    "lng": 9.1131611
+  },
+  "VIA UGO BETTI 69, MILANO, Italy": {
+    "lat": 45.4930165,
+    "lng": 9.1092683
+  },
+  "VIA LITTA MODIGNANI 113, MILANO, Italy": {
+    "lat": 45.5200046,
+    "lng": 9.1543487
+  },
+  "VIA LITTA MODIGNANI 105, MILANO, Italy": {
+    "lat": 45.52056349999999,
+    "lng": 9.1525942
+  },
+  "VIA LITTA MODIGNANI 107, MILANO, Italy": {
+    "lat": 45.5223221,
+    "lng": 9.1531631
+  },
+  "VIA AGOSTINO DE PRETIS 113, MILANO, Italy": {
+    "lat": 45.42971199999999,
+    "lng": 9.1570451
+  },
+  "VIA AGOSTINO DE PRETIS 57, MILANO, Italy": {
+    "lat": 45.4288385,
+    "lng": 9.150858699999999
+  },
+  "VIA AGOSTINO DE PRETIS 55, MILANO, Italy": {
+    "lat": 45.4284559,
+    "lng": 9.150619899999999
+  },
+  "VIA DELLE CAMELIE 6, MILANO, Italy": {
+    "lat": 45.4541803,
+    "lng": 9.1318222
+  },
+  "VIA GIUSEPPE ROVANI 309, SESTO S. GIOVANNI, Italy": {
+    "lat": 45.5356226,
+    "lng": 9.2221503
+  },
+  "VIA FRATELLI BANDIERA 194, SESTO S. GIOVANNI, Italy": {
+    "lat": 45.5347572,
+    "lng": 9.2233074
+  },
+  "VIA FRATELLI BANDIERA 200, SESTO S. GIOVANNI, Italy": {
+    "lat": 45.5347518,
+    "lng": 9.222615200000002
+  },
+  "VIALE TOMMASO EDISON 446, SESTO S. GIOVANNI, Italy": {
+    "lat": 45.5238883,
+    "lng": 9.2290991
+  },
+  "VIA GIACOMO LEOPARDI 109, SESTO S. GIOVANNI, Italy": {
+    "lat": 45.5383865,
+    "lng": 9.224882899999999
+  },
+  "VIA GIUSEPPE ROVANI 317, SESTO S. GIOVANNI, Italy": {
+    "lat": 45.5355122,
+    "lng": 9.221328999999999
+  },
+  "VIA GIUSEPPE BOLOGNA 28, BRESSO, Italy": {
+    "lat": 45.53546060000001,
+    "lng": 9.1845692
+  },
+  "VIA VAL LAGARINA 95, MILANO, Italy": {
+    "lat": 45.5210689,
+    "lng": 9.1344628
+  },
+  "VIA VAL LAGARINA 69, MILANO, Italy": {
+    "lat": 45.5211272,
+    "lng": 9.1326825
+  },
+  "VIA VAL LAGARINA 37, MILANO, Italy": {
+    "lat": 45.5202638,
+    "lng": 9.1308902
+  },
+  "VIA TEANO '36, MILANO, Italy": {
+    "lat": 45.5288528,
+    "lng": 9.1584224
+  },
+  "VIALE UNGHERIA '21.2, MILANO, Italy": {
+    "lat": 45.4459834,
+    "lng": 9.2487488
+  },
+  "VIA LUIGI CHIARELLI '2, MILANO, Italy": {
+    "lat": 45.4929117,
+    "lng": 9.120951699999999
+  },
+  "VIA APPENNINI '23, MILANO, Italy": {
+    "lat": 45.5009068,
+    "lng": 9.1062532
+  },
+  "VIA APPENNINI '9, MILANO, Italy": {
+    "lat": 45.500437,
+    "lng": 9.1065641
+  },
+  "VIA FRANCESCO CILEA '82, MILANO, Italy": {
+    "lat": 45.4970411,
+    "lng": 9.1027049
+  },
+  "VIA AGOSTINO DE PRETIS '103, MILANO, Italy": {
+    "lat": 45.4297307,
+    "lng": 9.1559817
+  },
+  "VIA AGOSTINO DE PRETIS '105, MILANO, Italy": {
+    "lat": 45.4297237,
+    "lng": 9.156373
+  },
+  "VIA AGOSTINO DE PRETIS '61, MILANO, Italy": {
+    "lat": 45.4287325,
+    "lng": 9.1512202
+  },
+  "VIA ENRICO DE NICOLA '10, MILANO, Italy": {
+    "lat": 45.4310972,
+    "lng": 9.1554223
+  },
+  "VIA AGOSTINO DE PRETIS '79, MILANO, Italy": {
+    "lat": 45.4289369,
+    "lng": 9.154655199999999
+  },
+  "VIA AGOSTINO DE PRETIS '89, MILANO, Italy": {
+    "lat": 45.4296511,
+    "lng": 9.154191299999999
+  },
+  "VIA JAN SIBELIUS 28, MILANO, Italy": {
+    "lat": 45.5218683,
+    "lng": 9.208642700000002
+  },
+  "VIA RICCARDO BALSAMO CRIVELLI '22, MILANO, Italy": {
+    "lat": 45.4391149,
+    "lng": 9.136218699999999
+  },
+  "VIA GIOVANNI AMBROGIO DE PREDIS '7, MILANO, Italy": {
+    "lat": 45.4959883,
+    "lng": 9.152078
+  },
+  "VIA GIULIO BELINZAGHI '6, MILANO, Italy": {
+    "lat": 45.4954937,
+    "lng": 9.187774
+  },
+  "PIAZZALE SELINUNTE '11, MILANO, Italy": {
+    "lat": 45.4727691,
+    "lng": 9.137080599999999
+  },
+  "VIA DEI SALICI '79, MILANO, Italy": {
+    "lat": 45.45283,
+    "lng": 9.079284999999999
+  },
+  "VIA DEI SALICI '25, CESANO BOSCONE, Italy": {
+    "lat": 45.4412581,
+    "lng": 9.089286999999999
+  },
+  "VIA COSTANTINO BARONI '238, MILANO, Italy": {
+    "lat": 45.4034367,
+    "lng": 9.1709409
+  },
+  "VIA COSTANTINO BARONI '79, MILANO, Italy": {
+    "lat": 45.4027185,
+    "lng": 9.167612799999999
+  },
+  "VIA FIORDALISI '1, ROZZANO, Italy": {
+    "lat": 45.3847044,
+    "lng": 9.156760199999999
+  },
+  "VIA FIORDALISI '3, ROZZANO, Italy": {
+    "lat": 45.3845485,
+    "lng": 9.156704699999999
+  },
+  "VIA ALESSANDRO LITTA MODIGNANI '93, MILANO, Italy": {
+    "lat": 45.52086180000001,
+    "lng": 9.1532206
+  },
+  "VIA APPENNINI '71, MILANO, Italy": {
+    "lat": 45.50241399999999,
+    "lng": 9.104331
+  },
+  "VIA EUGENIO CURIEL '12, CORSICO, Italy": {
+    "lat": 45.4390881,
+    "lng": 9.093312
+  },
+  "VIA MARZABOTTO '10, CORSICO, Italy": {
+    "lat": 45.43938989999999,
+    "lng": 9.095002899999999
+  },
+  "VIA ENRICO DE NICOLA '24, MILANO, Italy": {
+    "lat": 45.4308874,
+    "lng": 9.1567847
+  },
+  "VIALE LAZIO '19, ROZZANO, Italy": {
+    "lat": 45.385932,
+    "lng": 9.161325099999999
+  },
+  "VIALE LAZIO '24, ROZZANO, Italy": {
+    "lat": 45.3857034,
+    "lng": 9.162754099999999
+  },
+  "VIA ADOLFO OMODEO '23/2, MILANO, Italy": {
+    "lat": 45.4910593,
+    "lng": 9.116799199999999
+  },
+  "VIA ANGELO MORO '27.D, SAN DONATO MILANESE, Italy": {
+    "lat": 45.4292893,
+    "lng": 9.267771699999999
+  },
+  "VIA RAFFAELLO GIOLLI '23, MILANO, Italy": {
+    "lat": 45.5263157,
+    "lng": 9.2106987
+  },
+  "VIA OSTENO '4, MILANO, Italy": {
+    "lat": 45.46214639999999,
+    "lng": 9.1136121
+  },
+  "VIA URUGUAY '32, MILANO, Italy": {
+    "lat": 45.4977333,
+    "lng": 9.1176696
+  },
+  "VIA ERCOLE FERRARIO 7, MILANO, Italy": {
+    "lat": 45.4614193,
+    "lng": 9.160548799999999
+  },
+  "VIALE TIBALDI 66, MILANO, Italy": {
+    "lat": 45.4449273,
+    "lng": 9.185741499999999
+  },
+  "VIA CESARE AJRAGHI 3, MILANO, Italy": {
+    "lat": 45.4974541,
+    "lng": 9.1493369
+  },
+  "VIA NICOLO' BARABINO 3, MILANO, Italy": {
+    "lat": 45.43394,
+    "lng": 9.2234097
+  },
+  "VIALE OMERO 17, MILANO, Italy": {
+    "lat": 45.4337994,
+    "lng": 9.224649
+  },
+  "VIA DEGLI ABETI 7, MILANO, Italy": {
+    "lat": 45.4524511,
+    "lng": 9.0834849
+  },
+  "VIA DEGLI ABETI 13, MILANO, Italy": {
+    "lat": 45.4523924,
+    "lng": 9.0827821
+  },
+  "VIA DEGLI ABETI 22, MILANO, Italy": {
+    "lat": 45.4518532,
+    "lng": 9.0824683
+  },
+  "VIA UGO OJETTI 40, MILANO, Italy": {
+    "lat": 45.49482889999999,
+    "lng": 9.111773999999999
+  },
+  "VIA UGO OJETTI 10, MILANO, Italy": {
+    "lat": 45.4937434,
+    "lng": 9.1141539
+  },
+  "VIA UGO OJETTI 1, MILANO, Italy": {
+    "lat": 45.4933722,
+    "lng": 9.1134329
+  },
+  "VIA APPENNINI 47, MILANO, Italy": {
+    "lat": 45.5017246,
+    "lng": 9.1054472
+  },
+  "VIA AGOSTINO DE PRETIS 121, MILANO, Italy": {
+    "lat": 45.4296967,
+    "lng": 9.1579157
+  },
+  "VIA AGOSTINO DE PRETIS 67, MILANO, Italy": {
+    "lat": 45.4290755,
+    "lng": 9.1518611
+  },
+  "VIA AGOSTINO DE PRETIS 31, MILANO, Italy": {
+    "lat": 45.4303107,
+    "lng": 9.1518622
+  },
+  "VIA AGOSTINO DE PRETIS 37, MILANO, Italy": {
+    "lat": 45.4300572,
+    "lng": 9.151487099999999
+  },
+  "VIA PALMANOVA 51, MILANO, Italy": {
+    "lat": 45.49527699999999,
+    "lng": 9.234366999999999
+  },
+  "VIA PADRE SECCHI 135, LEGNANO, Italy": {
+    "lat": 45.6015468,
+    "lng": 8.940325
+  },
+  "VIA JAN SIBELIUS 30, MILANO, Italy": {
+    "lat": 45.5225651,
+    "lng": 9.2089593
+  },
+  "VIA PATERNO' 6, MILANO, Italy": {
+    "lat": 45.4394537,
+    "lng": 9.138731
+  }
+}

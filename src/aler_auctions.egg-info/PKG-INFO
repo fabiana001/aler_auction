@@ -1,18 +1,35 @@
-# Aler Auction Data Pipeline
+Metadata-Version: 2.4
+Name: aler-auctions
+Version: 0.1.0
+Summary: Aler Milano Auction Data Analysis
+Author-email: Fabiana Lanotte <pf.lanotte@gmail.com>
+Requires-Python: >=3.14
+Description-Content-Type: text/markdown
+Requires-Dist: beautifulsoup4>=4.14.3
+Requires-Dist: bokeh>=3.8.2
+Requires-Dist: gmplot>=1.4.1
+Requires-Dist: googlemaps>=4.10.0
+Requires-Dist: hdbscan>=0.8.41
+Requires-Dist: jupyterlab>=4.5.5
+Requires-Dist: notebook>=7.5.4
+Requires-Dist: openpyxl>=3.1.5
+Requires-Dist: pandas>=3.0.1
+Requires-Dist: python-dotenv>=1.2.2
+Requires-Dist: requests>=2.32.5
+Requires-Dist: scikit-learn>=1.8.0
+Requires-Dist: setuptools<70
+Requires-Dist: staticmap>=0.5.7
+Requires-Dist: tabula-py>=2.10.0
+Requires-Dist: wayback-machine-scraper>=1.0.8
 
-This project is a multi-agent system designed to extract, integrate, and analyze historical real estate auction data from ALER Milano. It combines data from archive snapshots (Wayback Machine) with historical auction results to provide a comprehensive view of market trends.
+# Aler Auction Data Analysis
 
-## Features
-
-- **Automated Extraction**: Robust parsing of historical ALER HTML snapshots, handling variadic table formats and rowspans.
-- **Data Integration**: Merges property characteristics with final auction outcomes (winners, final prices, results).
-- **Geographic Enrichment**: Automated geocoding of property addresses using Google Maps API with intelligent caching.
-- **Advanced Pricing Analysis**: 
-    - Spatial clustering using **HDBSCAN** to identify geographic zones.
-    - Automated calculation of price disparity and metrics like `base_price_per_sqm` and `final_base_price_eur`.
-- **GDPR Compliant**: Automatic anonymization of sensitive data (bidder initials only).
+This project extracts, analyzes, and geocodes data related to real estate auctions (Aler). 
+Specifically, the project uses Web Scraping via *Wayback Machine* snapshots to retrieve historical auction data and `googlemaps` for the geocoding (obtaining lat/lng) of the extracted addresses.
 
 ## Requirements
+
+The project is managed via **`uv`**, an extremely fast Python package manager written in Rust. If you haven't installed it yet, you can do so by following the [official uv documentation](https://github.com/astral-sh/uv).
 
 The main dependencies include:
 - `pandas` for data manipulation

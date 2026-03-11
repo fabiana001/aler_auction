@@ -1,7 +1,8 @@
 [project]
-name = "aler-auction"
+name = "aler-auctions"
 version = "0.1.0"
-description = "Add your description here"
+description = "Aler Milano Auction Data Analysis"
+authors = [{name = "Fabiana Lanotte", email = "pf.lanotte@gmail.com"}]
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -11,13 +12,27 @@ dependencies = [
     "googlemaps>=4.10.0",
     "hdbscan>=0.8.41",
     "jupyterlab>=4.5.5",
+    "notebook>=7.5.4",
     "openpyxl>=3.1.5",
     "pandas>=3.0.1",
+    "pdfplumber>=0.11.9",
     "python-dotenv>=1.2.2",
     "requests>=2.32.5",
     "scikit-learn>=1.8.0",
     "setuptools<70",
     "staticmap>=0.5.7",
     "tabula-py>=2.10.0",
+    "tqdm>=4.67.3",
     "wayback-machine-scraper>=1.0.8",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
+
+[tool.flit.metadata]
+module = "aler_auctions"
+
+[tool.flit.sdist]
+include = ["src/aler_auctions"]
