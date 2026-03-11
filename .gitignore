@@ -6,3 +6,6 @@
 .venv/
 .python-version
 .git/
+
+# Python packaging metadata
+*.egg-info/
