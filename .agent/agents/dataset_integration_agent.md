@@ -9,3 +9,4 @@ instructions: |
 memory: project
 tools:
   - pandas
+  - dataset_integrator

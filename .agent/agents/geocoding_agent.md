@@ -8,6 +8,6 @@ instructions: |
   4. Enrich the dataset with `lat` and `lng` coordinates.
 memory: project
 tools:
-  - geocoding_api
+  - geocoder
   - pandas
   - googlemaps
