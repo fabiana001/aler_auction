@@ -73,7 +73,8 @@ class TestAnalyzeDataset:
             "surface_sqm": [60.0],
         })
         result = analyzer.analyze_dataset(df)
-        assert pd.isna(result.iloc[0].get("price_disparity", float("nan")))
+        assert "price_disparity" in result.columns
+        assert pd.isna(result.iloc[0]["price_disparity"])
 
     def test_missing_price_columns_skips_metrics(self, analyzer: PriceAnalyzer) -> None:
         df = pd.DataFrame({"lat": [45.0], "lng": [9.0]})
