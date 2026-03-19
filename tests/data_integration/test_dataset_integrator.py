@@ -80,6 +80,8 @@ class TestIntegrate:
         assert "address" in df.columns
         assert "address_wayback" not in df.columns
         assert "address_pdf" not in df.columns
+        assert "address_x" not in df.columns
+        assert "address_y" not in df.columns
         # Value should come from properties (wayback) side
         assert df.iloc[0]["address"] == "Via Roma 5"
 
@@ -102,7 +104,7 @@ class TestIntegrate:
         output = tmp_path / "subdir" / "out.csv"
 
         integrator = DatasetIntegrator(str(props), str(results))
-        integrator.integrate(str(output))
+        assert integrator.integrate(str(output)) is not None
 
         assert output.exists()
         assert output.with_suffix(".json").exists()
