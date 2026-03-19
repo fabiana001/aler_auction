@@ -24,7 +24,7 @@
 | CREATE | `tests/data_integration/test_geocoder.py` |
 | CREATE | `tests/analysis/__init__.py` |
 | CREATE | `tests/analysis/test_price_analyzer.py` |
-| MODIFY | `src/aler_auctions/data_extraction/pdf_extractor.py` (1-line bug fix) |
+| MODIFY | `src/aler_auctions/data_extraction/pdf_extractor.py` (null-outcome classification fix) |
 
 ---
 
@@ -63,63 +63,132 @@ git commit -m "test: scaffold mirrored test directory structure"
 
 ---
 
-## Task 2: Fix source bug in `pdf_extractor.py`
+## Task 2: Fix null-outcome misclassification in `pdf_extractor.py`
 
-The `deserta_pattern` regex has 5 capturing groups but line 89 unpacks 6 variables. This causes a silent `ValueError` that makes deserted-auction records disappear.
+Scanning all 88 real PDFs reveals that `record_pattern` catches all zero-offer lines first (since `0,00` satisfies `[\d.]+,\d+`). The existing winner check only tests for `"DESERTA"` and `"NON AGGIUDICATO"`, silently misclassifying 55+ real records as `"AGGIUDICATA"`:
+
+| Outcome text in PDF | Real count | Current (wrong) result |
+|---|---|---|
+| `NON OPTATO` | 37 | `AGGIUDICATA`, winner `"N.O."` |
+| `ASTA NULLA` | 9 | `AGGIUDICATA`, winner `"A.N."` |
+| `ASTA ANNULLATA` | 4 | `AGGIUDICATA`, winner `"A.A."` |
+| `OPTATO PER ALTRO LOTTO` | 3 | `AGGIUDICATA`, winner `"O.P.A.L."` |
+| others (`ANNULLATO`, `STRALCIATO`, …) | 2 | `AGGIUDICATA` |
+
+`deserta_pattern` is also dead code (never reached) and must be removed.
 
 **Files:**
-- Modify: `src/aler_auctions/data_extraction/pdf_extractor.py:37-44`
+- Modify: `src/aler_auctions/data_extraction/pdf_extractor.py`
 
-- [ ] **Step 1: Confirm the bug**
+- [ ] **Step 1: Confirm the misclassification**
 
 ```bash
-python -c "
+.venv/bin/python -c "
 import re
-p = re.compile(
-    r'^(\d+/\d+)\s+(\d+)\s+(.*?)\s+€\s+([\d.]+,\d+)\s+€\s+0,00\s+(ASTA DESERTA|DESERTA)',
+record_pattern = re.compile(
+    r'^(\d+/\d+)\s+(\d+)\s+(.*?)\s+€\s+([\d.]+,\d+)\s+€\s+([\d.]+,\d+)\s+(.*)$',
     re.MULTILINE
 )
-m = p.match('10/25 12345678 VIA ROMA 10 € 50.000,00 € 0,00 ASTA DESERTA')
-print(len(m.groups()), 'groups')  # prints 5, not 6
+for line in [
+    '334/17 12345678 VIA ROMA 10 € 62.286,00 € 0,00 NON OPTATO',
+    '335/17 12345678 VIA ROMA 10 € 125.528,00 € 0,00 ASTA NULLA',
+]:
+    m = record_pattern.match(line)
+    winner = m.group(6).strip().upper()
+    current_check = 'DESERTA' in winner or 'NON AGGIUDICATO' in winner
+    print(f'winner={winner!r}  caught_by_current_check={current_check}')
 "
 ```
 
-- [ ] **Step 2: Apply the fix — add a 6th capturing group around `0,00`**
+Expected: both lines show `caught_by_current_check=False` — confirming they are misclassified.
 
-In `src/aler_auctions/data_extraction/pdf_extractor.py`, change line 43 from:
+- [ ] **Step 2: Apply the fix**
+
+In `src/aler_auctions/data_extraction/pdf_extractor.py`:
+
+1. **Remove `deserta_pattern`** entirely (lines 36–45) — it is dead code, never reached because `record_pattern` matches first.
+
+2. **Add the null-outcome keyword set** after the `record_pattern` definition:
 
 ```python
-            r'€\s+0,00\s+'              # 0,00 offer
+# Outcome texts that indicate a lot was not sold, found in real PDF data.
+# record_pattern captures these as the "winner" field; this set detects them.
+_NULL_OUTCOME_KEYWORDS: frozenset[str] = frozenset({
+    "DESERTA",        # ASTA DESERTA (644 records)
+    "NULLA",          # ASTA NULLA, ASAT NULLA (10 records)
+    "OPTATO",         # NON OPTATO, OPTATO PER ALTRO LOTTO (40 records)
+    "ANNULLAT",       # ASTA ANNULLATA, ANNULLATO, ANNULLATATO (6 records)
+    "STRALCIAT",      # STRALCIATO (1 record)
+    "NON AGGIUDICATO",
+})
+```
+
+3. **Replace the winner check** inside the `record_pattern` match block (currently lines 63–72) from:
+
+```python
+winner_clean = winner.strip().upper()
+if not winner_clean or "DESERTA" in winner_clean or "NON AGGIUDICATO" in winner_clean:
+    result = "ASTA DESERTA"
+    win = ""
+else:
+    result = "AGGIUDICATA"
+    parts = [p for p in re.split(r'[\s.]+', winner_clean) if p]
+    win = ".".join([p[0] for p in parts]) + "." if parts else winner_clean
 ```
 
 to:
 
 ```python
-            r'€\s+(0,00)\s+'            # 0,00 offer (captured so unpack matches 6 vars)
+winner_clean = winner.strip().upper()
+if not winner_clean or any(kw in winner_clean for kw in _NULL_OUTCOME_KEYWORDS):
+    result = winner_clean if winner_clean else "ASTA DESERTA"
+    win = ""
+else:
+    result = "AGGIUDICATA"
+    parts = [p for p in re.split(r'[\s.]+', winner_clean) if p]
+    win = ".".join([p[0] for p in parts]) + "." if parts else winner_clean
 ```
+
+4. **Remove the `deserta_pattern` match block** (currently lines 86–99) — it is never reached.
 
 - [ ] **Step 3: Verify the fix**
 
 ```bash
-python -c "
+.venv/bin/python -c "
 import re
-p = re.compile(
-    r'^(\d+/\d+)\s+(\d+)\s+(.*?)\s+€\s+([\d.]+,\d+)\s+€\s+(0,00)\s+(ASTA DESERTA|DESERTA)',
-    re.MULTILINE
-)
-m = p.match('10/25 12345678 VIA ROMA 10 € 50.000,00 € 0,00 ASTA DESERTA')
-print(len(m.groups()), 'groups')  # must print 6
-print(m.groups())
+
+_NULL_OUTCOME_KEYWORDS = frozenset({
+    'DESERTA', 'NULLA', 'OPTATO', 'ANNULLAT', 'STRALCIAT', 'NON AGGIUDICATO',
+})
+
+for winner_text in ['ASTA DESERTA', 'NON OPTATO', 'ASTA NULLA', 'ASTA ANNULLATA', 'MARIO ROSSI']:
+    w = winner_text.upper()
+    is_null = not w or any(kw in w for kw in _NULL_OUTCOME_KEYWORDS)
+    print(f'{winner_text!r:30s} -> null_outcome={is_null}')
 "
 ```
 
-Expected: `6 groups` and `('10/25', '12345678', 'VIA ROMA 10', '50.000,00', '0,00', 'ASTA DESERTA')`
+Expected:
+```
+'ASTA DESERTA'                 -> null_outcome=True
+'NON OPTATO'                   -> null_outcome=True
+'ASTA NULLA'                   -> null_outcome=True
+'ASTA ANNULLATA'               -> null_outcome=True
+'MARIO ROSSI'                  -> null_outcome=False
+```
 
 - [ ] **Step 4: Commit**
 
 ```bash
 git add src/aler_auctions/data_extraction/pdf_extractor.py
-git commit -m "fix: add 6th capture group to deserta_pattern so unpack does not raise"
+git commit -m "fix(pdf_extractor): classify NON OPTATO/ASTA NULLA/ANNULLATA as null outcomes
+
+55+ records were misclassified as AGGIUDICATA because the winner check only
+tested for DESERTA/NON AGGIUDICATO. Scanning all 88 real PDFs revealed
+NON OPTATO (37), ASTA NULLA (9), ASTA ANNULLATA (4) and others.
+
+Also removes deserta_pattern which was dead code (record_pattern always
+matches first since 0,00 satisfies the price capture group)."
 ```
 
 ---
@@ -527,19 +596,21 @@ from __future__ import annotations
 
 import pytest
 from pathlib import Path
-from unittest.mock import MagicMock, patch, call
+from unittest.mock import MagicMock, patch
 
 from aler_auctions.data_extraction.pdf_extractor import PDFExtractor
 
 _PATCH = "aler_auctions.data_extraction.pdf_extractor.pdfplumber.open"
 
-# A line that matches record_pattern
-_AGGIUDICATA_LINE = "176/25 02380103 VIA GIUSEPPE ROVANI 317 € 119.629,00 € 151.000,00 MARIO ROSSI"
-_THREE_WORD_LINE  = "176/25 02380103 VIA GIUSEPPE ROVANI 317 € 119.629,00 € 151.000,00 MARIO LUIGI ROSSI"
-_ONE_WORD_LINE    = "176/25 02380103 VIA GIUSEPPE ROVANI 317 € 119.629,00 € 151.000,00 MARIO"
-# A line that matches deserta_pattern (after Task 2 fix)
-_DESERTA_LINE = "10/25 12345678 VIA ROMA 10 € 50.000,00 € 0,00 ASTA DESERTA"
-_HEADER_LINE  = "LOTTO CODICE INDIRIZZO PREZZO BASE OFFERTA AGGIUDICATARIO"
+# Lines matching record_pattern
+_AGGIUDICATA_LINE  = "176/25 02380103 VIA GIUSEPPE ROVANI 317 € 119.629,00 € 151.000,00 MARIO ROSSI"
+_THREE_WORD_LINE   = "176/25 02380103 VIA GIUSEPPE ROVANI 317 € 119.629,00 € 151.000,00 MARIO LUIGI ROSSI"
+_ONE_WORD_LINE     = "176/25 02380103 VIA GIUSEPPE ROVANI 317 € 119.629,00 € 151.000,00 MARIO"
+_DESERTA_LINE      = "10/25 12345678 VIA ROMA 10 € 50.000,00 € 0,00 ASTA DESERTA"
+_NON_OPTATO_LINE   = "11/25 12345679 VIA ROMA 11 € 62.286,00 € 0,00 NON OPTATO"
+_ASTA_NULLA_LINE   = "12/25 12345680 VIA ROMA 12 € 50.000,00 € 0,00 ASTA NULLA"
+_ANNULLATA_LINE    = "13/25 12345681 VIA ROMA 13 € 50.000,00 € 0,00 ASTA ANNULLATA"
+_HEADER_LINE       = "LOTTO CODICE INDIRIZZO PREZZO BASE OFFERTA AGGIUDICATARIO"
 
 
 def _mock_pdf(text_lines: list[str]):
@@ -608,18 +679,45 @@ class TestExtractFromFile:
         assert records[0]["winner"] == "M."
 
     @patch(_PATCH)
-    def test_deserted_auction_line_parsed(
+    def test_asta_deserta_classified(
         self, mock_open: MagicMock, extractor: PDFExtractor, tmp_path: Path
     ) -> None:
         mock_open.return_value = _mock_pdf([_DESERTA_LINE])
         records = extractor.extract_from_file(tmp_path / "test.pdf")
-
         assert len(records) == 1
-        r = records[0]
-        assert r["lot_id"] == "10/25"
-        assert r["auction_result"] == "ASTA DESERTA"
-        assert r["final_offer_eur"] == 0.0
-        assert r["winner"] == ""
+        assert records[0]["auction_result"] == "ASTA DESERTA"
+        assert records[0]["final_offer_eur"] == 0.0
+        assert records[0]["winner"] == ""
+
+    @patch(_PATCH)
+    def test_non_optato_classified(
+        self, mock_open: MagicMock, extractor: PDFExtractor, tmp_path: Path
+    ) -> None:
+        mock_open.return_value = _mock_pdf([_NON_OPTATO_LINE])
+        records = extractor.extract_from_file(tmp_path / "test.pdf")
+        assert len(records) == 1
+        assert records[0]["auction_result"] == "NON OPTATO"
+        assert records[0]["winner"] == ""
+
+    @patch(_PATCH)
+    def test_asta_nulla_classified(
+        self, mock_open: MagicMock, extractor: PDFExtractor, tmp_path: Path
+    ) -> None:
+        mock_open.return_value = _mock_pdf([_ASTA_NULLA_LINE])
+        records = extractor.extract_from_file(tmp_path / "test.pdf")
+        assert len(records) == 1
+        assert records[0]["auction_result"] == "ASTA NULLA"
+        assert records[0]["winner"] == ""
+
+    @patch(_PATCH)
+    def test_asta_annullata_classified(
+        self, mock_open: MagicMock, extractor: PDFExtractor, tmp_path: Path
+    ) -> None:
+        mock_open.return_value = _mock_pdf([_ANNULLATA_LINE])
+        records = extractor.extract_from_file(tmp_path / "test.pdf")
+        assert len(records) == 1
+        assert records[0]["auction_result"] == "ASTA ANNULLATA"
+        assert records[0]["winner"] == ""
 
     @patch(_PATCH)
     def test_unmatched_lines_skipped(

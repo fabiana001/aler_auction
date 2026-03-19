@@ -155,14 +155,27 @@ Mock target: `patch("aler_auctions.data_extraction.pdf_extractor.pdfplumber.open
 | `test_winner_two_words_anonymised` | Same line with winner `"MARIO ROSSI"` | `winner="M.R."` |
 | `test_winner_three_words_anonymised` | Winner `"MARIO LUIGI ROSSI"` | `winner="M.L.R."` |
 | `test_winner_single_word_anonymised` | Winner `"MARIO"` | `winner="M."` |
-| `test_deserted_auction_line_parsed` | Line matching `deserta_pattern`: `"10/25 12345678 VIA ROMA 10 € 50.000,00 € 0,00 ASTA DESERTA"` | `auction_result="ASTA DESERTA"`, `final_offer_eur=0.0`, `winner=""` |
+| `test_asta_deserta_classified` | `"...€ 50.000,00 € 0,00 ASTA DESERTA"` | `auction_result="ASTA DESERTA"`, `final_offer_eur=0.0`, `winner=""` |
+| `test_non_optato_classified` | `"...€ 50.000,00 € 0,00 NON OPTATO"` | `auction_result="NON OPTATO"`, `final_offer_eur=0.0`, `winner=""` |
+| `test_asta_nulla_classified` | `"...€ 50.000,00 € 0,00 ASTA NULLA"` | `auction_result="ASTA NULLA"`, `final_offer_eur=0.0`, `winner=""` |
+| `test_asta_annullata_classified` | `"...€ 50.000,00 € 0,00 ASTA ANNULLATA"` | `auction_result="ASTA ANNULLATA"`, `final_offer_eur=0.0`, `winner=""` |
 | `test_unmatched_lines_skipped` | `"LOTTO CODICE INDIRIZZO PREZZO BASE OFFERTA AGGIUDICATARIO"` (header) | Output is `[]` |
 | `test_unreadable_pdf_returns_empty` | `pdfplumber.open` raises `Exception` | Returns `[]`, no exception propagated |
 | `test_empty_page_text_skipped` | `extract_text()` returns `None` | Returns `[]`, no crash |
 
-**Source bug to fix before implementing this test:** `pdf_extractor.py` line 89 unpacks 6 variables (`lotto, codice, addr, base, offer, res`) from `deserta_pattern.match().groups()`, but `deserta_pattern` has only 5 capturing groups. This raises a `ValueError` that is silently caught by the outer `except Exception`, causing the page loop to abort and return `[]`. The implementation step must fix this bug by adding a 6th capturing group for the `0,00` offer — change `r'€\s+0,00\s+'` to `r'€\s+(0,00)\s+'` in `deserta_pattern` — so the unpack and the test both work correctly.
+**Source bug to fix (null-outcome misclassification):** Scanning all 88 real PDFs reveals that `record_pattern` matches all null-outcome lines (since `0,00` satisfies `[\d.]+,\d+`). The current winner check only catches `"DESERTA"` and `"NON AGGIUDICATO"`, silently misclassifying 55+ real records:
+- `NON OPTATO` (37 records) → currently stored as `auction_result="AGGIUDICATA"`, `winner="N.O."` ❌
+- `ASTA NULLA` (9 records) → `winner="A.N."` ❌
+- `ASTA ANNULLATA` (4 records) → `winner="A.A."` ❌
+- `OPTATO PER ALTRO LOTTO`, `ANNULLATO`, `STRALCIATO`, etc. ❌
 
-**Note on deserta test line:** The address group `(.*?)` is lazy and captures everything between the `codice` and the first `€`. Test addresses must include a street number (e.g., `"VIA ROMA 10"`) to avoid ambiguous matching.
+The fix is to expand the winner null-outcome check to use a keyword set:
+```python
+_NULL_OUTCOME_KEYWORDS = frozenset({"DESERTA", "NULLA", "OPTATO", "ANNULLAT", "STRALCIAT", "NON AGGIUDICATO"})
+```
+When `any(kw in winner_clean for kw in _NULL_OUTCOME_KEYWORDS)`, set `winner=""` and `auction_result=winner_clean` (preserving the actual outcome text rather than always writing `"ASTA DESERTA"`).
+
+**Note on `deserta_pattern`:** This secondary pattern is dead code — `record_pattern` always matches first. It should be removed in the same fix to avoid confusion.
 
 ---
 
