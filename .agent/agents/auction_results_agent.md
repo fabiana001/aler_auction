@@ -7,5 +7,5 @@ instructions: |
   3. Output structured results data for integration.
 memory: project
 tools:
-  - requests
-  - beautifulsoup
+  - historical_client
+  - pdf_extractor
