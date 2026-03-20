@@ -7,7 +7,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from aler_auctions.wayback_client import Snapshot, WaybackClient
+from aler_auctions.data_extraction.wayback_client import Snapshot, WaybackClient
 
 
 # ------------------------------------------------------------------
@@ -86,7 +86,7 @@ class TestSnapshot:
 class TestSearchSnapshots:
     """Tests for WaybackClient.search_snapshots."""
 
-    @patch("aler_auctions.wayback_client.requests.Session.get")
+    @patch("aler_auctions.data_extraction.wayback_client.requests.Session.get")
     def test_returns_snapshots(self, mock_get: MagicMock, client: WaybackClient) -> None:
         mock_response = MagicMock()
         mock_response.json.return_value = CDX_JSON_RESPONSE
@@ -99,7 +99,7 @@ class TestSearchSnapshots:
         assert snapshots[0].timestamp == "20230101120000"
         assert snapshots[1].timestamp == "20230601120000"
 
-    @patch("aler_auctions.wayback_client.requests.Session.get")
+    @patch("aler_auctions.data_extraction.wayback_client.requests.Session.get")
     def test_empty_response(self, mock_get: MagicMock, client: WaybackClient) -> None:
         mock_response = MagicMock()
         mock_response.json.return_value = []
@@ -109,7 +109,7 @@ class TestSearchSnapshots:
         snapshots = client.search_snapshots("nonexistent.example.com")
         assert snapshots == []
 
-    @patch("aler_auctions.wayback_client.requests.Session.get")
+    @patch("aler_auctions.data_extraction.wayback_client.requests.Session.get")
     def test_header_only(self, mock_get: MagicMock, client: WaybackClient) -> None:
         """CDX returns only the header row — no actual snapshots."""
         mock_response = MagicMock()
@@ -128,7 +128,7 @@ class TestSearchSnapshots:
 class TestFetchPages:
     """Tests for WaybackClient.fetch_pages."""
 
-    @patch("aler_auctions.wayback_client.requests.Session.get")
+    @patch("aler_auctions.data_extraction.wayback_client.requests.Session.get")
     def test_downloads_and_saves(
         self, mock_get: MagicMock, client: WaybackClient, tmp_path: Path
     ) -> None:
@@ -173,7 +173,7 @@ class TestFetchPages:
         # Content should remain unchanged — file was skipped
         assert saved[0].read_text() == "<html>old</html>"
 
-    @patch("aler_auctions.wayback_client.requests.Session.get")
+    @patch("aler_auctions.data_extraction.wayback_client.requests.Session.get")
     def test_handles_request_error(
         self, mock_get: MagicMock, client: WaybackClient, tmp_path: Path
     ) -> None:
@@ -195,7 +195,7 @@ class TestFetchPages:
         # File should not be saved when the request fails
         assert len(saved) == 0
 
-    @patch("src.aler_auctions.wayback_client.requests.Session.get")
+    @patch("aler_auctions.data_extraction.wayback_client.requests.Session.get")
     def test_creates_output_dir(
         self, mock_get: MagicMock, client: WaybackClient, tmp_path: Path
     ) -> None:

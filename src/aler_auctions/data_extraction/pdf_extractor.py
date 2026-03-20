@@ -33,16 +33,16 @@ class PDFExtractor:
             re.MULTILINE
         )
 
-        # "ASTA DESERTA" Pattern
-        deserta_pattern = re.compile(
-            r'^(\d+/\d+)\s+'           # LOTTO
-            r'(\d+)\s+'                 # CODICE
-            r'(.*?)\s+'                 # Location + Address
-            r'€\s+([\d.]+,\d+)\s+'      # PREZZO BASE
-            r'€\s+0,00\s+'              # 0,00 offer
-            r'(ASTA DESERTA|DESERTA)',  # Result
-            re.MULTILINE
-        )
+        # Outcome texts that indicate a lot was not sold, found in real PDF data.
+        # record_pattern captures these as the "winner" field; this set detects them.
+        _NULL_OUTCOME_KEYWORDS: frozenset[str] = frozenset({
+            "DESERTA",        # ASTA DESERTA (644 records)
+            "NULLA",          # ASTA NULLA, ASAT NULLA (10 records)
+            "OPTATO",         # NON OPTATO, OPTATO PER ALTRO LOTTO (40 records)
+            "ANNULLAT",       # ASTA ANNULLATA, ANNULLATO, ANNULLATATO (6 records)
+            "STRALCIAT",      # STRALCIATO (1 record)
+            "NON AGGIUDICATO",
+        })
 
         try:
             with pdfplumber.open(path) as pdf:
@@ -61,8 +61,8 @@ class PDFExtractor:
                             lotto, codice, addr, base, offer, winner = match.groups()
                             
                             winner_clean = winner.strip().upper()
-                            if not winner_clean or "DESERTA" in winner_clean or "NON AGGIUDICATO" in winner_clean:
-                                result = "ASTA DESERTA"
+                            if not winner_clean or any(kw in winner_clean for kw in _NULL_OUTCOME_KEYWORDS):
+                                result = winner_clean if winner_clean else "ASTA DESERTA"
                                 win = ""
                             else:
                                 result = "AGGIUDICATA"
@@ -82,21 +82,6 @@ class PDFExtractor:
                                 "source_pdf": path.name
                             })
                             continue
-                            
-                        # Try matching a deserted auction
-                        match_deserta = deserta_pattern.match(line)
-                        if match_deserta:
-                            lotto, codice, addr, base, offer, res = match_deserta.groups()
-                            all_records.append({
-                                "lot_id": lotto,
-                                "codice": codice,
-                                "address": addr.strip(),
-                                "base_price_eur": self._clean_price(base),
-                                "final_offer_eur": 0.0,
-                                "winner": "",
-                                "auction_result": "ASTA DESERTA",
-                                "source_pdf": path.name
-                            })
 
         except Exception as e:
             logger.error(f"Failed to read PDF {path.name}: {e}")
