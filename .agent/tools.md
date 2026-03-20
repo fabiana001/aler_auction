@@ -50,4 +50,4 @@ Core software tools and classes used in the ALER Auction data pipeline.
 
 ## Data Processing
 - **`pandas`**: Primary library for data normalization and integration (DataFrame operations).
-- **`geopy` / Geocoding APIs**: Used by the `GeocodingAgent` for address resolution.
+- **`googlemaps`**: Used by the `GeocodingAgent` for address resolution.

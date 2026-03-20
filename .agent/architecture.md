@@ -19,24 +19,25 @@ end
 %% EXTRACTION AGENTS
 %% --------------------
 subgraph EXTRACTION_AGENTS["Extraction Agents"]
-    C[Archive Snapshot Discovery Agent]
-    D[Auction Page Data Extractor]
-    E[Auction Results Scraper]
+    C[Wayback Discovery Agent]
+    D[Auction Extraction Agent]
+    E[Auction Results Agent]
 end
 
 %% --------------------
 %% PROCESSING AGENTS
 %% --------------------
 subgraph PROCESSING_AGENTS["Processing & Enrichment Agents"]
-    F[Auction Data Normalization Agent]
-    G[Address Geocoding Agent]
+    F[Dataset Integration Agent]
+    G[Geocoding Agent]
+    H[Price Analysis Agent]
 end
 
 %% --------------------
 %% FINAL DATASET
 %% --------------------
 subgraph DATASET["Unified Dataset"]
-    H[ALER Auctions Integrated Dataset]
+    I[ALER Auctions Integrated Dataset]
 end
 
 %% FLOW
@@ -47,15 +48,16 @@ D -->|property features| F
 B -->|scrape results| E
 E -->|auction outcomes| F
 
-F -->|clean & structured data| G
-G -->|geocoded records| H
+F -->|join property & results| G
+G -->|geocoded coordinates| H
+H -->|price clusters & metrics| I
 ```
 
 ## Orchestration Logic
 
-1. **Discovery**: `WaybackDiscoveryAgent` uses `WaybackClient` to find snapshots map to auction listings.
-2. **Extraction**: `AuctionExtractionAgent` parses HTML tables or PDFs found in snapshots to extract `lot_id` and structural traits.
-3. **Results**: `AuctionResultsAgent` scrapes the live ALER historical site for final prices and results.
-4. **Normalization**: `AuctionNormalizationAgent` standardizes currency, dates, and property codes in PDF results.
-5. **Integration**: `DatasetIntegrationAgent` performs the final join on `lot_id` between property features and PDF results, generating `consolidated_auction_dataset`.
-6. **Geocoding**: `GeocodingAgent` adds spatial context to the consolidated dataset.
+1. **Discovery**: `Wayback Discovery Agent` uses `WaybackClient` to find snapshots mapping to auction listings.
+2. **Extraction**: `Auction Extraction Agent` uses `AuctionExtractor` to parse HTML tables found in snapshots to extract `lot_id` and structural traits.
+3. **Results**: `Auction Results Agent` uses `HistoricalAuctionClient` and `PDFExtractor` to scrape and parse ALER historical PDFs for outcomes.
+4. **Integration**: `Dataset Integration Agent` uses `DatasetIntegrator` to merge property traits and auction results.
+5. **Geocoding**: `Geocoding Agent` uses `Geocoder` to add spatial coordinates to the consolidated dataset.
+6. **Analysis**: `Price Analysis Agent` uses `PriceAnalyzer` to calculate price disparities and spatial clusters, producing the final enhanced dataset.
