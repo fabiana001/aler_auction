@@ -19,7 +19,9 @@ Un investitore deve poter valutare in pochi secondi se un'asta è un'opportunit�
 
 ### Active
 
-- [ ] Mappa interattiva con pin di tutte le aste e info principali (indirizzo, prezzo base, tipologia)
+- [x] Mappa interattiva con pin di tutte le aste e info principali (indirizzo, prezzo base, tipologia) — **Validata Step 1 (2026-05-16)**
+- [x] API REST FastAPI che espone i dati del dataset processato — **Validata Step 1 (2026-05-16)**
+- [x] Frontend React con mappa (Leaflet/MapLibre) e UI per ricerche e analisi — **Validata Step 1 (2026-05-16)**
 - [ ] Ricerca per via/indirizzo con visualizzazione trend prezzi nel raggio configurabile (default 500m)
 - [ ] Analisi AI del valore di mercato del quartiere: top 50 immobili simili da portali immobiliari (immobiliare.it / casa.it) con stima valore medio al m²
 - [ ] Confronto asta vs mercato: calcolo % di sconto rispetto al prezzo di mercato stimato
@@ -59,8 +61,8 @@ Un investitore deve poter valutare in pochi secondi se un'asta è un'opportunit�
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| FastAPI + React | API Python consistente col codebase, React per UI mappa ricca | — Pending |
-| Leaflet/MapLibre per mappa | Open source, ottimo supporto React, nessun costo API mappa | — Pending |
+| FastAPI + React | API Python consistente col codebase, React per UI mappa ricca | ✅ Step 1 |
+| Leaflet/MapLibre per mappa | Open source, ottimo supporto React, nessun costo API mappa | ✅ Step 1 |
 | immobiliare.it + casa.it per analisi mercato | Maggiore copertura Milano, dati strutturati, scraping fattibile | — Pending |
 | Nessun auth in v1 | Piattaforma pubblica, riduce complessità iniziale | — Pending |
 | Dati serviti da CSV analizzato | Riusa la pipeline esistente senza modifiche, prototipo rapido | — Pending |
@@ -83,4 +85,4 @@ Questo documento evolve ad ogni transizione di fase e milestone.
 4. Aggiorna Context con stato corrente
 
 ---
-*Last updated: 2026-04-14 after initialization*
+*Last updated: 2026-05-16 after Step 1 completion*

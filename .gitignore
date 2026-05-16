@@ -1,18 +1,51 @@
+# Environment
 .env
 
-# Added automatically by assistant
+# OS
 .DS_Store
-.env
+
+# Python
 .venv/
-.python-version
-.git/
-
-# Python packaging metadata
-*.egg-info/
-
-# Python cache
 __pycache__/
 *.py[cod]
-.planning
 *.pyc
-.hermes
+*.egg-info/
+dist/
+build/
+
+# Node
+node_modules/
+package-lock.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Planning & agent context (internal)
+.planning/
+.agent/
+.hermes/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (large files — keep only final dataset)
+data/old_auction_data/
+data/old_website/
+data/20260310_alermilanopianovendite.it/
+data/auction_details/
+data/historical_auction_data/
+data/*.json
+data/extracted_auctions.csv
+data/extracted_pdf_results.csv
+data/consolidated_auction_dataset.csv
+data/consolidated_auction_dataset_geocoded.csv
+data/consolidated_auction_dataset_geocoded.json
+data/consolidated_auction_dataset.json
+data/auction_detail_urls.json
+data/geocoding_cache.json
+
+# Frontend build
+frontend/dist/
