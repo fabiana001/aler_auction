@@ -13,3 +13,6 @@
 # Python cache
 __pycache__/
 *.py[cod]
+.planning
+*.pyc
+.hermes
