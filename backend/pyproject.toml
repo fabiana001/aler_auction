@@ -8,6 +8,7 @@ dependencies = [
     "pandas>=2.2.0",
     "python-dotenv>=1.0.0",
     "fastapi[standard]>=0.136.1",
+    "sse-starlette>=3.4.4",
 ]
 
 [tool.uv]
