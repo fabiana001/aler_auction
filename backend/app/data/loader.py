@@ -75,6 +75,12 @@ def get_auction_by_index(idx: int) -> dict | None:
     return _row_to_dict(row)
 
 
+def search_by_address(df: pd.DataFrame, query: str) -> pd.DataFrame:
+    """Filter the dataframe by address substring match (case-insensitive)."""
+    mask = df["address"].str.contains(query, case=False, na=False)
+    return df[mask]
+
+
 def _row_to_dict(row: pd.Series) -> dict:
     """Convert a DataFrame row to a clean dict, handling NaN."""
     d = {}

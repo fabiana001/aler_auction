@@ -16,3 +16,20 @@ export async function fetchAuction(id) {
   const { data } = await api.get(`/auctions/${id}`);
   return data;
 }
+
+export async function searchAuctions(query, params = {}) {
+  const { data } = await api.get("/auctions/search", { params: { q: query, ...params } });
+  return data;
+}
+
+export async function fetchNearby(lat, lng, radius, category) {
+  const params = { lat, lng, radius };
+  if (category) params.category = category;
+  const { data } = await api.get("/auctions/nearby", { params });
+  return data;
+}
+
+export async function fetchTrend(lat, lng, radius) {
+  const { data } = await api.get("/auctions/trend", { params: { lat, lng, radius } });
+  return data;
+}

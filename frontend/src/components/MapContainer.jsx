@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Circle, useMap } from "react-leaflet";
 import { Icon } from "leaflet";
 import { useEffect } from "react";
 import AuctionPopup from "./AuctionPopup";
@@ -33,19 +33,42 @@ function FitBounds({ auctions }) {
   return null;
 }
 
-export default function AuctionMap({ auctions }) {
+function FlyToCenter({ center }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (center && center[0] != null && center[1] != null) {
+      map.flyTo(center, 16, { duration: 0.8 });
+    }
+  }, [center, map]);
+
+  return null;
+}
+
+export default function AuctionMap({ auctions, center, radius, highlightedAuctions }) {
+  const displayAuctions = highlightedAuctions || auctions;
+  const showFitBounds = !center && !highlightedAuctions;
+
   return (
     <MapContainer
-      center={MILAN_CENTER}
-      zoom={DEFAULT_ZOOM}
+      center={center || MILAN_CENTER}
+      zoom={center ? 16 : DEFAULT_ZOOM}
       style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <FitBounds auctions={auctions} />
-      {auctions.map((auction) => (
+      {showFitBounds && <FitBounds auctions={displayAuctions} />}
+      {center && <FlyToCenter center={center} />}
+      {center && radius && (
+        <Circle
+          center={center}
+          radius={radius}
+          pathOptions={{ color: "#4a4aaa", fillColor: "#4a4aaa", fillOpacity: 0.1, weight: 2, dashArray: "6 4" }}
+        />
+      )}
+      {displayAuctions.map((auction) => (
         <Marker
           key={auction.id}
           position={[auction.lat, auction.lng]}

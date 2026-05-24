@@ -1,8 +1,38 @@
 import AuctionMap from "./components/MapContainer";
+import SearchBar from "./components/SearchBar";
+import NearbyPanel from "./components/NearbyPanel";
 import { useAuctions } from "./hooks/useAuctions";
+import { fetchNearby } from "./utils/api";
+import { useState, useCallback } from "react";
 
 function App() {
   const { auctions, total, loading, error } = useAuctions();
+  const [searchLocation, setSearchLocation] = useState(null);
+  const [nearbyAuctions, setNearbyAuctions] = useState(null);
+  const [nearbyRadius, setNearbyRadius] = useState(500);
+  const [showPanel, setShowPanel] = useState(false);
+
+  const handleSearchSelect = useCallback(async ({ lat, lng }) => {
+    if (lat == null || lng == null) return;
+    setSearchLocation({ lat, lng });
+    setNearbyRadius(500);
+    setShowPanel(true);
+    try {
+      const data = await fetchNearby(lat, lng, 500);
+      const items = Array.isArray(data) ? data : data.items || [];
+      setNearbyAuctions(items);
+    } catch {
+      setNearbyAuctions([]);
+    }
+  }, []);
+
+  const handleClosePanel = useCallback(() => {
+    setShowPanel(false);
+    setSearchLocation(null);
+    setNearbyAuctions(null);
+  }, []);
+
+  const mapCenter = searchLocation ? [searchLocation.lat, searchLocation.lng] : undefined;
 
   return (
     <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
@@ -15,19 +45,27 @@ function App() {
           justifyContent: "space-between",
           alignItems: "center",
           flexShrink: 0,
+          gap: 16,
         }}
       >
-        <h1 style={{ margin: 0, fontSize: 18, fontWeight: 700 }}>
+        <h1 style={{ margin: 0, fontSize: 18, fontWeight: 700, whiteSpace: "nowrap" }}>
           🗺️ Aste Immobiliari ALER — Milano
         </h1>
+        <SearchBar onSelect={handleSearchSelect} />
         {!loading && (
-          <span style={{ fontSize: 13, opacity: 0.8 }}>
+          <span style={{ fontSize: 13, opacity: 0.8, whiteSpace: "nowrap" }}>
             {total} aste visualizzate
           </span>
         )}
       </header>
 
       <main style={{ flex: 1, position: "relative" }}>
+        {showPanel && (
+          <NearbyPanel
+            location={searchLocation}
+            onClose={handleClosePanel}
+          />
+        )}
         {loading && (
           <div
             style={{
@@ -62,7 +100,12 @@ function App() {
             Errore: {error}
           </div>
         )}
-        <AuctionMap auctions={auctions} />
+        <AuctionMap
+          auctions={auctions}
+          center={mapCenter}
+          radius={showPanel ? nearbyRadius : undefined}
+          highlightedAuctions={showPanel ? nearbyAuctions : undefined}
+        />
       </main>
     </div>
   );
