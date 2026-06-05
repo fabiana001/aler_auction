@@ -4,71 +4,59 @@ import { useEffect } from "react";
 import AuctionPopup from "./AuctionPopup";
 import "leaflet/dist/leaflet.css";
 
-const defaultIcon = new Icon({
-  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
+const SHADOW = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png";
+const CM = "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img";
+
+// Aggiudicata (~80%) — blue, high contrast on OSM beige/grey
+const aggiudicataIcon = new Icon({
+  iconUrl: `${CM}/marker-icon-blue.png`,
+  iconRetinaUrl: `${CM}/marker-icon-2x-blue.png`,
+  shadowUrl: SHADOW,
+  iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41],
 });
 
-// Orange pin for recent auctions (last 12 months)
-const recentIcon = new Icon({
-  iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png",
-  iconRetinaUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
+// Deserta — red-orange, signals failure
+const desertaIcon = new Icon({
+  iconUrl: `${CM}/marker-icon-red.png`,
+  iconRetinaUrl: `${CM}/marker-icon-2x-red.png`,
+  shadowUrl: SHADOW,
+  iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41],
 });
 
-// Green pin for active (upcoming) auction lots
+// Sconosciuto — grey, neutral/no data
+const sconosciutoIcon = new Icon({
+  iconUrl: `${CM}/marker-icon-grey.png`,
+  iconRetinaUrl: `${CM}/marker-icon-2x-grey.png`,
+  shadowUrl: SHADOW,
+  iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41],
+});
+
+// Attiva — gold/amber, max contrast on OSM park green
 const activeIcon = new Icon({
-  iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
-  iconRetinaUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
+  iconUrl: `${CM}/marker-icon-gold.png`,
+  iconRetinaUrl: `${CM}/marker-icon-2x-gold.png`,
+  shadowUrl: SHADOW,
+  iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41],
 });
 
-// Yellow/gold pin for trend-highlighted auctions
+// Trend highlight — yellow, enlarged
 const highlightIcon = new Icon({
-  iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png",
-  iconRetinaUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-  iconSize: [32, 52],
-  iconAnchor: [16, 52],
-  popupAnchor: [1, -44],
-  shadowSize: [41, 41],
+  iconUrl: `${CM}/marker-icon-yellow.png`,
+  iconRetinaUrl: `${CM}/marker-icon-2x-yellow.png`,
+  shadowUrl: SHADOW,
+  iconSize: [32, 52], iconAnchor: [16, 52], popupAnchor: [1, -44], shadowSize: [41, 41],
 });
+
+function outcomeIcon(auction) {
+  const r = (auction.properties?.auction_result || "").toUpperCase();
+  if (r === "AGGIUDICATA") return aggiudicataIcon;
+  if (r.includes("DESERT")) return desertaIcon;
+  return sconosciutoIcon;
+}
 
 const MILAN_CENTER = [45.4642, 9.19];
 const DEFAULT_ZOOM = 12;
 
-const RECENT_CUTOFF_MS = Date.now() - 365 * 24 * 60 * 60 * 1000;
-const IT_MONTHS = {
-  gennaio:1, febbraio:2, marzo:3, aprile:4, maggio:5, giugno:6,
-  luglio:7, agosto:8, settembre:9, ottobre:10, novembre:11, dicembre:12,
-};
-
-function parseItDate(s) {
-  if (!s) return null;
-  const m = s.trim().toLowerCase().match(/^(\d+)\s+(\w+)\s+(\d{4})$/);
-  if (!m) return null;
-  const mon = IT_MONTHS[m[2]];
-  if (!mon) return null;
-  return new Date(parseInt(m[3]), mon - 1, parseInt(m[1]));
-}
-
-function isRecent(auction) {
-  const d = parseItDate(auction.properties?.auction_date);
-  return d != null && d.getTime() >= RECENT_CUTOFF_MS;
-}
 
 function FitBounds({ auctions }) {
   const map = useMap();
@@ -141,7 +129,7 @@ export default function AuctionMap({ auctions, center, circleCenter, radius, hig
       {displayAuctions.map((auction) => {
         const isHighlighted = highlightSet.has(auction.id);
         const isSelected = auction.id === selectedAuctionId;
-        const icon = isHighlighted ? highlightIcon : isRecent(auction) ? recentIcon : defaultIcon;
+        const icon = isHighlighted ? highlightIcon : outcomeIcon(auction);
         return (
           <Marker
             key={auction.id}

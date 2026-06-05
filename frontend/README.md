@@ -1,135 +1,74 @@
 # Frontend — ALER Auction Map
 
-Applicazione **React + Vite** che visualizza le aste immobiliari su una mappa **Leaflet** interattiva.
+**React + Vite** application with an interactive **Leaflet** map for exploring ALER auctions and a pipeline control dashboard.
 
-## Avvio
+## Start
 
 ```bash
-# Installa dipendenze (solo la prima volta)
 npm install
-
-# Sviluppo (con HMR)
-npm run dev
-
-# Build di produzione
-npm run build
-
-# Preview build di produzione
-npm run preview
+npm run dev      # Dev server at http://localhost:5173
+npm run build    # Production build to dist/
+npm run preview  # Preview build at localhost:4173
 ```
 
-L'applicazione sarà disponibile su **http://localhost:5173**
+## Routes
 
-## Struttura Codice
+| Path | Component | Description |
+|------|-----------|-------------|
+| `/` | `pages/AuctionApp.jsx` | Map with all auctions, search, trends |
+| `/admin` | `pages/AdminDashboard.jsx` | Pipeline dashboard with SSE logs |
+
+## Structure
 
 ```
-frontend/
-├── src/
-│   ├── main.jsx                    ← Entry point — monta React su #root
-│   ├── App.jsx                     ← Layout: header + mappa
-│   ├── App.css                     ← Stili App
-│   ├── index.css                   ← Stili globali
-│   ├── components/
-│   │   ├── MapContainer.jsx        ← Mappa Leaflet con marker
-│   │   └── AuctionPopup.jsx        ← Popup informativo per ogni marker
-│   ├── hooks/
-│   │   └── useAuctions.js          ← Hook: fetch + stato aste
-│   └── utils/
-│       └── api.js                  ← Client axios per il backend
-├── public/
-│   └── favicon.svg
-├── index.html                      ← HTML base
-├── vite.config.js                  ← Configurazione Vite
-├── package.json
-└── .env                            ← VITE_BACKEND_URL
+frontend/src/
+├── main.jsx                    ← entry point + React Router
+├── pages/                      ← route-level components
+│   ├── AuctionApp.jsx          ← map + search + side panels
+│   └── AdminDashboard.jsx      ← pipeline control (Run/Stop/Log)
+├── components/                 ← reusable components
+│   ├── MapContainer.jsx        ← Leaflet map with markers
+│   ├── AuctionPopup.jsx        ← auction info popup
+│   ├── SearchBar.jsx           ← address search
+│   ├── NearbyPanel.jsx         ← nearby auctions list
+│   ├── TrendPanel.jsx          ← price/m² trend chart
+│   ├── ActiveAuctionPanel.jsx  ← live active auctions
+│   ├── StageCard.jsx           ← single pipeline stage card
+│   ├── AdminNavbar.jsx
+│   └── NewAuctionsBanner.jsx
+├── hooks/
+│   ├── useAuctions.js          ← fetch and auction state
+│   ├── usePipeline.js          ← pipeline state + polling
+│   └── useSearch.js            ← search state
+└── utils/
+    ├── api.js                  ← axios client for /api/auctions/*
+    └── pipelineApi.js          ← axios client + SSE for /api/pipeline/*
 ```
 
-## Componenti
+**pages vs components**: `pages/` holds components tied to a specific route (not reusable elsewhere); `components/` holds route-independent reusable elements.
 
-### `App.jsx`
+## Configuration
 
-Layout principale dell'applicazione. Contiene:
-- **Header** con titolo "🗺️ Aste Immobiliari ALER — Milano" e contatore aste
-- **Loader** visualizzato durante il caricamento
-- **Banner errore** in caso di fallimento
-- **`<AuctionMap />`** — la mappa a schermo pieno
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `VITE_BACKEND_URL` | `http://localhost:8000` | Backend API base URL |
 
-### `MapContainer.jsx`
+Create a `.env` file inside `frontend/`:
 
-Componente mappa Leaflet. Responsabilità:
-- Inizializza la mappa centrata su Milano (45.4642, 9.19) con zoom 12
-- Aggiunge tile layer OpenStreetMap
-- Renderizza un **`<Marker />`** per ogni asta con icona default
-- Ogni marker contiene un **`<AuctionPopup />`**
-- **`FitBounds`** — componente interno che auto-adatta la vista ai marker
+```
+VITE_BACKEND_URL=http://localhost:8000
+```
 
-### `AuctionPopup.jsx`
+Vite environment variables are embedded into the bundle at build time and must be prefixed with `VITE_`.
 
-Popup mostrato al click su un marker. Visualizza:
-- **Indirizzo** (titolo)
-- **Tipologia** immobile
-- **Prezzo base** (formattato in €)
-- **Offerta finale** (se disponibile)
-- **Vani**, **Superficie**, **€/m²** (se disponibili)
-- **Esito** asta, **Data asta** (se disponibili)
+## Dependencies
 
-### `useAuctions.js`
-
-Hook personalizzato che gestisce:
-- `auctions` — array delle aste caricate
-- `total` — numero totale di aste
-- `loading` — stato di caricamento
-- `error` — messaggio di errore
-- `reload()` — funzione per ricaricare i dati
-
-### `api.js`
-
-Client axios configurato con:
-- `baseURL` → `${VITE_BACKEND_URL}/api`
-- `timeout` → 10 secondi
-- `fetchAuctions(params)` — GET /auctions
-- `fetchAuction(id)` — GET /auctions/{id}
-
-## Configurazione
-
-File `frontend/.env`:
-
-| Variabile | Default | Descrizione |
-|-----------|---------|-------------|
-| `VITE_BACKEND_URL` | `http://localhost:8000` | URL del backend API |
-
-> **Nota**: le variabili d'ambiente nel frontend devono iniziare con `VITE_` per essere incluse nel build (convensione Vite).
-
-## Dipendenze
-
-| Pacchetto | Versione | Scopo |
-|-----------|----------|-------|
+| Package | Version | Purpose |
+|---------|---------|---------|
 | react | 19 | UI framework |
-| react-dom | 19 | Rendering DOM |
-| leaflet | 1.9.4 | Libreria mappa |
-| react-leaflet | 5.0.0 | Componenti React per Leaflet |
-| axios | ≥ 1.16 | Client HTTP |
+| react-dom | 19 | DOM rendering |
+| react-router-dom | 7 | Client-side routing |
+| leaflet | 1.9 | Map library |
+| react-leaflet | 5.0 | React components for Leaflet |
+| axios | ≥ 1.16 | HTTP client |
 | vite | 8 | Build tool + dev server |
-
-## Build di Produzione
-
-```bash
-npm run build
-```
-
-Output in `dist/`:
-- `index.html` (0.45 kB)
-- `assets/index-*.css` (15 kB, Leaflet CSS incluso)
-- `assets/index-*.js` (390 kB, bundle completo)
-
-Per servire la build:
-
-```bash
-npm run preview    # Avvia server su localhost:4173
-```
-
-Oppure servire con qualsiasi static file server:
-
-```bash
-npx serve dist/
-```

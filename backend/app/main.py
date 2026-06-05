@@ -14,7 +14,7 @@ from app.routers.pipeline import router as pipeline_router
 
 load_dotenv()
 
-cors_origins_raw = os.getenv("CORS_ORIGINS", '["http://localhost:5173"]')
+cors_origins_raw = os.getenv("CORS_ORIGINS", '["http://localhost:5173","http://localhost:5174","http://localhost:5200"]')
 CORS_ORIGINS = json.loads(cors_origins_raw)
 
 

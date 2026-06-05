@@ -72,7 +72,7 @@ function LotRow({ lot, onClick }) {
           </span>
         ) : "—"}
       </td>
-      <td style={{ padding: "6px 8px", textAlign: "right", fontWeight: 600, whiteSpace: "nowrap", color: "#0f172a" }}>
+      <td style={{ padding: "6px 8px", textAlign: "right", fontWeight: 600, whiteSpace: "nowrap", color: "#0f172a", fontFamily: "'IBM Plex Mono', monospace" }}>
         {formatPrice(lot.base_price_eur)}
       </td>
       <td style={{ padding: "6px 8px", textAlign: "center", whiteSpace: "nowrap" }}>
@@ -135,8 +135,8 @@ export default function ActiveAuctionPanel({ data, onLotClick }) {
         }}
         onClick={() => setExpanded((v) => !v)}
       >
-        <span style={{ fontSize: 15 }}>🔔</span>
-        <span style={{ fontSize: 12, fontWeight: 700, color: "#92400e" }}>
+        <i className="ti ti-gavel" style={{ fontSize: 14, color: "#92400e" }} />
+        <span style={{ fontSize: 12, fontWeight: 700, color: "#92400e", letterSpacing: "0.07em" }}>
           ASTA ATTIVA
         </span>
         <span style={{ fontSize: 12, fontWeight: 600, color: "#1e293b" }}>
@@ -155,8 +155,8 @@ export default function ActiveAuctionPanel({ data, onLotClick }) {
         <span style={{
           marginLeft: 6,
           background: "#f59e0b", color: "#fff",
-          borderRadius: 12, padding: "1px 9px",
-          fontSize: 11, fontWeight: 700,
+          borderRadius: 3, padding: "1px 9px",
+          fontSize: 11, fontWeight: 700, letterSpacing: "0.03em",
         }}>
           {lots.length} alloggi
         </span>
@@ -229,13 +229,13 @@ export default function ActiveAuctionPanel({ data, onLotClick }) {
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ background: "#fef3c7", borderBottom: "1px solid #fde68a" }}>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "left" }}>LOTTO</th>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "left" }}>INDIRIZZO</th>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "center" }}>LOCALI</th>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "center" }}>MQ</th>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "center" }}>APE</th>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "right" }}>PREZZO BASE</th>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "center" }}>DOC</th>
+                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "left", letterSpacing: "0.07em" }}>LOTTO</th>
+                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "left", letterSpacing: "0.07em" }}>INDIRIZZO</th>
+                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "center", letterSpacing: "0.07em" }}>LOCALI</th>
+                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "center", letterSpacing: "0.07em" }}>MQ</th>
+                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "center", letterSpacing: "0.07em" }}>APE</th>
+                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "right", letterSpacing: "0.07em" }}>PREZZO BASE</th>
+                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "center", letterSpacing: "0.07em" }}>DOC</th>
                 </tr>
               </thead>
               <tbody>

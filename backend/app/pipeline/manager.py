@@ -191,7 +191,7 @@ class PipelineManager:
 
         # Use exec (not shell) to avoid shell injection.
         # step.script is always a value from the hardcoded PIPELINE_STEPS dict.
-        cmd_args = ["uv", "run", "python", f"scripts/{step.script}"]
+        cmd_args = ["uv", "run", "python", f"pipeline/scripts/{step.script}"]
         logger.info("Starting step %s: %s", step.step_id, " ".join(cmd_args))
 
         try:

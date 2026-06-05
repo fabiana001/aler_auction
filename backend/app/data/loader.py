@@ -10,7 +10,7 @@ load_dotenv()
 
 DATASET_PATH = os.getenv(
     "DATASET_PATH",
-    str(Path(__file__).resolve().parents[3] / "data" / "consolidated_auction_dataset_analyzed.csv"),
+    str(Path(__file__).resolve().parents[3] / "data" / "processed" / "consolidated_auction_dataset_analyzed.csv"),
 )
 
 # Columns exposed via the API
@@ -29,6 +29,9 @@ API_COLUMNS = [
     "base_price_per_sqm",
     "final_offer_eur",
     "has_box",
+    "source_file",
+    "source_pdf",
+    "source_url",
 ]
 
 _df: pd.DataFrame | None = None

@@ -12,11 +12,11 @@ function formatEur(v) {
 }
 
 function outcomeInfo(result) {
-  if (!result) return { bg: "#fef2f2", color: "#b91c1c", border: "#fecaca", label: "Esito non disp.", activeBg: "#b91c1c" };
+  if (!result) return { bg: "#fafafa", color: "#52525b", border: "#d4d4d8", label: "Esito non disp.", activeBg: "#71717a" };
   const r = result.toUpperCase();
-  if (r === "AGGIUDICATA") return { bg: "#f0fdf4", color: "#15803d", border: "#bbf7d0", label: "Aggiudicata", activeBg: "#16a34a" };
-  if (r.includes("DESERT")) return { bg: "#fffbeb", color: "#92400e", border: "#fde68a", label: "Asta deserta", activeBg: "#d97706" };
-  return { bg: "#fef2f2", color: "#b91c1c", border: "#fecaca", label: result, activeBg: "#b91c1c" };
+  if (r === "AGGIUDICATA") return { bg: "#eff6ff", color: "#1d4ed8", border: "#bfdbfe", label: "Aggiudicata", activeBg: "#2563eb" };
+  if (r.includes("DESERT")) return { bg: "#fff7ed", color: "#9a3412", border: "#fed7aa", label: "Asta deserta", activeBg: "#c2410c" };
+  return { bg: "#fafafa", color: "#52525b", border: "#d4d4d8", label: result, activeBg: "#71717a" };
 }
 
 function extractYear(dateStr) {
@@ -37,7 +37,7 @@ function YearRangeSlider({ years, minYear, maxYear, onChange }) {
   const pctMin = ((minYear - min) / (max - min || 1)) * 100;
   const pctMax = ((maxYear - min) / (max - min || 1)) * 100;
 
-  const ACCENT = "#2563EB";
+  const ACCENT = "#1d4ed8";
 
   const thumbStyle = {
     WebkitAppearance: "none",
@@ -61,10 +61,10 @@ function YearRangeSlider({ years, minYear, maxYear, onChange }) {
             pointer-events:none; outline:none; }
           .yr-slider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none;
             width:14px; height:14px; border-radius:50%; background:#fff;
-            border:2px solid #2563EB; cursor:grab; pointer-events:auto;
+            border:2px solid #1d4ed8; cursor:grab; pointer-events:auto;
             box-shadow:0 1px 4px rgba(0,0,0,0.18); }
           .yr-slider::-moz-range-thumb { width:14px; height:14px; border-radius:50%;
-            background:#fff; border:2px solid #2563EB; cursor:grab;
+            background:#fff; border:2px solid #1d4ed8; cursor:grab;
             pointer-events:auto; box-shadow:0 1px 4px rgba(0,0,0,0.18); }
           .yr-slider::-webkit-slider-runnable-track { background:transparent; }
           .yr-slider::-moz-range-track { background:transparent; }
@@ -111,7 +111,7 @@ function YearRangeSlider({ years, minYear, maxYear, onChange }) {
   );
 }
 
-function FilterChip({ label, active, onClick, activeBg = "#2563EB" }) {
+function FilterChip({ label, active, onClick, activeBg = "#1d4ed8" }) {
   return (
     <button
       onClick={onClick}
@@ -119,17 +119,18 @@ function FilterChip({ label, active, onClick, activeBg = "#2563EB" }) {
         fontSize: 11,
         fontWeight: 500,
         padding: "3px 10px",
-        borderRadius: 20,
-        border: "1px solid " + (active ? activeBg : "#e2e8f0"),
-        background: active ? activeBg : "#f8fafc",
-        color: active ? "#fff" : "#475569",
+        borderRadius: 3,
+        border: "1px solid " + (active ? activeBg : "#e5e7eb"),
+        background: active ? activeBg : "#f9fafb",
+        color: active ? "#fff" : "#4b5563",
         cursor: "pointer",
         transition: "all 0.12s",
         whiteSpace: "nowrap",
         flexShrink: 0,
+        letterSpacing: "0.04em",
       }}
-      onMouseEnter={(e) => { if (!active) e.currentTarget.style.background = "#e2e8f0"; }}
-      onMouseLeave={(e) => { if (!active) e.currentTarget.style.background = "#f8fafc"; }}
+      onMouseEnter={(e) => { if (!active) e.currentTarget.style.background = "#e5e7eb"; }}
+      onMouseLeave={(e) => { if (!active) e.currentTarget.style.background = "#f9fafb"; }}
     >
       {label}
     </button>
@@ -138,11 +139,12 @@ function FilterChip({ label, active, onClick, activeBg = "#2563EB" }) {
 
 const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 
-function waybackUrl(sourceFile) {
-  if (!sourceFile) return null;
+function waybackUrl(sourceFile, sourceUrl) {
+  if (!sourceFile || !sourceUrl) return null;
   const timestamp = sourceFile.replace(".html", "");
-  return `https://web.archive.org/web/${timestamp}/http://www.alermipianovendite.it/asta-alloggi/`;
+  return `https://web.archive.org/web/${timestamp}/${sourceUrl}`;
 }
+
 
 function pdfUrl(sourcePdf) {
   if (!sourcePdf) return null;
@@ -172,8 +174,8 @@ function AuctionRow({ a }) {
           {p.address || "Indirizzo sconosciuto"}
         </span>
         <span style={{
-          fontSize: 10, padding: "2px 7px", borderRadius: 20, fontWeight: 600, whiteSpace: "nowrap",
-          background: info.activeBg, color: "#fff",
+          fontSize: 10, padding: "2px 7px", borderRadius: 3, fontWeight: 600, whiteSpace: "nowrap",
+          background: info.activeBg, color: "#fff", letterSpacing: "0.03em",
         }}>
           {info.label}
         </span>
@@ -206,29 +208,29 @@ function AuctionRow({ a }) {
       {(p.base_price_eur != null || p.final_offer_eur != null) && (
         <div style={{ marginTop: 5, display: "flex", alignItems: "center", gap: 8 }}>
           {p.base_price_eur != null && (
-            <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)" }}>
+            <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)", fontFamily: "var(--font-mono)" }}>
               Base: {formatEur(p.base_price_eur)}
             </span>
           )}
           {p.base_price_per_sqm != null && (
             <>
               <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>·</span>
-              <span style={{ fontSize: 11, color: "var(--color-text-secondary)" }}>{Math.round(p.base_price_per_sqm).toLocaleString("it-IT")} €/m²</span>
+              <span style={{ fontSize: 11, color: "var(--color-text-secondary)", fontFamily: "var(--font-mono)" }}>{Math.round(p.base_price_per_sqm).toLocaleString("it-IT")} €/m²</span>
             </>
           )}
           {p.final_offer_eur != null && p.final_offer_eur > 0 && (
             <>
               <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>·</span>
-              <span style={{ fontSize: 11, color: info.color, fontWeight: 500 }}>Agg.: {formatEur(p.final_offer_eur)}</span>
+              <span style={{ fontSize: 11, color: info.color, fontWeight: 500, fontFamily: "var(--font-mono)" }}>Agg.: {formatEur(p.final_offer_eur)}</span>
             </>
           )}
         </div>
       )}
-      {(p.source_file || p.source_pdf) && (
+      {((p.source_file && p.source_url) || p.source_pdf) && (
         <div style={{ marginTop: 6, display: "flex", alignItems: "center", gap: 8 }}>
-          {p.source_file && (
+          {p.source_file && p.source_url && (
             <a
-              href={waybackUrl(p.source_file)}
+              href={waybackUrl(p.source_file, p.source_url)}
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
@@ -242,8 +244,8 @@ function AuctionRow({ a }) {
               onMouseEnter={(e) => e.currentTarget.style.background = "#dbeafe"}
               onMouseLeave={(e) => e.currentTarget.style.background = "#eff6ff"}
             >
-              <i className="ti ti-history" style={{ fontSize: 10 }} />
-              Wayback
+              <i className="ti ti-world" style={{ fontSize: 10 }} />
+              Pagina asta
             </a>
           )}
           {p.source_pdf && (
@@ -274,11 +276,20 @@ function AuctionRow({ a }) {
 
 const OUTCOME_FILTERS = [
   { key: "tutte",       label: "Tutte",       activeBg: "#2563EB" },
-  { key: "aggiudicate", label: "Aggiudicate", activeBg: "#16a34a" },
-  { key: "deserte",     label: "Deserte",     activeBg: "#d97706" },
+  { key: "aggiudicate", label: "Aggiudicate", activeBg: "#2563eb" },
+  { key: "deserte",     label: "Deserte",     activeBg: "#c2410c" },
 ];
 
-export default function TrendPanel({ auction, onClose, onHoverIds, onRadiusChange }) {
+function haversineMeters(lat1, lng1, lat2, lng2) {
+  const R = 6371000;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLng = ((lng2 - lng1) * Math.PI) / 180;
+  const a = Math.sin(dLat / 2) ** 2 +
+    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+export default function TrendPanel({ auction, onClose, onHoverIds, onRadiusChange, activeLots = [] }) {
   const [radius, setRadius] = useState(RADIUS_DEFAULT);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -381,7 +392,18 @@ export default function TrendPanel({ auction, onClose, onHoverIds, onRadiusChang
     onRadiusChange && onRadiusChange({ lat, lng, radius, ids });
   }, [filteredTimeSeries]);
 
-  const sourceList = hoveredPoint ? (hoveredPoint.auctions || []) : filteredTimeSeries.flatMap((p) => p.auctions || []);
+  // Active lots within the current radius
+  const nearbyActiveLots = useMemo(() => {
+    if (!lat || !lng || !activeLots.length) return [];
+    return activeLots.filter(
+      (l) => l.lat != null && l.lng != null && haversineMeters(lat, lng, l.lat, l.lng) <= radius
+    );
+  }, [activeLots, lat, lng, radius]);
+
+  // filteredTimeSeries is sorted ascending by ISO date; reverse gives newest-first
+  const sourceList = hoveredPoint
+    ? (hoveredPoint.auctions || [])
+    : [...filteredTimeSeries].reverse().flatMap((p) => p.auctions || []);
 
   const filteredList = sourceList.filter((a) => {
     const result = (a.properties?.auction_result || "").toUpperCase();
@@ -394,7 +416,7 @@ export default function TrendPanel({ auction, onClose, onHoverIds, onRadiusChang
 
   return (
     <div style={{
-      width: 360,
+      width: 480,
       flexShrink: 0,
       background: "var(--color-background-primary)",
       borderLeft: "1px solid #e2e8f0",
@@ -402,6 +424,7 @@ export default function TrendPanel({ auction, onClose, onHoverIds, onRadiusChang
       flexDirection: "column",
       overflow: "hidden",
       animation: "slideInRight 0.22s ease-out",
+      boxShadow: "var(--shadow-panel)",
     }}>
       <style>{`@keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }`}</style>
 
@@ -452,13 +475,13 @@ export default function TrendPanel({ auction, onClose, onHoverIds, onRadiusChang
             { val: filteredAvgBase != null ? formatEur(filteredAvgBase) : "—", unit: "prezzo base medio" },
           ].map(({ val, unit }) => (
             <div key={unit} style={{
-              background: "#f8fafc",
-              border: "0.5px solid #e2e8f0",
+              background: "var(--color-background-secondary)",
+              border: "1px solid var(--color-border-tertiary)",
               borderRadius: "var(--border-radius-md)",
               padding: "8px 10px",
             }}>
-              <div style={{ fontSize: 17, fontWeight: 500, color: "var(--color-text-primary)", lineHeight: 1.1 }}>{val}</div>
-              <div style={{ fontSize: 10, color: "var(--color-text-tertiary)", marginTop: 3 }}>{unit}</div>
+              <div style={{ fontSize: 16, fontWeight: 500, color: "var(--color-text-primary)", lineHeight: 1.1, fontFamily: "var(--font-mono)", letterSpacing: "-0.02em" }}>{val}</div>
+              <div style={{ fontSize: 9, color: "var(--color-text-tertiary)", marginTop: 3, textTransform: "uppercase", letterSpacing: "0.05em" }}>{unit}</div>
             </div>
           ))}
         </div>
@@ -466,7 +489,7 @@ export default function TrendPanel({ auction, onClose, onHoverIds, onRadiusChang
 
       {/* Chart */}
       <div style={{ padding: "10px 14px 8px", borderBottom: "0.5px solid #e2e8f0", flexShrink: 0 }}>
-        <div style={{ fontSize: 11, color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
+        <div style={{ fontSize: 10, fontWeight: 600, color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: 8 }}>
           €/m² nel tempo
         </div>
         {loading && (
@@ -488,7 +511,7 @@ export default function TrendPanel({ auction, onClose, onHoverIds, onRadiusChang
           <TrendChart
             timeSeries={filteredTimeSeries}
             avgPsm={filteredAvgPsm}
-            width={328}
+            width={448}
             height={100}
             hoveredDate={hoveredDate}
             onPointHover={handlePointHover}
@@ -561,9 +584,89 @@ export default function TrendPanel({ auction, onClose, onHoverIds, onRadiusChang
 
       {/* Auction list */}
       <div style={{ flex: 1, overflowY: "auto", padding: "6px 8px 8px" }}>
-        {filteredList.length === 0 && !loading && (
+        {/* Active auctions section */}
+        {!hoveredPoint && nearbyActiveLots.length > 0 && (
+          <div style={{ marginBottom: 8 }}>
+            <div style={{
+              fontSize: 10, fontWeight: 700, color: "#92400e", textTransform: "uppercase",
+              letterSpacing: "0.06em", marginBottom: 4, paddingLeft: 2,
+              display: "flex", alignItems: "center", gap: 4,
+            }}>
+              <i className="ti ti-gavel" style={{ fontSize: 10, color: "#92400e" }} /> Aste attive nel raggio ({nearbyActiveLots.length})
+            </div>
+            {nearbyActiveLots.map((lot) => (
+              <div key={lot.lot_id} style={{
+                padding: "9px 10px 9px 12px",
+                borderRadius: "var(--border-radius-md)",
+                background: "linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%)",
+                border: "0.5px solid #fde68a",
+                borderLeft: "3px solid #f59e0b",
+                marginBottom: 4,
+              }}>
+                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 6, marginBottom: 4 }}>
+                  <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)", lineHeight: 1.3, flex: 1 }}>
+                    {lot.address}{lot.street_number ? ` ${lot.street_number}` : ""}
+                    {lot.city && lot.city !== "MILANO" && (
+                      <span style={{ fontSize: 11, color: "var(--color-text-secondary)", marginLeft: 4 }}>{lot.city}</span>
+                    )}
+                  </span>
+                  <span style={{
+                    fontSize: 10, padding: "2px 7px", borderRadius: 3, fontWeight: 600, whiteSpace: "nowrap",
+                    background: "#f59e0b", color: "#fff", letterSpacing: "0.03em",
+                  }}>
+                    Attiva
+                  </span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+                  {lot.surface_sqm != null && (
+                    <span style={{ display: "flex", alignItems: "center", gap: 3, fontSize: 11, color: "var(--color-text-secondary)", fontWeight: 500 }}>
+                      <i className="ti ti-ruler-2" style={{ fontSize: 11 }} />{lot.surface_sqm} m²
+                    </span>
+                  )}
+                  {lot.rooms != null && (
+                    <span style={{ fontSize: 11, color: "var(--color-text-secondary)" }}>{lot.rooms} loc.</span>
+                  )}
+                  {lot.has_box && (
+                    <span style={{
+                      fontSize: 10, fontWeight: 600, padding: "1px 6px", borderRadius: 4,
+                      background: "#eff6ff", color: "#1d4ed8", border: "1px solid #bfdbfe",
+                    }}>
+                      + box
+                    </span>
+                  )}
+                  {lot.ape_class && (
+                    <span style={{ fontSize: 11, color: "#64748b", fontWeight: 600 }}>APE {lot.ape_class}</span>
+                  )}
+                </div>
+                {lot.base_price_eur != null && (
+                  <div style={{ marginTop: 5 }}>
+                    <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)", fontFamily: "var(--font-mono)" }}>
+                      Base: {formatEur(lot.base_price_eur)}
+                    </span>
+                    {lot.surface_sqm && (
+                      <>
+                        <span style={{ fontSize: 11, color: "var(--color-text-tertiary)", margin: "0 6px" }}>·</span>
+                        <span style={{ fontSize: 11, color: "var(--color-text-secondary)", fontFamily: "var(--font-mono)" }}>
+                          {Math.round(lot.base_price_eur / lot.surface_sqm).toLocaleString("it-IT")} €/m²
+                        </span>
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+            <div style={{ height: "0.5px", background: "#e2e8f0", margin: "8px 0" }} />
+          </div>
+        )}
+
+        {filteredList.length === 0 && nearbyActiveLots.length === 0 && !loading && (
           <div style={{ padding: 20, textAlign: "center", fontSize: 13, color: "var(--color-text-tertiary)" }}>
             Nessuna asta trovata
+          </div>
+        )}
+        {filteredList.length === 0 && nearbyActiveLots.length > 0 && !loading && (
+          <div style={{ padding: "8px 0", textAlign: "center", fontSize: 12, color: "var(--color-text-tertiary)" }}>
+            Nessuna asta storica trovata
           </div>
         )}
         {filteredList.map((a) => (

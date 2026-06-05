@@ -12,7 +12,7 @@ from fastapi.responses import FileResponse
 from app.data.loader import get_auction_by_index, get_auctions_df, invalidate_cache, search_by_address
 
 _PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
-_ACTIVE_AUCTION_FILE = _PROJECT_ROOT / "data" / "active_auction_lots.json"
+_ACTIVE_AUCTION_FILE = _PROJECT_ROOT / "data" / "cache" / "active_auction_lots.json"
 
 _IT_MONTHS = {
     "gennaio": 1, "febbraio": 2, "marzo": 3, "aprile": 4,
@@ -224,7 +224,8 @@ def price_trend(
     }
 
 
-_PDF_DIR = _PROJECT_ROOT / "data" / "historical_auction_data"
+_PDF_DIR = _PROJECT_ROOT / "data" / "raw" / "historical_auction_data"
+_HTML_DIR = _PROJECT_ROOT / "data" / "raw" / "auction_details"
 
 
 @router.get("/pdf/{filename}")
@@ -239,6 +240,17 @@ def serve_pdf(filename: str):
     return FileResponse(path, media_type="application/pdf", filename=filename)
 
 
+@router.get("/html/{filename}")
+def serve_html(filename: str):
+    """Serve a saved auction detail HTML page by filename."""
+    if "/" in filename or "\\" in filename or ".." in filename:
+        raise HTTPException(status_code=400, detail="Invalid filename")
+    path = _HTML_DIR / filename
+    if not path.exists() or path.suffix.lower() != ".html":
+        raise HTTPException(status_code=404, detail="HTML not found")
+    return FileResponse(path, media_type="text/html")
+
+
 @router.post("/reload")
 def reload_dataset():
     """Invalidate the in-memory dataset cache so the next request re-reads the file."""
@@ -246,7 +258,7 @@ def reload_dataset():
     return {"reloaded": True}
 
 
-_GEOCODING_CACHE_FILE = _PROJECT_ROOT / "data" / "geocoding_cache.json"
+_GEOCODING_CACHE_FILE = _PROJECT_ROOT / "data" / "cache" / "geocoding_cache.json"
 _geo_cache: dict | None = None
 
 
@@ -324,6 +336,7 @@ def _row_to_feature(row, idx) -> dict:
         "has_box",
         "source_file",
         "source_pdf",
+        "source_url",
     ]:
         val = row.get(col)
         import pandas as pd

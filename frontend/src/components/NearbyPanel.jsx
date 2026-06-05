@@ -9,17 +9,17 @@ function formatPrice(value) {
 }
 
 function outcomeInfo(result) {
-  if (!result) return { bg: "#fef2f2", color: "#b91c1c", border: "#fecaca", label: "Esito non disp.", activeBg: "#b91c1c" };
+  if (!result) return { bg: "#fafafa", color: "#52525b", border: "#d4d4d8", label: "Esito non disp.", activeBg: "#71717a" };
   const r = result.toUpperCase();
-  if (r === "AGGIUDICATA") return { bg: "#f0fdf4", color: "#15803d", border: "#bbf7d0", label: "Aggiudicata", activeBg: "#16a34a" };
-  if (r.includes("DESERT")) return { bg: "#fffbeb", color: "#92400e", border: "#fde68a", label: "Asta deserta", activeBg: "#d97706" };
-  return { bg: "#fef2f2", color: "#b91c1c", border: "#fecaca", label: result, activeBg: "#b91c1c" };
+  if (r === "AGGIUDICATA") return { bg: "#eff6ff", color: "#1d4ed8", border: "#bfdbfe", label: "Aggiudicata", activeBg: "#2563eb" };
+  if (r.includes("DESERT")) return { bg: "#fff7ed", color: "#9a3412", border: "#fed7aa", label: "Asta deserta", activeBg: "#c2410c" };
+  return { bg: "#fafafa", color: "#52525b", border: "#d4d4d8", label: result, activeBg: "#71717a" };
 }
 
 const OUTCOME_FILTERS = [
-  { key: "tutte",       label: "Tutte",       activeBg: "#2563EB" },
-  { key: "aggiudicate", label: "Aggiudicate", activeBg: "#16a34a" },
-  { key: "deserte",     label: "Deserte",     activeBg: "#d97706" },
+  { key: "tutte",       label: "Tutte",       activeBg: "#1d4ed8" },
+  { key: "aggiudicate", label: "Aggiudicate", activeBg: "#2563eb" },
+  { key: "deserte",     label: "Deserte",     activeBg: "#c2410c" },
 ];
 
 export default function NearbyPanel({ location, onClose }) {
@@ -84,6 +84,7 @@ export default function NearbyPanel({ location, onClose }) {
       flexDirection: "column",
       overflow: "hidden",
       animation: "slideInRight 0.22s ease-out",
+      boxShadow: "var(--shadow-panel)",
     }}>
       <style>{`@keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }`}</style>
 
@@ -114,7 +115,7 @@ export default function NearbyPanel({ location, onClose }) {
                 style={{
                   flex: 1,
                   padding: "3px 0",
-                  borderRadius: 20,
+                  borderRadius: 3,
                   border: "0.5px solid " + (active ? "var(--color-border-info)" : "var(--color-border-secondary)"),
                   fontSize: 11,
                   fontWeight: 500,
@@ -122,6 +123,7 @@ export default function NearbyPanel({ location, onClose }) {
                   background: active ? "var(--color-background-info)" : "transparent",
                   color: active ? "var(--color-text-info)" : "var(--color-text-secondary)",
                   transition: "background 0.1s",
+                  letterSpacing: "0.02em",
                 }}
               >
                 {r >= 1000 ? `${r / 1000}km` : `${r}m`}
@@ -142,8 +144,8 @@ export default function NearbyPanel({ location, onClose }) {
               borderRadius: "var(--border-radius-md)",
               padding: "8px 10px",
             }}>
-              <div style={{ fontSize: 17, fontWeight: 500, color: "var(--color-text-primary)", lineHeight: 1.1 }}>{val}</div>
-              <div style={{ fontSize: 10, color: "var(--color-text-tertiary)", marginTop: 3 }}>{unit}</div>
+              <div style={{ fontSize: 16, fontWeight: 500, color: "var(--color-text-primary)", lineHeight: 1.1, fontFamily: "var(--font-mono)", letterSpacing: "-0.02em" }}>{val}</div>
+              <div style={{ fontSize: 9, color: "var(--color-text-tertiary)", marginTop: 3, textTransform: "uppercase", letterSpacing: "0.05em" }}>{unit}</div>
             </div>
           ))}
         </div>
@@ -167,14 +169,15 @@ export default function NearbyPanel({ location, onClose }) {
               onClick={() => setFilter(key)}
               style={{
                 fontSize: 11, fontWeight: 500,
-                padding: "3px 10px", borderRadius: 20,
-                border: "1px solid " + (filter === key ? activeBg : "#e2e8f0"),
-                background: filter === key ? activeBg : "#f8fafc",
-                color: filter === key ? "#fff" : "#475569",
+                padding: "3px 10px", borderRadius: 3,
+                border: "1px solid " + (filter === key ? activeBg : "#e5e7eb"),
+                background: filter === key ? activeBg : "#f9fafb",
+                color: filter === key ? "#fff" : "#4b5563",
                 cursor: "pointer", transition: "all 0.12s",
+                letterSpacing: "0.04em",
               }}
-              onMouseEnter={(e) => { if (filter !== key) e.currentTarget.style.background = "#e2e8f0"; }}
-              onMouseLeave={(e) => { if (filter !== key) e.currentTarget.style.background = "#f8fafc"; }}
+              onMouseEnter={(e) => { if (filter !== key) e.currentTarget.style.background = "#e5e7eb"; }}
+              onMouseLeave={(e) => { if (filter !== key) e.currentTarget.style.background = "#f9fafb"; }}
             >
               {label}
             </button>
@@ -229,9 +232,9 @@ export default function NearbyPanel({ location, onClose }) {
                   {addr}
                 </span>
                 <span style={{
-                  fontSize: 10, padding: "2px 7px", borderRadius: 20,
+                  fontSize: 10, padding: "2px 7px", borderRadius: 3,
                   fontWeight: 600, whiteSpace: "nowrap",
-                  background: info.activeBg, color: "#fff",
+                  background: info.activeBg, color: "#fff", letterSpacing: "0.03em",
                 }}>
                   {info.label}
                 </span>
@@ -261,20 +264,20 @@ export default function NearbyPanel({ location, onClose }) {
               {(basePrice != null || finalPrice != null) && (
                 <div style={{ marginTop: 5, display: "flex", alignItems: "center", gap: 8 }}>
                   {basePrice != null && (
-                    <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)" }}>
+                    <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)", fontFamily: "var(--font-mono)" }}>
                       Base: {formatPrice(basePrice)}
                     </span>
                   )}
                   {psm != null && (
                     <>
                       <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>·</span>
-                      <span style={{ fontSize: 11, color: "var(--color-text-secondary)" }}>{Math.round(psm).toLocaleString("it-IT")} €/m²</span>
+                      <span style={{ fontSize: 11, color: "var(--color-text-secondary)", fontFamily: "var(--font-mono)" }}>{Math.round(psm).toLocaleString("it-IT")} €/m²</span>
                     </>
                   )}
                   {finalPrice != null && finalPrice > 0 && (
                     <>
                       <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>·</span>
-                      <span style={{ fontSize: 11, color: info.color, fontWeight: 500 }}>Agg.: {formatPrice(finalPrice)}</span>
+                      <span style={{ fontSize: 11, color: info.color, fontWeight: 500, fontFamily: "var(--font-mono)" }}>Agg.: {formatPrice(finalPrice)}</span>
                     </>
                   )}
                 </div>

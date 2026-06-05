@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import AuctionApp from "./AuctionApp";
+import AuctionApp from "./pages/AuctionApp";
 import AdminDashboard from "./pages/AdminDashboard";
 
 createRoot(document.getElementById("root")).render(

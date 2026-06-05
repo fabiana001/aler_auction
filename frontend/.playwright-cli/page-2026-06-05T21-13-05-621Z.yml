@@ -1,0 +1,102 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "⚙️ Pipeline Controller" [level=1] [ref=e6]
+      - generic [ref=e7]: ● Connesso
+      - generic [ref=e8]: 0/10 completati
+    - generic [ref=e9]:
+      - button "▶ Run All" [ref=e10] [cursor=pointer]
+      - button "🔄 Retry da errore" [disabled] [ref=e11]
+      - button "⏹ Stop All" [disabled] [ref=e12]
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - generic [ref=e17]: globe
+          - generic [ref=e19]: Wayback Discovery
+          - generic [ref=e20]: ○ In attesa
+        - generic [ref=e21]: ⏱
+        - generic [ref=e22]:
+          - button "▶ Avvia" [ref=e23] [cursor=pointer]
+          - button "▶ Log" [ref=e24] [cursor=pointer]
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e27]: link
+          - generic [ref=e29]: URL Extraction
+          - generic [ref=e30]: ○ In attesa
+        - generic [ref=e31]: ⏱
+        - generic [ref=e32]:
+          - button "▶ Avvia" [ref=e33] [cursor=pointer]
+          - button "▶ Log" [ref=e34] [cursor=pointer]
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - generic [ref=e37]: download
+          - generic [ref=e39]: Detail Fetching
+          - generic [ref=e40]: ○ In attesa
+        - generic [ref=e41]: ⏱
+        - generic [ref=e42]:
+          - button "▶ Avvia" [ref=e43] [cursor=pointer]
+          - button "▶ Log" [ref=e44] [cursor=pointer]
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]: file-text
+          - generic [ref=e49]: Data Extraction
+          - generic [ref=e50]: ○ In attesa
+        - generic [ref=e51]: ⏱
+        - generic [ref=e52]:
+          - button "▶ Avvia" [ref=e53] [cursor=pointer]
+          - button "▶ Log" [ref=e54] [cursor=pointer]
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]: file
+          - generic [ref=e59]: PDF Extraction
+          - generic [ref=e60]: ○ In attesa
+        - generic [ref=e61]: ⏱
+        - generic [ref=e62]:
+          - button "▶ Avvia" [ref=e63] [cursor=pointer]
+          - button "▶ Log" [ref=e64] [cursor=pointer]
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e67]: clock
+          - generic [ref=e69]: Historical Extraction
+          - generic [ref=e70]: ○ In attesa
+        - generic [ref=e71]: ⏱
+        - generic [ref=e72]:
+          - button "▶ Avvia" [ref=e73] [cursor=pointer]
+          - button "▶ Log" [ref=e74] [cursor=pointer]
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e77]: database
+          - generic [ref=e79]: Dataset Integration
+          - generic [ref=e80]: ○ In attesa
+        - generic [ref=e81]: ⏱
+        - generic [ref=e82]:
+          - button "▶ Avvia" [ref=e83] [cursor=pointer]
+          - button "▶ Log" [ref=e84] [cursor=pointer]
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - generic [ref=e87]: map-pin
+          - generic [ref=e89]: Geocoding
+          - generic [ref=e90]: ○ In attesa
+        - generic [ref=e91]: ⏱
+        - generic [ref=e92]:
+          - button "▶ Avvia" [ref=e93] [cursor=pointer]
+          - button "▶ Log" [ref=e94] [cursor=pointer]
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e97]: bar-chart
+          - generic [ref=e99]: Price Analysis
+          - generic [ref=e100]: ○ In attesa
+        - generic [ref=e101]: ⏱
+        - generic [ref=e102]:
+          - button "▶ Avvia" [ref=e103] [cursor=pointer]
+          - button "▶ Log" [ref=e104] [cursor=pointer]
+      - generic [ref=e105]:
+        - generic [ref=e106]:
+          - generic [ref=e107]: bell
+          - generic [ref=e109]: Active Auction Scraper
+          - generic [ref=e110]: ○ In attesa
+        - generic [ref=e111]: ⏱
+        - generic [ref=e112]:
+          - button "▶ Avvia" [ref=e113] [cursor=pointer]
+          - button "▶ Log" [ref=e114] [cursor=pointer]

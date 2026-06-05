@@ -87,10 +87,10 @@ export default function SearchBar({ onSelect }) {
         alignItems: "center",
         gap: 6,
         background: "var(--color-background-secondary)",
-        border: "0.5px solid var(--color-border-secondary)",
+        border: "1px solid var(--color-border-secondary)",
         borderRadius: "var(--border-radius-md)",
         padding: "5px 10px",
-        height: 30,
+        height: 32,
       }}>
         <i className="ti ti-search" style={{ fontSize: 13, color: "var(--color-text-tertiary)" }} />
         <input
@@ -134,8 +134,8 @@ export default function SearchBar({ onSelect }) {
           left: 0,
           right: 0,
           background: "#ffffff",
-          border: "0.5px solid #e2e8f0",
-          borderRadius: 8,
+          border: "1px solid #e5e7eb",
+          borderRadius: 5,
           listStyle: "none",
           margin: 0,
           padding: 4,
@@ -152,8 +152,8 @@ export default function SearchBar({ onSelect }) {
               style={{
                 padding: "7px 10px",
                 cursor: "pointer",
-                borderRadius: 6,
-                background: idx === selectedIndex ? "#f1f5f9" : "transparent",
+                borderRadius: 4,
+                background: idx === selectedIndex ? "#f9fafb" : "transparent",
                 fontSize: 13,
               }}
             >

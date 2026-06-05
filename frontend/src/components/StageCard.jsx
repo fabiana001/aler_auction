@@ -87,7 +87,7 @@ export default function StageCard({ step, onRun, onStop, onOpenLog }) {
   const startLogStream = useCallback(() => {
     if (closeStreamRef.current) return;
     setLiveLogs([]);
-    const close = openLogStream(step.id, (line) => {
+    const close = openLogStream(step.step_id, (line) => {
       setLiveLogs((prev) => {
         const next = [...prev, line];
         if (next.length > 200) next.shift();
@@ -95,7 +95,7 @@ export default function StageCard({ step, onRun, onStop, onOpenLog }) {
       });
     });
     closeStreamRef.current = close;
-  }, [step.id]);
+  }, [step.step_id]);
 
   const stopLogStream = useCallback(() => {
     if (closeStreamRef.current) {
@@ -131,9 +131,9 @@ export default function StageCard({ step, onRun, onStop, onOpenLog }) {
 
   const handleAction = () => {
     if (isRunning) {
-      onStop(step.id);
+      onStop(step.step_id);
     } else {
-      onRun(step.id);
+      onRun(step.step_id);
     }
   };
 
@@ -230,7 +230,7 @@ export default function StageCard({ step, onRun, onStop, onOpenLog }) {
           <span style={{ fontSize: 24, lineHeight: 1 }}>{step.icon || "📦"}</span>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontWeight: 600, fontSize: 15, color: COLORS.text, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-              {step.name || step.id}
+              {step.name || step.step_id}
             </div>
           </div>
           <span

@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/data:ro
+    environment:
+      DATASET_PATH: /data/processed/consolidated_auction_dataset_analyzed.csv
+      CORS_ORIGINS: '["http://localhost:3000"]'
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_BACKEND_URL: http://localhost:8000
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy

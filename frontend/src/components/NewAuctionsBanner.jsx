@@ -97,7 +97,7 @@ export default function NewAuctionsBanner({ onPinClick }) {
                 onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                 onClick={() => { onPinClick && onPinClick(a); setExpanded(false); }}
               >
-                <span style={{ color: "var(--color-text-secondary)", fontWeight: 500, minWidth: 72, fontSize: 11 }}>
+                <span style={{ color: "var(--color-text-secondary)", fontWeight: 500, minWidth: 72, fontSize: 11, fontFamily: "var(--font-mono)" }}>
                   {formatDate(a.parsed_date)}
                 </span>
                 <span style={{ flex: 1, color: "var(--color-text-primary)" }}>
@@ -107,13 +107,13 @@ export default function NewAuctionsBanner({ onPinClick }) {
                   {a.properties?.property_type || ""}
                 </span>
                 {a.properties?.base_price_eur != null && (
-                  <span style={{ color: "var(--color-text-secondary)", fontWeight: 500, fontSize: 11, whiteSpace: "nowrap" }}>
+                  <span style={{ color: "var(--color-text-secondary)", fontWeight: 500, fontSize: 11, whiteSpace: "nowrap", fontFamily: "var(--font-mono)" }}>
                     {new Intl.NumberFormat("it-IT", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(a.properties.base_price_eur)}
                   </span>
                 )}
                 {a.properties?.auction_result && style && (
                   <span style={{
-                    padding: "2px 7px", borderRadius: 20, fontSize: 10, fontWeight: 500,
+                    padding: "2px 7px", borderRadius: 3, fontSize: 10, fontWeight: 500, letterSpacing: "0.03em",
                     background: style.bg, color: style.color, whiteSpace: "nowrap",
                   }}>
                     {a.properties.auction_result === "AGGIUDICATA" ? "Aggiudicata" : a.properties.auction_result}

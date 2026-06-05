@@ -27,13 +27,13 @@ function AdminDashboard() {
 
   // Find the step to retry from (last errored or first idle after done steps)
   const getRetryStepId = useCallback(() => {
-    if (errorStep) return errorStep.id;
+    if (errorStep) return errorStep.step_id;
     const lastDone = [...steps].reverse().find((s) => s.status === "done");
     if (lastDone) {
-      const idx = steps.findIndex((s) => s.id === lastDone.id);
-      return steps[idx + 1]?.id || null;
+      const idx = steps.findIndex((s) => s.step_id === lastDone.step_id);
+      return steps[idx + 1]?.step_id || null;
     }
-    return steps[0]?.id || null;
+    return steps[0]?.step_id || null;
   }, [steps, errorStep]);
 
   const addToast = useCallback((message, type = "info") => {
@@ -72,7 +72,7 @@ function AdminDashboard() {
     const runningSteps = steps.filter((s) => s.status === "running");
     for (const step of runningSteps) {
       try {
-        await stopStep(step.id);
+        await stopStep(step.step_id);
       } catch {
         // ignore individual stop errors
       }
@@ -261,7 +261,7 @@ function AdminDashboard() {
             }}
           >
             <span>✗</span>
-            <strong>{errorStep.name || errorStep.id}</strong>
+            <strong>{errorStep.name || errorStep.step_id}</strong>
             {errorStep.error && ` — ${errorStep.error}`}
             <button
               onClick={handleRetry}
@@ -301,7 +301,7 @@ function AdminDashboard() {
             <div className="grid-responsive">
               {steps.map((step) => (
                 <StageCard
-                  key={step.id}
+                  key={step.step_id}
                   step={step}
                   onRun={handleRunStep}
                   onStop={handleStopStep}

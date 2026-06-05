@@ -85,9 +85,9 @@ export default function TrendChart({ timeSeries, avgPsm, onPointHover, hoveredDa
     onPointHover && onPointHover(null, []);
   }, [onPointHover]);
 
-  const ACCENT = "#2563EB";
-  const GRID = "#e2e8f0";
-  const TEXT_MUTED = "#64748b";
+  const ACCENT = "#1d4ed8";
+  const GRID = "#e5e7eb";
+  const TEXT_MUTED = "#6b7280";
 
   return (
     <div style={{ position: "relative", userSelect: "none" }}>
@@ -154,7 +154,7 @@ export default function TrendChart({ timeSeries, avgPsm, onPointHover, hoveredDa
           {xLabelIndices.map((idx) => (
             <text key={idx} x={xScale(idx)} y={H + 14}
               textAnchor="middle" fill={TEXT_MUTED} fontSize={9}
-              fontFamily="var(--font-sans)">
+              fontFamily="'IBM Plex Mono', monospace">
               {formatAxisDate(timeSeries[idx].date)}
             </text>
           ))}
@@ -165,7 +165,7 @@ export default function TrendChart({ timeSeries, avgPsm, onPointHover, hoveredDa
             return (
               <text key={t} x={-6} y={yScale(v)} textAnchor="end"
                 dominantBaseline="middle" fill={TEXT_MUTED} fontSize={9}
-                fontFamily="var(--font-sans)">
+                fontFamily="'IBM Plex Mono', monospace">
                 {v >= 1000 ? `${(v / 1000).toFixed(1)}k` : Math.round(v)}
               </text>
             );
@@ -184,18 +184,18 @@ export default function TrendChart({ timeSeries, avgPsm, onPointHover, hoveredDa
               : { left: PAD.left + tooltip.x + 12 }),
             top: Math.max(4, PAD.top + tooltip.y - 10),
             background: "#ffffff",
-            border: "1px solid #e2e8f0",
-            borderRadius: 6,
+            border: "1px solid #e5e7eb",
+            borderRadius: 4,
             padding: "7px 11px",
             fontSize: 12,
-            color: "#0f172a",
+            color: "#111827",
             pointerEvents: "none",
             whiteSpace: "nowrap",
             zIndex: 10,
-            boxShadow: "0 4px 16px rgba(0,0,0,0.14)",
+            boxShadow: "0 4px 16px rgba(0,0,0,0.10)",
           }}>
-            <div style={{ fontWeight: 600, color: "#2563EB", marginBottom: 3, fontSize: 11 }}>{tooltip.point.date}</div>
-            <div style={{ fontWeight: 500 }}>€/m²: {formatEur(tooltip.point.avg_price_per_sqm)}</div>
+            <div style={{ fontWeight: 600, color: "#1d4ed8", marginBottom: 3, fontSize: 11, fontFamily: "'IBM Plex Mono', monospace" }}>{tooltip.point.date}</div>
+            <div style={{ fontWeight: 500, fontFamily: "'IBM Plex Mono', monospace" }}>€/m²: {formatEur(tooltip.point.avg_price_per_sqm)}</div>
             <div style={{ fontSize: 11, color: "#64748b", marginTop: 2 }}>
               {tooltip.point.count} {tooltip.point.count === 1 ? "asta" : "aste"}
             </div>
