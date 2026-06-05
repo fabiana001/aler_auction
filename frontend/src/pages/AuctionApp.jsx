@@ -104,11 +104,11 @@ function App() {
 
   const mapCenter = searchLocation
     ? [searchLocation.lat, searchLocation.lng]
-    : selectedAuction && trendRadius
+    : selectedAuction && trendRadius && selectedAuction.lat != null
     ? [selectedAuction.lat, selectedAuction.lng]
     : undefined;
 
-  const mapRadius = selectedAuction && trendRadius
+  const mapRadius = selectedAuction && trendRadius && selectedAuction.lat != null
     ? trendRadius.radius
     : showNearby ? nearbyRadius : undefined;
 
