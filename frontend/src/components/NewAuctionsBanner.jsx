@@ -30,9 +30,8 @@ export default function NewAuctionsBanner({ onPinClick }) {
 
   return (
     <div style={{
-      background: "#eff6ff",
-      borderBottom: "0.5px solid #bfdbfe",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+      backgroundColor: "#ffffff",
+      borderBottom: "0.5px solid var(--color-border-secondary)",
       fontFamily: "var(--font-sans)",
     }}>
       {/* Collapsed bar */}
@@ -40,27 +39,27 @@ export default function NewAuctionsBanner({ onPinClick }) {
         style={{
           display: "flex",
           alignItems: "center",
-          padding: "8px 16px",
-          gap: 10,
+          padding: "6px 16px",
+          gap: 8,
           cursor: "pointer",
         }}
         onClick={() => setExpanded((v) => !v)}
       >
-        <i className="ti ti-bell-ringing" style={{ fontSize: 14, color: "#1d4ed8" }} />
-        <span style={{ fontSize: 12, fontWeight: 600, color: "#1d4ed8" }}>
+        <i className="ti ti-clock-hour-4" style={{ fontSize: 13, color: "var(--color-text-tertiary)", flexShrink: 0 }} />
+        <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-secondary)" }}>
           {auctions.length} aste recenti
         </span>
-        <span style={{ fontSize: 12, color: "#475569" }}>
+        <span style={{ fontSize: 12, color: "var(--color-text-tertiary)" }}>
           negli ultimi 12 mesi
         </span>
-        <span style={{ marginLeft: "auto", fontSize: 11, color: "#64748b" }}>
+        <span style={{ marginLeft: "auto", fontSize: 11, color: "var(--color-text-tertiary)" }}>
           {expanded ? "▲ nascondi" : "▼ mostra"}
         </span>
         <button
           onClick={(e) => { e.stopPropagation(); setDismissed(true); }}
           style={{
             background: "none", border: "none",
-            color: "#64748b", fontSize: 14,
+            color: "var(--color-text-tertiary)", fontSize: 14,
             cursor: "pointer", padding: 0, lineHeight: 1,
             display: "flex", alignItems: "center",
           }}
@@ -73,10 +72,10 @@ export default function NewAuctionsBanner({ onPinClick }) {
       {/* Expanded list */}
       {expanded && (
         <div style={{
-          borderTop: "0.5px solid #bfdbfe",
+          borderTop: "0.5px solid var(--color-border-secondary)",
           maxHeight: 240,
           overflowY: "auto",
-          background: "#f8fafc",
+          backgroundColor: "#f9fafb",
         }}>
           {auctions.map((a) => {
             const style = outcomeStyle(a.properties?.auction_result);
@@ -89,7 +88,7 @@ export default function NewAuctionsBanner({ onPinClick }) {
                   gap: 12,
                   padding: "7px 16px",
                   cursor: "pointer",
-                  borderBottom: "0.5px solid #dbeafe",
+                  borderBottom: "0.5px solid var(--color-border-tertiary)",
                   transition: "background 0.12s",
                   fontSize: 12,
                 }}

@@ -112,7 +112,7 @@ function App() {
     ? trendRadius.radius
     : showNearby ? nearbyRadius : undefined;
 
-  const mapCircleCenter = selectedAuction && trendRadius
+  const mapCircleCenter = selectedAuction && trendRadius && selectedAuction.lat != null
     ? [selectedAuction.lat, selectedAuction.lng]
     : searchLocation
     ? [searchLocation.lat, searchLocation.lng]
@@ -129,23 +129,23 @@ function App() {
       {/* Top bar */}
       <header style={{
         height: 48,
-        padding: "0 16px",
+        padding: "0 20px",
         background: "var(--color-background-primary)",
         borderBottom: "0.5px solid var(--color-border-secondary)",
         display: "flex",
         alignItems: "center",
-        gap: 12,
+        gap: 0,
         flexShrink: 0,
         position: "relative",
         zIndex: 1000,
       }}>
-        <i className="ti ti-building" style={{ fontSize: 18, color: "#374151" }} />
-        <span style={{ fontSize: 13, fontWeight: 600, color: "var(--color-text-primary)", whiteSpace: "nowrap", letterSpacing: "0.02em" }}>
-          Aste ALER <span style={{ fontWeight: 300, color: "#6b7280" }}>— Milano</span>
+        <i className="ti ti-building" style={{ fontSize: 16, color: "#374151", flexShrink: 0 }} />
+        <span style={{ fontSize: 13, fontWeight: 500, color: "var(--color-text-primary)", whiteSpace: "nowrap", letterSpacing: "0.01em", marginLeft: 8 }}>
+          Aste ALER <span style={{ fontWeight: 400, color: "var(--color-text-tertiary)" }}>Milano</span>
         </span>
-        <div style={{ width: "0.5px", height: 16, background: "var(--color-border-secondary)" }} />
+        <div style={{ width: "0.5px", height: 18, background: "var(--color-border-secondary)", margin: "0 16px", flexShrink: 0 }} />
         <SearchBar onSelect={handleSearchSelect} />
-        {!loading && (
+        {!loading && !selectedAuction && (
           <span style={{
             fontSize: 11,
             color: "var(--color-text-secondary)",
@@ -157,7 +157,7 @@ function App() {
             fontFamily: "var(--font-mono)",
             letterSpacing: "0.03em",
           }}>
-            {asteCount} aste{selectedAuction && trendRadius ? " nel raggio" : ""}
+            {asteCount} aste
           </span>
         )}
         {(showNearby || selectedAuction) && (

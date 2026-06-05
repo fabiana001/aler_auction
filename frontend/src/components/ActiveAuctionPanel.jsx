@@ -23,40 +23,41 @@ function LotRow({ lot, onClick }) {
   return (
     <tr
       style={{
-        borderBottom: "0.5px solid #e2e8f0", fontSize: 12,
-        cursor: hasCoords ? "pointer" : "default",
+        borderBottom: "0.5px solid var(--color-border-tertiary)", fontSize: 12,
+        cursor: "pointer",
+        transition: "background 0.12s",
       }}
-      onClick={hasCoords ? onClick : undefined}
-      onMouseEnter={(e) => { if (hasCoords) e.currentTarget.style.background = "#fef9c3"; }}
+      onClick={onClick}
+      onMouseEnter={(e) => { e.currentTarget.style.background = "var(--color-background-secondary)"; }}
       onMouseLeave={(e) => { e.currentTarget.style.background = ""; }}
     >
-      <td style={{ padding: "6px 8px", color: "#64748b", fontWeight: 600, whiteSpace: "nowrap" }}>
+      <td style={{ padding: "6px 8px", color: "var(--color-text-secondary)", fontWeight: 500, whiteSpace: "nowrap" }}>
         {lot.lot_id}
       </td>
       <td style={{ padding: "6px 8px" }}>
         <span style={{ fontWeight: 500 }}>{lot.address}</span>
-        {lot.street_number && <span style={{ color: "#94a3b8" }}> {lot.street_number}</span>}
+        {lot.street_number && <span style={{ color: "var(--color-text-tertiary)" }}> {lot.street_number}</span>}
         {lot.city && lot.city !== "MILANO" && (
-          <span style={{ color: "#64748b", marginLeft: 4, fontSize: 11 }}>{lot.city}</span>
+          <span style={{ color: "var(--color-text-secondary)", marginLeft: 4, fontSize: 11 }}>{lot.city}</span>
         )}
       </td>
       <td style={{ padding: "6px 8px", textAlign: "center" }}>
-        <span style={{ color: "#475569" }}>{lot.rooms ?? "—"} loc</span>
+        <span style={{ color: "var(--color-text-secondary)" }}>{lot.rooms ?? "—"} loc</span>
         {lot.has_box && (
           <span style={{
             display: "inline-block", marginLeft: 5,
             background: "#eff6ff", color: "#1d4ed8",
-            border: "1px solid #bfdbfe",
-            borderRadius: 10, padding: "0 6px", fontSize: 10, fontWeight: 600,
+            border: "0.5px solid #bfdbfe",
+            borderRadius: 10, padding: "0 6px", fontSize: 10, fontWeight: 500,
           }}>+box</span>
         )}
       </td>
-      <td style={{ padding: "6px 8px", textAlign: "center", color: "#475569" }}>
+      <td style={{ padding: "6px 8px", textAlign: "center", color: "var(--color-text-secondary)" }}>
         {lot.surface_sqm != null ? (
           <span>
             {lot.surface_sqm} m²
             {lot.has_box && lot.box_sqm != null && (
-              <span style={{ color: "#94a3b8", fontSize: 10 }}> +{lot.box_sqm}</span>
+              <span style={{ color: "var(--color-text-tertiary)", fontSize: 10 }}> +{lot.box_sqm}</span>
             )}
           </span>
         ) : "—"}
@@ -66,19 +67,19 @@ function LotRow({ lot, onClick }) {
           <span style={{
             background: APE_COLORS[lot.ape_class] || "#e2e8f0",
             color: ["A","B","C"].includes(lot.ape_class) ? "#fff" : "#1e293b",
-            borderRadius: 4, padding: "1px 6px", fontWeight: 700, fontSize: 11,
+            borderRadius: 4, padding: "1px 6px", fontWeight: 500, fontSize: 11,
           }}>
             {lot.ape_class}
           </span>
         ) : "—"}
       </td>
-      <td style={{ padding: "6px 8px", textAlign: "right", fontWeight: 600, whiteSpace: "nowrap", color: "#0f172a", fontFamily: "'IBM Plex Mono', monospace" }}>
+      <td style={{ padding: "6px 8px", textAlign: "right", fontWeight: 500, whiteSpace: "nowrap", color: "var(--color-text-primary)", fontFamily: "var(--font-mono)" }}>
         {formatPrice(lot.base_price_eur)}
       </td>
       <td style={{ padding: "6px 8px", textAlign: "center", whiteSpace: "nowrap" }}>
         {lot.planimetria_url && (
           <a href={lot.planimetria_url} target="_blank" rel="noopener noreferrer"
-            style={{ color: "#3b82f6", marginRight: 4 }} title="Planimetria alloggio">
+            style={{ color: "#2563EB", marginRight: 4 }} title="Planimetria alloggio">
             <i className="ti ti-map-2" />
           </a>
         )}
@@ -90,7 +91,7 @@ function LotRow({ lot, onClick }) {
         )}
         {lot.foto_url && (
           <a href={lot.foto_url} target="_blank" rel="noopener noreferrer"
-            style={{ color: "#64748b" }} title="Foto">
+            style={{ color: "var(--color-text-secondary)" }} title="Foto">
             <i className="ti ti-photo" />
           </a>
         )}
@@ -102,13 +103,12 @@ function LotRow({ lot, onClick }) {
 export default function ActiveAuctionPanel({ data, onLotClick }) {
   const [dismissed, setDismissed] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const [filter, setFilter] = useState("tutti"); // "tutti" | "con_box"
+  const [filter, setFilter] = useState("tutti");
 
   if (dismissed || !data || data.active_auctions?.length === 0) return null;
 
   const lots = data.lots || [];
   const withBox = lots.filter((l) => l.has_box);
-
   const displayLots = filter === "con_box" ? withBox : lots;
 
   const firstAuction = data.active_auctions?.[0];
@@ -122,66 +122,85 @@ export default function ActiveAuctionPanel({ data, onLotClick }) {
 
   return (
     <div style={{
-      background: "linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%)",
-      borderBottom: "2px solid #f59e0b",
-      boxShadow: "0 4px 16px rgba(245,158,11,0.18)",
+      backgroundColor: "#ffffff",
+      borderBottom: "0.5px solid var(--color-border-secondary)",
+      borderLeft: "3px solid #2563EB",
       fontFamily: "var(--font-sans)",
     }}>
       {/* Header bar */}
       <div
         style={{
           display: "flex", alignItems: "center", gap: 10,
-          padding: "9px 16px", cursor: "pointer",
+          padding: "8px 16px", cursor: "pointer",
         }}
         onClick={() => setExpanded((v) => !v)}
       >
-        <i className="ti ti-gavel" style={{ fontSize: 14, color: "#92400e" }} />
-        <span style={{ fontSize: 12, fontWeight: 700, color: "#92400e", letterSpacing: "0.07em" }}>
-          ASTA ATTIVA
-        </span>
-        <span style={{ fontSize: 12, fontWeight: 600, color: "#1e293b" }}>
-          {firstAuction?.title || "Asta Alloggi"}
-        </span>
-        {deadline && (
-          <span style={{
-            background: "#fef3c7", border: "1px solid #f59e0b",
-            borderRadius: 12, padding: "1px 9px",
-            fontSize: 11, fontWeight: 600, color: "#92400e",
-          }}>
-            <i className="ti ti-calendar" style={{ marginRight: 3 }} />
-            {deadline}
-          </span>
-        )}
+        {/* Animated dot */}
         <span style={{
-          marginLeft: 6,
-          background: "#f59e0b", color: "#fff",
-          borderRadius: 3, padding: "1px 9px",
-          fontSize: 11, fontWeight: 700, letterSpacing: "0.03em",
-        }}>
-          {lots.length} alloggi
-        </span>
-        {withBox.length > 0 && (
+          width: 7, height: 7, borderRadius: "50%",
+          background: "#22C55E", flexShrink: 0,
+          animation: "pulse-dot 2s ease-in-out infinite",
+          display: "inline-block",
+        }} />
+        <style>{`
+          @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        `}</style>
+
+        <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.2 }}>
+          <span style={{ fontSize: 13, fontWeight: 500, color: "var(--color-text-primary)" }}>
+            {firstAuction?.title || "Asta alloggi"}{deadline ? ` — ${deadline}` : ""}
+          </span>
+          <span style={{ fontSize: 11, color: "var(--color-text-secondary)" }}>
+            Prossima asta disponibile
+          </span>
+        </div>
+
+        {/* Pills */}
+        <div style={{ display: "flex", gap: 6, marginLeft: "auto" }}>
           <span style={{
-            background: "#eff6ff", color: "#1d4ed8",
-            border: "1px solid #bfdbfe",
-            borderRadius: 12, padding: "1px 9px",
-            fontSize: 11, fontWeight: 600,
+            fontSize: 11, padding: "3px 9px", borderRadius: 20, border: "0.5px solid #BFDBFE",
+            background: "#EFF6FF", color: "#1D4ED8",
           }}>
-            {withBox.length} con box
+            {lots.length} alloggi
           </span>
-        )}
-        {avgPsm != null && (
-          <span style={{ fontSize: 11, color: "#64748b", marginLeft: 4 }}>
-            avg {formatPrice(avgPsm)}/m²
-          </span>
-        )}
-        <span style={{ marginLeft: "auto", fontSize: 11, color: "#78350f" }}>
-          {expanded ? "▲ nascondi" : "▼ mostra lotti"}
-        </span>
+          {withBox.length > 0 && (
+            <span style={{
+              fontSize: 11, padding: "3px 9px", borderRadius: 20, border: "0.5px solid #FED7AA",
+              background: "#FFF7ED", color: "#C2410C",
+            }}>
+              {withBox.length} con box
+            </span>
+          )}
+          {avgPsm != null && (
+            <span style={{
+              fontSize: 11, padding: "3px 9px", borderRadius: 20,
+              border: "0.5px solid var(--color-border-secondary)",
+              background: "var(--color-background-secondary)",
+              color: "var(--color-text-secondary)",
+            }}>
+              {formatPrice(avgPsm)}/m²
+            </span>
+          )}
+        </div>
+
+        <button
+          onClick={(e) => { e.stopPropagation(); setExpanded((v) => !v); }}
+          style={{
+            backgroundColor: "#f9fafb",
+            border: "0.5px solid #e5e7eb",
+            color: "#4b5563", fontSize: 11,
+            cursor: "pointer", padding: "3px 9px",
+            borderRadius: 3, display: "flex", alignItems: "center", gap: 4,
+            whiteSpace: "nowrap",
+          }}
+        >
+          {expanded ? "▲ nascondi" : "mostra lotti"}
+        </button>
+
         <button
           onClick={(e) => { e.stopPropagation(); setDismissed(true); }}
           style={{
-            background: "none", border: "none", color: "#78350f",
+            background: "none", border: "none", color: "var(--color-text-tertiary)",
             fontSize: 14, cursor: "pointer", padding: 0, lineHeight: 1,
             display: "flex", alignItems: "center",
           }}
@@ -193,12 +212,11 @@ export default function ActiveAuctionPanel({ data, onLotClick }) {
 
       {/* Expanded table */}
       {expanded && (
-        <div style={{ borderTop: "1px solid #f59e0b" }}>
-          {/* Filter tabs */}
+        <div style={{ borderTop: "0.5px solid var(--color-border-secondary)" }}>
           <div style={{
             display: "flex", gap: 0,
-            background: "#fffbeb",
-            borderBottom: "0.5px solid #fde68a",
+            backgroundColor: "#f9fafb",
+            borderBottom: "0.5px solid var(--color-border-secondary)",
             padding: "6px 16px",
             alignItems: "center",
           }}>
@@ -207,11 +225,11 @@ export default function ActiveAuctionPanel({ data, onLotClick }) {
                 key={f}
                 onClick={(e) => { e.stopPropagation(); setFilter(f); }}
                 style={{
-                  background: filter === f ? "#f59e0b" : "transparent",
-                  color: filter === f ? "#fff" : "#78350f",
-                  border: "1px solid #f59e0b",
+                  background: filter === f ? "#2563EB" : "#f9fafb",
+                  color: filter === f ? "#fff" : "var(--color-text-secondary)",
+                  border: "0.5px solid var(--color-border-secondary)",
                   borderRadius: f === "tutti" ? "4px 0 0 4px" : "0 4px 4px 0",
-                  padding: "3px 12px", fontSize: 11, fontWeight: 600,
+                  padding: "3px 12px", fontSize: 11, fontWeight: 500,
                   cursor: "pointer",
                 }}
               >
@@ -219,23 +237,25 @@ export default function ActiveAuctionPanel({ data, onLotClick }) {
               </button>
             ))}
             {data.scraped_at && (
-              <span style={{ marginLeft: "auto", fontSize: 10, color: "#a16207" }}>
+              <span style={{ marginLeft: "auto", fontSize: 10, color: "var(--color-text-tertiary)" }}>
                 aggiornato {new Date(data.scraped_at).toLocaleString("it-IT", { dateStyle: "short", timeStyle: "short" })}
               </span>
             )}
           </div>
 
-          <div style={{ maxHeight: 320, overflowY: "auto", background: "#fffbeb" }}>
+          <div style={{ maxHeight: 320, overflowY: "auto", backgroundColor: "#ffffff" }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
-                <tr style={{ background: "#fef3c7", borderBottom: "1px solid #fde68a" }}>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "left", letterSpacing: "0.07em" }}>LOTTO</th>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "left", letterSpacing: "0.07em" }}>INDIRIZZO</th>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "center", letterSpacing: "0.07em" }}>LOCALI</th>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "center", letterSpacing: "0.07em" }}>MQ</th>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "center", letterSpacing: "0.07em" }}>APE</th>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "right", letterSpacing: "0.07em" }}>PREZZO BASE</th>
-                  <th style={{ padding: "5px 8px", fontSize: 10, fontWeight: 600, color: "#78350f", textAlign: "center", letterSpacing: "0.07em" }}>DOC</th>
+                <tr style={{ backgroundColor: "#f9fafb", borderBottom: "0.5px solid var(--color-border-secondary)" }}>
+                  {["LOTTO", "INDIRIZZO", "LOCALI", "MQ", "APE", "PREZZO BASE", "DOC"].map((h, i) => (
+                    <th key={h} style={{
+                      padding: "5px 8px", fontSize: 10, fontWeight: 500,
+                      color: "var(--color-text-tertiary)",
+                      textAlign: i >= 2 && i <= 4 ? "center" : i === 5 ? "right" : i === 6 ? "center" : "left",
+                      letterSpacing: "0.05em",
+                      textTransform: "uppercase",
+                    }}>{h}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody>

@@ -1,211 +1,269 @@
-# Pipeline Dati — ALER Auction
+# Data Pipeline — ALER Auction
 
-Documentazione completa della pipeline di estrazione, integrazione e arricchimento dei dati delle aste ALER Milano.
+Complete documentation for the extraction, integration, and enrichment pipeline for ALER Milano auction data.
 
-## Fonti Dati
+## Data Sources
 
-Il progetto integra **due fonti complementari** per ricostruire uno storico completo delle aste:
+The project integrates **two complementary sources** to reconstruct a complete historical record of auctions:
 
 ### 1. Wayback Machine (Internet Archive)
 
-Archivio di snapshot del sito **alermipianovendite.it** catturati *prima* dell'asta.
+Snapshots of **alermipianovendite.it** captured *before* each auction.
 
-**Contiene:**
-- Caratteristiche strutturali dell'immobile (superficie, vani, ascensore, classe energetica)
-- Prezzo base d'asta
-- Data asta
-- Indirizzo, lot_id
+**Contains:**
+- Structural property characteristics (area, rooms, elevator, energy class)
+- Base auction price
+- Auction date
+- Address, lot_id
 
-**NON contiene:** l'esito dell'asta.
+**Does NOT contain:** auction outcome.
 
-### 2. PDF Esiti ALER
+### 2. ALER Result PDFs
 
-PDF pubblicati da ALER *dopo* l'asta con i risultati.
+PDFs published by ALER *after* each auction with the results.
 
-**Contiene:**
-- Offerta finale
-- Esito (aggiudicata, deserta, ecc.)
-- Vincitore (iniziali, GDPR-compliant)
+**Contains:**
+- Final offer
+- Outcome (awarded, deserted, etc.)
+- Winner (initials, GDPR-compliant)
 
-**NON contiene:** caratteristiche strutturali dettagliate.
+**Does NOT contain:** detailed structural characteristics.
 
-### Chiave di Join
+### Join Key
 
-Le due fonti vengono unite tramite `lot_id` (identificativo unico del lotto).
+The two sources are joined on `lot_id` (unique lot identifier).
 
 ---
 
-## Stadi della Pipeline
+## Pipeline Stages
 
 ```
 ┌─────────────────┐     ┌──────────────────┐
-│  Wayback Machine │     │  PDF Esiti ALER  │
-│  (pre-asta)      │     │  (post-asta)     │
+│  Wayback Machine │     │  ALER Result PDFs│
+│  (pre-auction)   │     │  (post-auction)  │
 └────────┬────────┘     └────────┬─────────┘
          │                       │
          ▼                       ▼
    ┌───────────┐          ┌───────────┐
-   │ Stadio 1-4│          │ Stadio 5  │
-   │ Estrazione│          │ PDF Parse │
-   │ HTML      │          │           │
+   │ Stages 1-4│          │  Stage 5  │
+   │ HTML      │          │  PDF parse│
+   │ extraction│          │           │
    └─────┬─────┘          └─────┬─────┘
          │                      │
          ▼                      ▼
    ┌─────────────────────────────────┐
-   │         Stadio 6                │
-   │    Integrazione (join su        │
-   │    lot_id)                      │
+   │           Stage 6               │
+   │   Integration (join on lot_id)  │
    └──────────────┬──────────────────┘
                   │
                   ▼
    ┌─────────────────────────────────┐
-   │         Stadio 7                │
-   │    Geocoding (Google Maps API)  │
-   │    → lat, lng per ogni asta     │
+   │           Stage 7               │
+   │  Geocoding (Google Maps API)    │
+   │  → lat, lng per auction         │
    └──────────────┬──────────────────┘
                   │
                   ▼
    ┌─────────────────────────────────┐
-   │         Stadio 8                │
-   │    Analisi Prezzi (HDBSCAN)     │
-   │    → zone_id, price_disparity   │
-   │    → base_price_per_sqm         │
+   │           Stage 8               │
+   │  Price Analysis (HDBSCAN)       │
+   │  → zone_id, price_disparity     │
+   │  → base_price_per_sqm           │
    └──────────────┬──────────────────┘
                   │
                   ▼
    ┌─────────────────────────────────┐
-   │    DATASET FINALE               │
-   │    consolidated_auction_        │
-   │    dataset_analyzed.csv         │
-   │    (925 aste, 27 colonne)       │
+   │       FINAL DATASET             │
+   │  consolidated_auction_          │
+   │  dataset_analyzed.csv           │
    └─────────────────────────────────┘
 ```
 
-### Dettaglio Stadi
+### Stage Details
 
-#### Stadio 1 — Wayback Discovery ✅
+#### Stage 1 — Wayback Discovery
 
-**Script:** `scripts/run_wayback_discovery.py`
+**Script:** `pipeline/scripts/run_wayback_discovery.py`
 
-Scopre gli snapshot disponibili su Wayback Machine per `alermipianovendite.it/asta-alloggi/`.
+Discovers available Wayback Machine snapshots for `alermipianovendite.it/asta-alloggi/`.
 
-**Output:** Lista URL snapshot → salvata in `data/`
+**Output:** `data/raw/{YYYYMMDD}_alermilanopianovendite.it/`
 
-#### Stadio 2 — URL Extraction ✅
+#### Stage 2 — URL Extraction
 
-**Script:** `scripts/run_url_extraction.py`
+**Script:** `pipeline/scripts/run_url_extraction.py`
 
-Da ogni snapshot, estrae i URL delle pagine dettaglio delle aste. Filtra e deduplica, mantenendo l'ultima versione di ogni asta.
+From each snapshot, extracts URLs for auction detail pages. Filters and deduplicates, keeping the latest version of each auction.
 
-**Output:** 27 URL unici → `data/auction_detail_urls.json`
+**Output:** `data/raw/auction_detail_urls.json`
 
-#### Stadio 3 — Detail Fetching ✅
+#### Stage 3 — Detail Fetching
 
-**Script:** `scripts/run_detail_fetching.py`
+**Script:** `pipeline/scripts/run_detail_fetching.py`
 
-Scarica le pagine HTML di dettaglio per ogni asta.
+Downloads HTML detail pages for each auction URL.
 
-**Output:** 24 pagine HTML → `data/auction_details/` (3 URL restituivano 404)
+**Output:** `data/raw/auction_details/`
 
-#### Stadio 4 — Data Extraction ✅
+#### Stage 4 — Data Extraction
 
-**Script:** `scripts/run_data_extraction.py`
-**Codice:** `src/aler_auctions/data_extraction/auction_extractor.py`
+**Script:** `pipeline/scripts/run_data_extraction.py`  
+**Library:** `pipeline/src/aler_auctions/data_extraction/auction_extractor.py`
 
-Parsing delle pagine HTML per estrarre dati strutturati di ogni lotto.
+Parses HTML pages to extract structured data for each lot.
 
-**Output:** `data/extracted_auctions.csv` (925 record)
+**Output:** `data/interim/extracted_auctions.csv`
 
-#### Stadio 5 — PDF Extraction ✅
+#### Stage 5 — PDF Extraction
 
-**Script:** `scripts/run_pdf_extraction.py`
-**Codice:** `src/aler_auctions/data_extraction/pdf_extractor.py`
+**Script:** `pipeline/scripts/run_pdf_extraction.py`  
+**Library:** `pipeline/src/aler_auctions/data_extraction/pdf_extractor.py`
 
-Parsing dei PDF di esito per estrarre offerte finali ed esiti.
+Parses result PDFs to extract final offers and auction outcomes.
 
-**Output:** `data/extracted_pdf_results.csv`
+**Output:** `data/interim/extracted_pdf_results.csv`
 
-#### Stadio 6 — Dataset Integration ✅
+#### Stage 5b — Historical PDF Download
 
-**Script:** `scripts/run_dataset_integration.py`
-**Codice:** `src/aler_auctions/data_integration/dataset_integrator.py`
+**Script:** `pipeline/scripts/run_historical_extraction.py`  
+**Library:** `pipeline/src/aler_auctions/data_extraction/historical_client.py`
 
-Join dei dati di caratteristiche (Stadio 4) con i risultati (Stadio 5) su `lot_id`.
+Downloads result PDFs directly from ALER's archive pages (2014–2019 and 2020–2022 periods).
 
-**Output:** `data/consolidated_auction_dataset.csv`
+**Output:** `data/raw/historical_auction_data/`
 
-#### Stadio 7 — Geocoding ✅
+#### Stage 6 — Dataset Integration
 
-**Script:** `scripts/run_geocoding.py`
-**Codice:** `src/aler_auctions/data_integration/geocoder.py`
+**Script:** `pipeline/scripts/run_dataset_integration.py`  
+**Library:** `pipeline/src/aler_auctions/data_integration/dataset_integrator.py`
 
-Per ogni indirizzo, chiama Google Maps Geocoding API per ottenere lat/lng. I risultati vengono cachati in `data/geocoding_cache.json`.
+Joins property characteristics (Stage 4) with auction results (Stage 5) on `lot_id`.
 
-**Output:** `data/consolidated_auction_dataset_geocoded.csv`
+**Output:** `data/interim/consolidated_auction_dataset.csv`
 
-#### Stadio 8 — Price Analysis ✅
+#### Stage 7 — Geocoding
 
-**Script:** `scripts/run_price_analysis.py`
-**Codice:** `src/aler_auctions/analysis/price_analyzer.py`
+**Script:** `pipeline/scripts/run_geocoding.py`  
+**Library:** `pipeline/src/aler_auctions/data_integration/geocoder.py`
 
-Analisi spaziale e di prezzo:
-- Clustering HDBSCAN per identificare zone omogenee (`zone_id`)
-- Calcolo `price_disparity` = (prezzo finale - prezzo base) / prezzo base
-- Calcolo `base_price_per_sqm` e `final_base_price_eur`
+For each address, calls the Google Maps Geocoding API to obtain lat/lng. Results are cached in `data/cache/geocoding_cache.json`.
 
-**Output:** `data/consolidated_auction_dataset_analyzed.csv`
+**Output:** `data/interim/consolidated_auction_dataset_geocoded.csv`
+
+#### Stage 8 — Price Analysis
+
+**Script:** `pipeline/scripts/run_price_analysis.py`  
+**Library:** `pipeline/src/aler_auctions/analysis/price_analyzer.py`
+
+Spatial and price analysis:
+- HDBSCAN clustering to identify homogeneous zones (`zone_id`)
+- Computes `price_disparity` = (final price − base price) / base price
+- Computes `base_price_per_sqm` and `final_base_price_eur`
+
+**Output:** `data/processed/consolidated_auction_dataset_analyzed.csv`
 
 ---
 
-## Schema Dati Finale
+## Final Data Schema
 
-| Campo | Tipo | Stadio | Descrizione |
-|-------|------|--------|-------------|
-| `auction_date` | string | 4 | Data dell'asta |
-| `base_price` | float | 4 | Prezzo base originale (€) |
-| `branch` | string | 4 | Filiale ALER |
-| `city` | string | 4 | Città |
-| `energy_class` | string | 4 | Classe energetica (APE) |
-| `has_elevator` | boolean | 4 | Presenza ascensore |
-| `internal_id` | string | 4 | ID interno ALER |
-| `lot_id` | string | 4 | Identificativo lotto (PK) |
-| `ownership_title` | string | 4 | Titolo di proprietà |
-| `property_type` | string | 4 | Tipologia (ALLOGGIO, AUTOBOX, ...) |
-| `rooms` | float | 4 | Numero vani |
-| `source_file` | string | 4 | File sorgente HTML |
-| `street_number` | string | 4 | Numero civico |
-| `surface_sqm` | float | 4 | Superficie (m²) |
-| `auction_result` | string | 5 | Esito (AGGIUDICATA, DESERTA, ...) |
-| `base_price_eur` | float | 5 | Prezzo base da PDF |
-| `codice` | string | 5 | Codice lotto |
-| `final_offer_eur` | float | 5 | Offerta finale (€) |
-| `source_pdf` | string | 5 | PDF sorgente |
-| `winner` | string | 5 | Iniziali vincitore |
-| `address` | string | 6 | Indirizzo completo |
-| `lat` | float | 7 | Latitudine WGS84 |
-| `lng` | float | 7 | Longitudine WGS84 |
-| `zone_id` | int | 8 | Cluster spaziale HDBSCAN (-1 = noise) |
-| `price_disparity` | float | 8 | Rapporto (finale - base) / base |
-| `base_price_per_sqm` | float | 8 | Prezzo base per m² |
-| `final_base_price_eur` | float | 8 | Prezzo finale per m² |
+| Field | Type | Stage | Description |
+|-------|------|-------|-------------|
+| `auction_date` | string | 4 | Auction date |
+| `base_price` | float | 4 | Original base price (€) |
+| `branch` | string | 4 | ALER branch |
+| `city` | string | 4 | City |
+| `energy_class` | string | 4 | Energy class (APE) |
+| `has_elevator` | boolean | 4 | Elevator present |
+| `internal_id` | string | 4 | ALER internal ID |
+| `lot_id` | string | 4 | Lot identifier (PK) |
+| `ownership_title` | string | 4 | Ownership type |
+| `property_type` | string | 4 | Type (ALLOGGIO, AUTOBOX, …) |
+| `rooms` | float | 4 | Number of rooms |
+| `source_file` | string | 4 | Source HTML file |
+| `street_number` | string | 4 | Street number |
+| `surface_sqm` | float | 4 | Area (m²) |
+| `auction_result` | string | 5 | Outcome (AGGIUDICATA, DESERTA, …) |
+| `base_price_eur` | float | 5 | Base price from PDF |
+| `codice` | string | 5 | Lot code |
+| `final_offer_eur` | float | 5 | Final offer (€) |
+| `source_pdf` | string | 5 | Source PDF |
+| `winner` | string | 5 | Winner initials |
+| `address` | string | 6 | Full address |
+| `lat` | float | 7 | WGS84 latitude |
+| `lng` | float | 7 | WGS84 longitude |
+| `zone_id` | int | 8 | HDBSCAN spatial cluster (−1 = noise) |
+| `price_disparity` | float | 8 | Ratio (final − base) / base |
+| `base_price_per_sqm` | float | 8 | Base price per m² |
+| `final_base_price_eur` | float | 8 | Final price per m² |
 
-## Esecuzione della Pipeline
+---
 
-Per rigenerare il dataset dall'inizio:
+## Running the Pipeline
+
+### Full run from scratch
 
 ```bash
-cd aler_auzione
-
-# Assicurarsi che GOOGLE_MAPS_API_KEY sia in .env
-uv run python scripts/run_wayback_discovery.py
-uv run python scripts/run_url_extraction.py
-uv run python scripts/run_detail_fetching.py
-uv run python scripts/run_data_extraction.py
-uv run python scripts/run_pdf_extraction.py
-uv run python scripts/run_historical_extraction.py
-uv run python scripts/run_dataset_integration.py
-uv run python scripts/run_geocoding.py
-uv run python scripts/run_price_analysis.py
+# From the repo root — ensure GOOGLE_MAPS_API_KEY is set in .env
+uv run python pipeline/scripts/run_wayback_discovery.py
+uv run python pipeline/scripts/run_url_extraction.py
+uv run python pipeline/scripts/run_detail_fetching.py
+uv run python pipeline/scripts/run_data_extraction.py
+uv run python pipeline/scripts/run_pdf_extraction.py
+uv run python pipeline/scripts/run_historical_extraction.py
+uv run python pipeline/scripts/run_dataset_integration.py
+uv run python pipeline/scripts/run_geocoding.py
+uv run python pipeline/scripts/run_price_analysis.py
 ```
 
-> **Nota:** gli stadi 1-3 servono solo per aggiungere nuovi dati storici. Per lo sviluppo della web app, il dataset finale è già pronto in `data/`.
+### Via admin dashboard
+
+Open http://localhost:5173/admin and click **Run All**, or start individual stages.
+
+---
+
+## Periodic Refresh
+
+**Script:** `pipeline/scripts/run_periodic_refresh.py`
+
+An incremental update script designed to run on a schedule (e.g. daily cron). It performs the following steps:
+
+1. **Scrape active auctions** — fetches the current auction listing from `alermipianovendite.it` using the same logic as `run_active_auction_scraper.py`.
+
+2. **Write a timestamped snapshot** — the scraped result is saved as `data/cache/active_auction_lots_{YYYYMMDDTHHMMSSZ}.json`. The canonical `data/cache/active_auction_lots.json` is updated with the fresh data but is never deleted or replaced destructively.
+
+3. **Annotate the canonical cache** — `first_seen` and `last_seen` ISO timestamps are added to every entry in `active_auction_lots.json` without altering any other field. `first_seen` is backfilled from the original `scraped_at` value.
+
+4. **Detect new auctions** — compares `(title, auction_date)` pairs against the canonical cache to identify auctions not yet catalogued.
+
+5. **Trigger pipelines for new auctions:**
+   - `run_historical_extraction.py` — downloads new result PDFs
+   - `run_wayback_discovery.py` → `run_url_extraction.py` → `run_detail_fetching.py` → `run_data_extraction.py`
+
+6. **Run downstream stages** — `run_pdf_extraction.py` → `run_dataset_integration.py` → `run_geocoding.py` → `run_price_analysis.py`
+
+### Usage
+
+```bash
+# Standard incremental refresh
+uv run python pipeline/scripts/run_periodic_refresh.py
+
+# Force downstream pipeline even when no new auctions are found
+uv run python pipeline/scripts/run_periodic_refresh.py --force-downstream
+```
+
+### Cron example
+
+```cron
+# Every day at 06:00
+0 6 * * * cd /path/to/aler_auction && uv run python pipeline/scripts/run_periodic_refresh.py >> /var/log/aler_refresh.log 2>&1
+```
+
+### Cache file layout after refresh
+
+```
+data/cache/
+├── active_auction_lots.json                  ← canonical; updated in place, timestamped entries
+├── active_auction_lots_20260605T060000Z.json ← immutable snapshot from this run
+├── active_auction_lots_20260606T060000Z.json ← immutable snapshot from next run
+└── geocoding_cache.json
+```

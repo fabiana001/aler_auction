@@ -82,17 +82,16 @@ export default function SearchBar({ onSelect }) {
 
   return (
     <div ref={containerRef} style={{ position: "relative", flex: "1 1 auto", maxWidth: 400 }}>
-      <div style={{
+      <div className="searchbar-wrap" style={{
         display: "flex",
         alignItems: "center",
-        gap: 6,
-        background: "var(--color-background-secondary)",
-        border: "1px solid var(--color-border-secondary)",
-        borderRadius: "var(--border-radius-md)",
-        padding: "5px 10px",
-        height: 32,
+        gap: 7,
+        padding: "0 4px",
+        height: 36,
+        borderBottom: "2px solid transparent",
+        transition: "border-color 0.15s",
       }}>
-        <i className="ti ti-search" style={{ fontSize: 13, color: "var(--color-text-tertiary)" }} />
+        <i className="ti ti-search" style={{ fontSize: 14, color: "var(--color-text-tertiary)", flexShrink: 0 }} />
         <input
           ref={inputRef}
           type="text"
@@ -108,10 +107,11 @@ export default function SearchBar({ onSelect }) {
             outline: "none",
             color: "var(--color-text-primary)",
             fontSize: 13,
+            letterSpacing: "0.01em",
           }}
         />
         {loading && (
-          <i className="ti ti-loader-2" style={{ fontSize: 13, color: "var(--color-text-tertiary)", animation: "spin 1s linear infinite" }} />
+          <i className="ti ti-loader-2" style={{ fontSize: 13, color: "var(--color-text-tertiary)", animation: "spin 1s linear infinite", flexShrink: 0 }} />
         )}
         {!loading && query && (
           <button
@@ -119,7 +119,7 @@ export default function SearchBar({ onSelect }) {
             style={{
               background: "none", border: "none",
               color: "var(--color-text-tertiary)", cursor: "pointer",
-              fontSize: 13, padding: 0, lineHeight: 1, display: "flex",
+              fontSize: 13, padding: 0, lineHeight: 1, display: "flex", flexShrink: 0,
             }}
           >
             <i className="ti ti-x" />
@@ -166,7 +166,11 @@ export default function SearchBar({ onSelect }) {
         </ul>
       )}
 
-      <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
+      <style>{`
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .searchbar-wrap:focus-within { border-bottom-color: #2563EB !important; }
+        .searchbar-wrap:focus-within i.ti-search { color: #2563EB !important; }
+      `}</style>
     </div>
   );
 }

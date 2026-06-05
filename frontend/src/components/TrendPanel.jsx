@@ -12,11 +12,11 @@ function formatEur(v) {
 }
 
 function outcomeInfo(result) {
-  if (!result) return { bg: "#fafafa", color: "#52525b", border: "#d4d4d8", label: "Esito non disp.", activeBg: "#71717a" };
+  if (!result) return { label: "Esito N/D", badgeBg: "var(--color-background-secondary)", badgeColor: "var(--color-text-tertiary)" };
   const r = result.toUpperCase();
-  if (r === "AGGIUDICATA") return { bg: "#eff6ff", color: "#1d4ed8", border: "#bfdbfe", label: "Aggiudicata", activeBg: "#2563eb" };
-  if (r.includes("DESERT")) return { bg: "#fff7ed", color: "#9a3412", border: "#fed7aa", label: "Asta deserta", activeBg: "#c2410c" };
-  return { bg: "#fafafa", color: "#52525b", border: "#d4d4d8", label: result, activeBg: "#71717a" };
+  if (r === "AGGIUDICATA") return { label: "Aggiudicata", badgeBg: "#DCFCE7", badgeColor: "#15803D" };
+  if (r.includes("DESERT")) return { label: "Asta deserta", badgeBg: "#FEF9C3", badgeColor: "#92400E" };
+  return { label: result, badgeBg: "var(--color-background-secondary)", badgeColor: "var(--color-text-tertiary)" };
 }
 
 function extractYear(dateStr) {
@@ -151,50 +151,63 @@ function pdfUrl(sourcePdf) {
   return `${API_URL}/api/auctions/pdf/${encodeURIComponent(sourcePdf)}`;
 }
 
+function calcDelta(base, aggiudicata) {
+  if (!base || !aggiudicata) return null;
+  const delta = Math.round((aggiudicata - base) / base * 100);
+  return delta > 0 ? `+${delta}%` : `${delta}%`;
+}
+
 function AuctionRow({ a }) {
   const p = a.properties || {};
   const info = outcomeInfo(p.auction_result);
+  const delta = calcDelta(p.base_price_eur, p.final_offer_eur);
+  const deltaPositive = delta && !delta.startsWith("-");
 
   return (
     <div style={{
-      padding: "9px 10px 9px 12px",
-      borderRadius: "var(--border-radius-md)",
-      cursor: "pointer",
-      transition: "filter 0.1s",
-      background: info.bg,
-      border: "0.5px solid " + info.border,
-      borderLeft: "3px solid " + info.activeBg,
+      background: "var(--color-background-primary)",
+      border: "0.5px solid var(--color-border-tertiary)",
+      borderRadius: 8,
+      padding: "10px 12px",
       marginBottom: 4,
+      cursor: "pointer",
+      transition: "border-color 0.12s, background 0.12s",
     }}
-      onMouseEnter={(e) => { e.currentTarget.style.filter = "brightness(0.97)"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.filter = "none"; }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = "var(--color-border-secondary)";
+        e.currentTarget.style.background = "var(--color-background-secondary)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = "var(--color-border-tertiary)";
+        e.currentTarget.style.background = "var(--color-background-primary)";
+      }}
     >
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 6, marginBottom: 4 }}>
-        <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)", lineHeight: 1.3, flex: 1 }}>
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 8, marginBottom: 5 }}>
+        <span style={{ fontSize: 13, fontWeight: 500, color: "var(--color-text-primary)", lineHeight: 1.3, flex: 1, textTransform: "none" }}>
           {p.address || "Indirizzo sconosciuto"}
         </span>
         <span style={{
-          fontSize: 10, padding: "2px 7px", borderRadius: 3, fontWeight: 600, whiteSpace: "nowrap",
-          background: info.activeBg, color: "#fff", letterSpacing: "0.03em",
+          fontSize: 10, padding: "2px 8px", borderRadius: 20, fontWeight: 500, whiteSpace: "nowrap", flexShrink: 0,
+          background: info.badgeBg, color: info.badgeColor,
         }}>
           {info.label}
         </span>
       </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
         {p.auction_date && (
-          <span style={{ display: "flex", alignItems: "center", gap: 3, fontSize: 11, color: info.color }}>
+          <span style={{ display: "flex", alignItems: "center", gap: 3, fontSize: 11, color: "var(--color-text-tertiary)" }}>
             <i className="ti ti-calendar" style={{ fontSize: 11 }} />{p.auction_date}
           </span>
         )}
         {p.surface_sqm != null && (
-          <span style={{ display: "flex", alignItems: "center", gap: 3, fontSize: 11, color: "var(--color-text-secondary)", fontWeight: 500 }}>
+          <span style={{ display: "flex", alignItems: "center", gap: 3, fontSize: 11, color: "var(--color-text-tertiary)" }}>
             <i className="ti ti-ruler-2" style={{ fontSize: 11 }} />{p.surface_sqm} m²
           </span>
         )}
         {p.has_box && (
           <span style={{
-            fontSize: 10, fontWeight: 600, padding: "1px 6px", borderRadius: 4,
-            background: "#eff6ff", color: "#1d4ed8", border: "1px solid #bfdbfe",
+            fontSize: 10, fontWeight: 500, padding: "1px 6px", borderRadius: 4,
+            background: "#eff6ff", color: "#1d4ed8", border: "0.5px solid #bfdbfe",
           }}>
             + box
           </span>
@@ -206,22 +219,28 @@ function AuctionRow({ a }) {
         )}
       </div>
       {(p.base_price_eur != null || p.final_offer_eur != null) && (
-        <div style={{ marginTop: 5, display: "flex", alignItems: "center", gap: 8 }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
           {p.base_price_eur != null && (
-            <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)", fontFamily: "var(--font-mono)" }}>
-              Base: {formatEur(p.base_price_eur)}
+            <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>
+              Base {formatEur(p.base_price_eur)}
             </span>
           )}
           {p.base_price_per_sqm != null && (
-            <>
-              <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>·</span>
-              <span style={{ fontSize: 11, color: "var(--color-text-secondary)", fontFamily: "var(--font-mono)" }}>{Math.round(p.base_price_per_sqm).toLocaleString("it-IT")} €/m²</span>
-            </>
+            <span style={{ fontSize: 11, color: "var(--color-text-tertiary)", fontFamily: "var(--font-mono)" }}>· {Math.round(p.base_price_per_sqm).toLocaleString("it-IT")} €/m²</span>
           )}
           {p.final_offer_eur != null && p.final_offer_eur > 0 && (
             <>
-              <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>·</span>
-              <span style={{ fontSize: 11, color: info.color, fontWeight: 500, fontFamily: "var(--font-mono)" }}>Agg.: {formatEur(p.final_offer_eur)}</span>
+              <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>→</span>
+              <span style={{ fontSize: 13, fontWeight: 500, color: "var(--color-text-primary)", fontFamily: "var(--font-mono)" }}>{formatEur(p.final_offer_eur)}</span>
+              {delta && (
+                <span style={{
+                  fontSize: 11, fontWeight: 500, padding: "1px 6px", borderRadius: 20,
+                  background: deltaPositive ? "#DCFCE7" : "#FEE2E2",
+                  color: deltaPositive ? "#15803D" : "#B91C1C",
+                }}>
+                  {delta}
+                </span>
+              )}
             </>
           )}
         </div>
@@ -332,6 +351,7 @@ export default function TrendPanel({ auction, onClose, onHoverIds, onRadiusChang
 
   if (!auction) return null;
 
+  const noCoords = lat == null || lng == null;
   const timeSeries = data?.time_series || [];
 
   // All auctions across every time series point
@@ -502,7 +522,13 @@ export default function TrendPanel({ auction, onClose, onHoverIds, onRadiusChang
             Errore: {error}
           </div>
         )}
-        {!loading && !error && timeSeries.length === 0 && (
+        {noCoords && (
+          <div style={{ fontSize: 12, color: "var(--color-text-tertiary)", padding: "12px 0", textAlign: "center" }}>
+            <i className="ti ti-map-pin-off" style={{ marginRight: 5 }} />
+            Posizione non disponibile per questo lotto.
+          </div>
+        )}
+        {!noCoords && !loading && !error && timeSeries.length === 0 && (
           <div style={{ fontSize: 12, color: "var(--color-text-tertiary)", padding: "12px 0", textAlign: "center" }}>
             Nessun dato — prova ad aumentare il raggio.
           </div>
@@ -588,68 +614,75 @@ export default function TrendPanel({ auction, onClose, onHoverIds, onRadiusChang
         {!hoveredPoint && nearbyActiveLots.length > 0 && (
           <div style={{ marginBottom: 8 }}>
             <div style={{
-              fontSize: 10, fontWeight: 700, color: "#92400e", textTransform: "uppercase",
+              fontSize: 10, fontWeight: 500, color: "var(--color-text-tertiary)", textTransform: "uppercase",
               letterSpacing: "0.06em", marginBottom: 4, paddingLeft: 2,
               display: "flex", alignItems: "center", gap: 4,
             }}>
-              <i className="ti ti-gavel" style={{ fontSize: 10, color: "#92400e" }} /> Aste attive nel raggio ({nearbyActiveLots.length})
+              <i className="ti ti-gavel" style={{ fontSize: 10 }} /> Aste attive nel raggio ({nearbyActiveLots.length})
             </div>
             {nearbyActiveLots.map((lot) => (
               <div key={lot.lot_id} style={{
-                padding: "9px 10px 9px 12px",
-                borderRadius: "var(--border-radius-md)",
-                background: "linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%)",
-                border: "0.5px solid #fde68a",
-                borderLeft: "3px solid #f59e0b",
+                background: "var(--color-background-primary)",
+                border: "0.5px solid var(--color-border-tertiary)",
+                borderLeft: "3px solid #2563EB",
+                borderRadius: 8,
+                padding: "10px 12px",
                 marginBottom: 4,
-              }}>
-                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 6, marginBottom: 4 }}>
-                  <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)", lineHeight: 1.3, flex: 1 }}>
+                transition: "border-color 0.12s, background 0.12s",
+              }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "var(--color-border-secondary)";
+                  e.currentTarget.style.background = "var(--color-background-secondary)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "var(--color-border-tertiary)";
+                  e.currentTarget.style.background = "var(--color-background-primary)";
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 8, marginBottom: 5 }}>
+                  <span style={{ fontSize: 13, fontWeight: 500, color: "var(--color-text-primary)", lineHeight: 1.3, flex: 1 }}>
                     {lot.address}{lot.street_number ? ` ${lot.street_number}` : ""}
                     {lot.city && lot.city !== "MILANO" && (
                       <span style={{ fontSize: 11, color: "var(--color-text-secondary)", marginLeft: 4 }}>{lot.city}</span>
                     )}
                   </span>
                   <span style={{
-                    fontSize: 10, padding: "2px 7px", borderRadius: 3, fontWeight: 600, whiteSpace: "nowrap",
-                    background: "#f59e0b", color: "#fff", letterSpacing: "0.03em",
+                    fontSize: 10, padding: "2px 8px", borderRadius: 20, fontWeight: 500, whiteSpace: "nowrap",
+                    background: "#EFF6FF", color: "#1D4ED8",
                   }}>
-                    Attiva
+                    Live
                   </span>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: lot.base_price_eur ? 6 : 0 }}>
                   {lot.surface_sqm != null && (
-                    <span style={{ display: "flex", alignItems: "center", gap: 3, fontSize: 11, color: "var(--color-text-secondary)", fontWeight: 500 }}>
+                    <span style={{ display: "flex", alignItems: "center", gap: 3, fontSize: 11, color: "var(--color-text-tertiary)" }}>
                       <i className="ti ti-ruler-2" style={{ fontSize: 11 }} />{lot.surface_sqm} m²
                     </span>
                   )}
                   {lot.rooms != null && (
-                    <span style={{ fontSize: 11, color: "var(--color-text-secondary)" }}>{lot.rooms} loc.</span>
+                    <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>{lot.rooms} loc.</span>
                   )}
                   {lot.has_box && (
                     <span style={{
-                      fontSize: 10, fontWeight: 600, padding: "1px 6px", borderRadius: 4,
-                      background: "#eff6ff", color: "#1d4ed8", border: "1px solid #bfdbfe",
+                      fontSize: 10, fontWeight: 500, padding: "1px 6px", borderRadius: 4,
+                      background: "#eff6ff", color: "#1d4ed8", border: "0.5px solid #bfdbfe",
                     }}>
                       + box
                     </span>
                   )}
                   {lot.ape_class && (
-                    <span style={{ fontSize: 11, color: "#64748b", fontWeight: 600 }}>APE {lot.ape_class}</span>
+                    <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>APE {lot.ape_class}</span>
                   )}
                 </div>
                 {lot.base_price_eur != null && (
-                  <div style={{ marginTop: 5 }}>
-                    <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)", fontFamily: "var(--font-mono)" }}>
-                      Base: {formatEur(lot.base_price_eur)}
+                  <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+                    <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>
+                      Base {formatEur(lot.base_price_eur)}
                     </span>
                     {lot.surface_sqm && (
-                      <>
-                        <span style={{ fontSize: 11, color: "var(--color-text-tertiary)", margin: "0 6px" }}>·</span>
-                        <span style={{ fontSize: 11, color: "var(--color-text-secondary)", fontFamily: "var(--font-mono)" }}>
-                          {Math.round(lot.base_price_eur / lot.surface_sqm).toLocaleString("it-IT")} €/m²
-                        </span>
-                      </>
+                      <span style={{ fontSize: 11, color: "var(--color-text-tertiary)", fontFamily: "var(--font-mono)" }}>
+                        · {Math.round(lot.base_price_eur / lot.surface_sqm).toLocaleString("it-IT")} €/m²
+                      </span>
                     )}
                   </div>
                 )}
