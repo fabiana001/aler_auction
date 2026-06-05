@@ -44,9 +44,7 @@ export default function SearchBar({ onSelect }) {
         setLoading(false);
       }
     }, 300);
-    return () => {
-      if (debounceRef.current) clearTimeout(debounceRef.current);
-    };
+    return () => { if (debounceRef.current) clearTimeout(debounceRef.current); };
   }, [query]);
 
   function handleSelect(item) {
@@ -83,9 +81,18 @@ export default function SearchBar({ onSelect }) {
   }
 
   return (
-    <div ref={containerRef} style={{ position: "relative", flex: "1 1 auto", maxWidth: 420 }}>
-      <div style={{ display: "flex", alignItems: "center", background: "#16213e", borderRadius: 8, border: "1px solid #2a2a4a", padding: "0 10px", height: 38 }}>
-        <span style={{ marginRight: 6, fontSize: 14, opacity: 0.7 }}>🔍</span>
+    <div ref={containerRef} style={{ position: "relative", flex: "1 1 auto", maxWidth: 400 }}>
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 6,
+        background: "var(--color-background-secondary)",
+        border: "0.5px solid var(--color-border-secondary)",
+        borderRadius: "var(--border-radius-md)",
+        padding: "5px 10px",
+        height: 30,
+      }}>
+        <i className="ti ti-search" style={{ fontSize: 13, color: "var(--color-text-tertiary)" }} />
         <input
           ref={inputRef}
           type="text"
@@ -99,67 +106,67 @@ export default function SearchBar({ onSelect }) {
             background: "transparent",
             border: "none",
             outline: "none",
-            color: "#fff",
-            fontSize: 14,
-            height: "100%",
-            fontFamily: "system-ui, sans-serif",
+            color: "var(--color-text-primary)",
+            fontSize: 13,
           }}
         />
         {loading && (
-          <span style={{ fontSize: 14, animation: "spin 1s linear infinite", display: "inline-block" }}>⏳</span>
+          <i className="ti ti-loader-2" style={{ fontSize: 13, color: "var(--color-text-tertiary)", animation: "spin 1s linear infinite" }} />
         )}
         {!loading && query && (
           <button
             onClick={() => { setQuery(""); setResults([]); setShowDropdown(false); inputRef.current?.focus(); }}
-            style={{ background: "none", border: "none", color: "#aaa", cursor: "pointer", fontSize: 16, padding: "0 2px" }}
+            style={{
+              background: "none", border: "none",
+              color: "var(--color-text-tertiary)", cursor: "pointer",
+              fontSize: 13, padding: 0, lineHeight: 1, display: "flex",
+            }}
           >
-            ✕
+            <i className="ti ti-x" />
           </button>
         )}
       </div>
 
       {showDropdown && results.length > 0 && (
-        <ul
-          style={{
-            position: "absolute",
-            top: "calc(100% + 4px)",
-            left: 0,
-            right: 0,
-            background: "#16213e",
-            border: "1px solid #2a2a4a",
-            borderRadius: 8,
-            listStyle: "none",
-            margin: 0,
-            padding: 4,
-            zIndex: 9999,
-            maxHeight: 320,
-            overflowY: "auto",
-            boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
-          }}
-        >
+        <ul style={{
+          position: "absolute",
+          top: "calc(100% + 4px)",
+          left: 0,
+          right: 0,
+          background: "#ffffff",
+          border: "0.5px solid #e2e8f0",
+          borderRadius: 8,
+          listStyle: "none",
+          margin: 0,
+          padding: 4,
+          zIndex: 9999,
+          maxHeight: 320,
+          overflowY: "auto",
+          boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+        }}>
           {results.map((item, idx) => (
             <li
               key={item.id || idx}
               onMouseDown={(e) => { e.preventDefault(); handleSelect(item); }}
               onMouseEnter={() => setSelectedIndex(idx)}
               style={{
-                padding: "8px 12px",
+                padding: "7px 10px",
                 cursor: "pointer",
                 borderRadius: 6,
-                background: idx === selectedIndex ? "#2a2a5a" : "transparent",
-                color: "#eee",
+                background: idx === selectedIndex ? "#f1f5f9" : "transparent",
                 fontSize: 13,
-                fontFamily: "system-ui, sans-serif",
               }}
             >
-              <div style={{ fontWeight: 600 }}>{getAddress(item)}</div>
+              <div style={{ fontWeight: 500, color: "#0f172a" }}>{getAddress(item)}</div>
               {getCity(item) && (
-                <div style={{ fontSize: 11, opacity: 0.6, marginTop: 2 }}>{getCity(item)}</div>
+                <div style={{ fontSize: 11, color: "#64748b", marginTop: 1 }}>{getCity(item)}</div>
               )}
             </li>
           ))}
         </ul>
       )}
+
+      <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
     </div>
   );
 }

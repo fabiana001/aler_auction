@@ -30,39 +30,61 @@ class DatasetIntegrator:
             
         logger.info(f"Loading properties from {self.properties_path}")
         df_props = pd.read_csv(self.properties_path)
-        
+
         logger.info(f"Loading results from {self.results_path}")
         df_results = pd.read_csv(self.results_path)
-        
-        # Standardize lot_id format if necessary (e.g., stripping whitespace)
+
+        if df_props.empty:
+            logger.error("Properties file is empty")
+            return None
+        if df_results.empty:
+            logger.error("Results file is empty")
+            return None
+
+        # Standardize lot_id
         df_props['lot_id'] = df_props['lot_id'].astype(str).str.strip()
         df_results['lot_id'] = df_results['lot_id'].astype(str).str.strip()
-        
-        # Merge datasets on lot_id
-        # We use a left join to keep all properties, even those without a result in the PDF
-        # Or an inner join if we only want properties with confirmed outcomes.
-        # Given the "Auction Data Normalization" context, we likely want to see the outcomes.
-        # But for a complete dataset, a left join is safer to identify missing results.
-        logger.info("Merging datasets on lot_id...")
+
+        # Deduplicate before merge to avoid cartesian explosion when lot_id appears
+        # multiple times in either source (e.g. re-runs, duplicate PDFs).
+        props_before = len(df_props)
+        results_before = len(df_results)
+        df_props = df_props.drop_duplicates(subset=['lot_id'], keep='first')
+        df_results = df_results.drop_duplicates(subset=['lot_id'], keep='first')
+        if len(df_props) < props_before:
+            logger.warning("Dropped %d duplicate lot_id rows from properties", props_before - len(df_props))
+        if len(df_results) < results_before:
+            logger.warning("Dropped %d duplicate lot_id rows from results", results_before - len(df_results))
+
+        # Full outer join: keep Wayback rows (with property details) AND PDF-only rows (no Wayback snapshot)
+        logger.info("Merging datasets on lot_id (outer join)...")
         df_joined = pd.merge(
-            df_props, 
-            df_results, 
-            on='lot_id', 
-            how='left', 
+            df_props,
+            df_results,
+            on='lot_id',
+            how='outer',
             suffixes=('_wayback', '_pdf')
         )
-        
-        # Handle cases where multiple results might exist for the same lot (unlikely but possible)
-        # For now, we report the size
+
         logger.info(f"Joined records count: {len(df_joined)}")
-        
-        # Clean up column redundancy if they match
+
+        # Reconcile address: prefer Wayback (richer), fall back to PDF
         if 'address_wayback' in df_joined.columns and 'address_pdf' in df_joined.columns:
-            # Keep wayback address as it's usually cleaner/standardized during trait extraction
             df_joined['address'] = df_joined['address_wayback'].fillna(df_joined['address_pdf'])
             df_joined.drop(columns=['address_wayback', 'address_pdf'], inplace=True)
-            
-        # Standardize auction_result: if missing, label as "DATO MANCANTE" or similar
+
+        # Reconcile auction_date: prefer Wayback, fall back to PDF-derived date
+        if 'auction_date_wayback' in df_joined.columns and 'auction_date_pdf' in df_joined.columns:
+            df_joined['auction_date'] = df_joined['auction_date_wayback'].fillna(df_joined['auction_date_pdf'])
+            df_joined.drop(columns=['auction_date_wayback', 'auction_date_pdf'], inplace=True)
+
+        # Mark source for transparency
+        if 'source_file' in df_joined.columns:
+            df_joined['data_source'] = df_joined['source_file'].apply(
+                lambda x: 'wayback' if pd.notna(x) else 'pdf_only'
+            )
+
+        # Standardize auction_result
         if 'auction_result' in df_joined.columns:
             df_joined['auction_result'] = df_joined['auction_result'].fillna('ESITO NON DISPONIBILE')
             

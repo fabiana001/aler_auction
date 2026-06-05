@@ -5,18 +5,29 @@ const RADIUS_OPTIONS = [100, 250, 500, 1000, 2000];
 
 function formatPrice(value) {
   if (value == null) return "N/A";
-  return new Intl.NumberFormat("it-IT", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 0,
-  }).format(value);
+  return new Intl.NumberFormat("it-IT", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(value);
 }
+
+function outcomeInfo(result) {
+  if (!result) return { bg: "#fef2f2", color: "#b91c1c", border: "#fecaca", label: "Esito non disp.", activeBg: "#b91c1c" };
+  const r = result.toUpperCase();
+  if (r === "AGGIUDICATA") return { bg: "#f0fdf4", color: "#15803d", border: "#bbf7d0", label: "Aggiudicata", activeBg: "#16a34a" };
+  if (r.includes("DESERT")) return { bg: "#fffbeb", color: "#92400e", border: "#fde68a", label: "Asta deserta", activeBg: "#d97706" };
+  return { bg: "#fef2f2", color: "#b91c1c", border: "#fecaca", label: result, activeBg: "#b91c1c" };
+}
+
+const OUTCOME_FILTERS = [
+  { key: "tutte",       label: "Tutte",       activeBg: "#2563EB" },
+  { key: "aggiudicate", label: "Aggiudicate", activeBg: "#16a34a" },
+  { key: "deserte",     label: "Deserte",     activeBg: "#d97706" },
+];
 
 export default function NearbyPanel({ location, onClose }) {
   const [radius, setRadius] = useState(500);
   const [auctions, setAuctions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [filter, setFilter] = useState("tutte");
 
   useEffect(() => {
     if (!location) return;
@@ -31,7 +42,7 @@ export default function NearbyPanel({ location, onClose }) {
           setAuctions(items);
         }
       } catch (err) {
-        if (!cancelled) setError(err.message || "Failed to load nearby auctions");
+        if (!cancelled) setError(err.message || "Errore");
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -40,150 +51,237 @@ export default function NearbyPanel({ location, onClose }) {
     return () => { cancelled = true; };
   }, [location, radius]);
 
-  const count = auctions.length;
-  const avgPricePerSqm =
-    auctions.filter((a) => a.properties?.base_price_per_sqm || a.base_price_per_sqm).length > 0
-      ? auctions
-          .filter((a) => a.properties?.base_price_per_sqm || a.base_price_per_sqm)
-          .reduce((sum, a) => sum + (a.properties?.base_price_per_sqm || a.base_price_per_sqm), 0) /
-        auctions.filter((a) => a.properties?.base_price_per_sqm || a.base_price_per_sqm).length
-      : null;
-  const avgBasePrice =
-    auctions.filter((a) => a.properties?.base_price_eur || a.base_price_eur).length > 0
-      ? auctions
-          .filter((a) => a.properties?.base_price_eur || a.base_price_eur)
-          .reduce((sum, a) => sum + (a.properties?.base_price_eur || a.base_price_eur), 0) /
-        auctions.filter((a) => a.properties?.base_price_eur || a.base_price_eur).length
-      : null;
-
-  function getDistance(a) {
-    return a.distance != null ? `${Math.round(a.distance)}m` : a.properties?.distance ? `${Math.round(a.properties.distance)}m` : "";
-  }
-
-  function getAddress(a) {
-    return a.properties?.address || a.address || "Indirizzo sconosciuto";
-  }
-
-  function getPrice(a) {
-    return formatPrice(a.properties?.base_price_eur || a.base_price_eur);
-  }
-
-  function getType(a) {
-    return a.properties?.property_type || a.property_type || "";
-  }
-
   if (!location) return null;
 
+  const getProp = (a, key) => a.properties?.[key] ?? a[key];
+
+  const avgPsm = (() => {
+    const vals = auctions.map((a) => getProp(a, "base_price_per_sqm")).filter((v) => v != null);
+    return vals.length ? vals.reduce((s, v) => s + v, 0) / vals.length : null;
+  })();
+
+  const avgBase = (() => {
+    const vals = auctions.map((a) => getProp(a, "base_price_eur")).filter((v) => v != null);
+    return vals.length ? vals.reduce((s, v) => s + v, 0) / vals.length : null;
+  })();
+
+  const filteredAuctions = auctions.filter((a) => {
+    const result = (getProp(a, "auction_result") || "").toUpperCase();
+    if (filter === "aggiudicate") return result === "AGGIUDICATA";
+    if (filter === "deserte") return result.includes("DESERT");
+    return true;
+  });
+
+  const radiusLabel = radius >= 1000 ? `${radius / 1000} km` : `${radius} m`;
+
   return (
-    <div
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        bottom: 0,
-        width: 340,
-        background: "#1a1a2e",
-        color: "#eee",
-        zIndex: 2000,
-        display: "flex",
-        flexDirection: "column",
-        boxShadow: "4px 0 24px rgba(0,0,0,0.5)",
-        animation: "slideIn 0.25s ease-out",
-        fontFamily: "system-ui, sans-serif",
-      }}
-    >
-      <style>{`@keyframes slideIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }`}</style>
+    <div style={{
+      width: 360,
+      flexShrink: 0,
+      background: "var(--color-background-primary)",
+      borderLeft: "1px solid #e2e8f0",
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden",
+      animation: "slideInRight 0.22s ease-out",
+    }}>
+      <style>{`@keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }`}</style>
 
       {/* Header */}
-      <div style={{ padding: "14px 16px 10px", borderBottom: "1px solid #2a2a4a" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
-          <h2 style={{ margin: 0, fontSize: 15, fontWeight: 700 }}>
-            Aste nel raggio di {radius >= 1000 ? `${radius / 1000}km` : `${radius}m`}
-          </h2>
-          <button
-            onClick={onClose}
-            style={{ background: "none", border: "none", color: "#aaa", fontSize: 18, cursor: "pointer", padding: "2px 6px" }}
-          >
-            ✕
+      <div style={{ padding: "14px 16px 12px", borderBottom: "0.5px solid #e2e8f0" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
+          <i className="ti ti-map-pin" style={{ fontSize: 14, color: "var(--color-text-secondary)" }} />
+          <span style={{ fontSize: 11, fontWeight: 500, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.04em", flex: 1 }}>
+            Aste nel raggio
+          </span>
+          <button onClick={onClose} style={{
+            background: "none", border: "none", cursor: "pointer",
+            color: "var(--color-text-tertiary)", fontSize: 16, padding: 0, lineHeight: 1,
+            display: "flex", alignItems: "center",
+          }}>
+            <i className="ti ti-x" />
           </button>
         </div>
 
-        {/* Radius selector */}
+        {/* Radius chips */}
+        <div style={{ display: "flex", gap: 4, marginBottom: 12 }}>
+          {RADIUS_OPTIONS.map((r) => {
+            const active = radius === r;
+            return (
+              <button
+                key={r}
+                onClick={() => setRadius(r)}
+                style={{
+                  flex: 1,
+                  padding: "3px 0",
+                  borderRadius: 20,
+                  border: "0.5px solid " + (active ? "var(--color-border-info)" : "var(--color-border-secondary)"),
+                  fontSize: 11,
+                  fontWeight: 500,
+                  cursor: "pointer",
+                  background: active ? "var(--color-background-info)" : "transparent",
+                  color: active ? "var(--color-text-info)" : "var(--color-text-secondary)",
+                  transition: "background 0.1s",
+                }}
+              >
+                {r >= 1000 ? `${r / 1000}km` : `${r}m`}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* KPIs */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
+          {[
+            { val: auctions.length, unit: "aste nel raggio" },
+            { val: avgPsm != null ? `${Math.round(avgPsm).toLocaleString("it-IT")} €` : "—", unit: "€/m² medio" },
+            { val: avgBase != null ? formatPrice(avgBase) : "—", unit: "prezzo base medio" },
+          ].map(({ val, unit }) => (
+            <div key={unit} style={{
+              background: "var(--color-background-secondary)",
+              borderRadius: "var(--border-radius-md)",
+              padding: "8px 10px",
+            }}>
+              <div style={{ fontSize: 17, fontWeight: 500, color: "var(--color-text-primary)", lineHeight: 1.1 }}>{val}</div>
+              <div style={{ fontSize: 10, color: "var(--color-text-tertiary)", marginTop: 3 }}>{unit}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* List header + filters */}
+      <div style={{
+        padding: "8px 16px 6px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        borderBottom: "0.5px solid #e2e8f0",
+      }}>
+        <span style={{ fontSize: 11, fontWeight: 500, color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+          {filteredAuctions.length} aste
+        </span>
         <div style={{ display: "flex", gap: 4 }}>
-          {RADIUS_OPTIONS.map((r) => (
+          {OUTCOME_FILTERS.map(({ key, label, activeBg }) => (
             <button
-              key={r}
-              onClick={() => setRadius(r)}
+              key={key}
+              onClick={() => setFilter(key)}
               style={{
-                flex: 1,
-                padding: "4px 0",
-                borderRadius: 6,
-                border: "none",
-                fontSize: 11,
-                fontWeight: 600,
-                cursor: "pointer",
-                background: radius === r ? "#4a4aaa" : "#2a2a4a",
-                color: radius === r ? "#fff" : "#aaa",
-                fontFamily: "system-ui, sans-serif",
+                fontSize: 11, fontWeight: 500,
+                padding: "3px 10px", borderRadius: 20,
+                border: "1px solid " + (filter === key ? activeBg : "#e2e8f0"),
+                background: filter === key ? activeBg : "#f8fafc",
+                color: filter === key ? "#fff" : "#475569",
+                cursor: "pointer", transition: "all 0.12s",
               }}
+              onMouseEnter={(e) => { if (filter !== key) e.currentTarget.style.background = "#e2e8f0"; }}
+              onMouseLeave={(e) => { if (filter !== key) e.currentTarget.style.background = "#f8fafc"; }}
             >
-              {r >= 1000 ? `${r / 1000}km` : `${r}m`}
+              {label}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Summary stats */}
-      <div style={{ padding: "10px 16px", borderBottom: "1px solid #2a2a4a", display: "flex", gap: 16, fontSize: 12 }}>
-        <div>
-          <span style={{ opacity: 0.6 }}>Totale: </span>
-          <strong>{count}</strong>
-        </div>
-        {avgPricePerSqm != null && (
-          <div>
-            <span style={{ opacity: 0.6 }}>€/m² medio: </span>
-            <strong>{formatPrice(avgPricePerSqm)}</strong>
-          </div>
-        )}
-        {avgBasePrice != null && (
-          <div>
-            <span style={{ opacity: 0.6 }}>Prezzo base medio: </span>
-            <strong>{formatPrice(avgBasePrice)}</strong>
-          </div>
-        )}
-      </div>
-
       {/* List */}
-      <div style={{ flex: 1, overflowY: "auto", padding: "8px 0" }}>
+      <div style={{ flex: 1, overflowY: "auto", padding: "4px 8px 8px" }}>
         {loading && (
-          <div style={{ padding: 20, textAlign: "center", opacity: 0.6, fontSize: 13 }}>Caricamento...</div>
+          <div style={{ padding: 20, textAlign: "center", fontSize: 13, color: "var(--color-text-tertiary)" }}>
+            <i className="ti ti-loader-2" style={{ marginRight: 6 }} />Caricamento...
+          </div>
         )}
         {error && (
-          <div style={{ padding: 20, textAlign: "center", color: "#f66", fontSize: 13 }}>Errore: {error}</div>
+          <div style={{ padding: 16, fontSize: 13, color: "var(--color-text-danger)" }}>Errore: {error}</div>
         )}
-        {!loading && !error && auctions.length === 0 && (
-          <div style={{ padding: 20, textAlign: "center", opacity: 0.5, fontSize: 13 }}>Nessuna asta trovata</div>
-        )}
-        {auctions.map((a, idx) => (
-          <div
-            key={a.id || idx}
-            style={{
-              padding: "10px 16px",
-              borderBottom: "1px solid #222244",
-              cursor: "pointer",
-              transition: "background 0.15s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#222255")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
-          >
-            <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 3 }}>{getAddress(a)}</div>
-            <div style={{ display: "flex", gap: 10, fontSize: 11, opacity: 0.7 }}>
-              {getDistance(a) && <span>📍 {getDistance(a)}</span>}
-              <span>💰 {getPrice(a)}</span>
-              {getType(a) && <span>🏠 {getType(a)}</span>}
-            </div>
+        {!loading && !error && filteredAuctions.length === 0 && (
+          <div style={{ padding: 20, textAlign: "center", fontSize: 13, color: "var(--color-text-tertiary)" }}>
+            Nessuna asta trovata
           </div>
-        ))}
+        )}
+        {filteredAuctions.map((a, idx) => {
+          const addr = getProp(a, "address") || "Indirizzo sconosciuto";
+          const date = getProp(a, "auction_date");
+          const type = getProp(a, "property_type");
+          const surface = getProp(a, "surface_sqm");
+          const basePrice = getProp(a, "base_price_eur");
+          const finalPrice = getProp(a, "final_offer_eur");
+          const psm = getProp(a, "base_price_per_sqm");
+          const result = getProp(a, "auction_result");
+          const dist = a.distance != null ? `${Math.round(a.distance)} m` : null;
+          const info = outcomeInfo(result);
+
+          return (
+            <div key={a.id || idx}
+              style={{
+                padding: "9px 10px 9px 12px",
+                borderRadius: "var(--border-radius-md)",
+                cursor: "pointer",
+                transition: "filter 0.1s",
+                background: info.bg,
+                border: "0.5px solid " + info.border,
+                borderLeft: "3px solid " + info.activeBg,
+                marginBottom: 4,
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.filter = "brightness(0.97)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.filter = "none"; }}
+            >
+              <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 6, marginBottom: 4 }}>
+                <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)", lineHeight: 1.3, flex: 1 }}>
+                  {addr}
+                </span>
+                <span style={{
+                  fontSize: 10, padding: "2px 7px", borderRadius: 20,
+                  fontWeight: 600, whiteSpace: "nowrap",
+                  background: info.activeBg, color: "#fff",
+                }}>
+                  {info.label}
+                </span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+                {date && (
+                  <span style={{ display: "flex", alignItems: "center", gap: 3, fontSize: 11, color: info.color }}>
+                    <i className="ti ti-calendar" style={{ fontSize: 11 }} />{date}
+                  </span>
+                )}
+                {type && (
+                  <span style={{ display: "flex", alignItems: "center", gap: 3, fontSize: 11, color: "var(--color-text-secondary)" }}>
+                    <i className="ti ti-building" style={{ fontSize: 11 }} />{type}
+                  </span>
+                )}
+                {surface != null && (
+                  <span style={{ display: "flex", alignItems: "center", gap: 3, fontSize: 11, color: "var(--color-text-secondary)" }}>
+                    <i className="ti ti-ruler" style={{ fontSize: 11 }} />{surface} m²
+                  </span>
+                )}
+                {dist && (
+                  <span style={{ display: "flex", alignItems: "center", gap: 3, fontSize: 11, color: "var(--color-text-secondary)" }}>
+                    <i className="ti ti-map-pin" style={{ fontSize: 11 }} />{dist}
+                  </span>
+                )}
+              </div>
+              {(basePrice != null || finalPrice != null) && (
+                <div style={{ marginTop: 5, display: "flex", alignItems: "center", gap: 8 }}>
+                  {basePrice != null && (
+                    <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)" }}>
+                      Base: {formatPrice(basePrice)}
+                    </span>
+                  )}
+                  {psm != null && (
+                    <>
+                      <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>·</span>
+                      <span style={{ fontSize: 11, color: "var(--color-text-secondary)" }}>{Math.round(psm).toLocaleString("it-IT")} €/m²</span>
+                    </>
+                  )}
+                  {finalPrice != null && finalPrice > 0 && (
+                    <>
+                      <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>·</span>
+                      <span style={{ fontSize: 11, color: info.color, fontWeight: 500 }}>Agg.: {formatPrice(finalPrice)}</span>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

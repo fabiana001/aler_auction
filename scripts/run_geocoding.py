@@ -42,14 +42,31 @@ def main():
     logger.info(f"Loading dataset from {input_path}")
     df = pd.read_csv(input_path)
     
-    # Prepare address strings for geocoding
-    # We combine address, street_number and city to get better results
-    # and normalize to stay robust.
-    df['full_address_for_geo'] = (
-        df['address'].fillna('') + ' ' + 
-        df['street_number'].fillna('').astype(str) + ', ' + 
-        df['city'].fillna('MILANO') + ', Italy'
-    ).str.strip().str.replace(r'\s+', ' ', regex=True)
+    # Prepare address strings for geocoding.
+    # Wayback rows: address + street_number + city in separate columns.
+    # PDF-only rows: full address already in address field (e.g. "MILANO VIA PASCOLI '4 70").
+    import re
+    from aler_auctions.data_integration.geocoder import _clean_pdf_address
+
+    def build_geo_address(row):
+        addr = str(row.get('address') or '').strip()
+        street_num = str(row.get('street_number') or '').strip()
+        city = str(row.get('city') or '').strip()
+        street_num = '' if street_num.lower() in ('nan', 'none', '') else street_num
+        city = '' if city.lower() in ('nan', 'none', '') else city
+
+        if street_num:
+            # Wayback record with separate civic number
+            city_part = city or 'MILANO'
+            full = f"{addr} {street_num}, {city_part}, Italy"
+        elif not city:
+            # PDF-only record: city is embedded in address — clean and append Italy only
+            full = _clean_pdf_address(addr) + ", Italy"
+        else:
+            full = f"{addr}, {city}, Italy"
+        return re.sub(r'\s+', ' ', full).strip()
+
+    df['full_address_for_geo'] = df.apply(build_geo_address, axis=1)
     
     # Initialize Geocoder
     geocoder = Geocoder(api_key=api_key, cache_path=str(cache_path))

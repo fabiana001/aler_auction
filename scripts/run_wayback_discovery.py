@@ -7,7 +7,7 @@ archived over time. These snapshots serve as the starting point for identifying 
 import logging
 from datetime import datetime
 from pathlib import Path
-from aler_auctions.wayback_client import WaybackClient
+from aler_auctions.data_extraction.wayback_client import WaybackClient
 
 # Implementation of Wayback Discovery Agent logic
 def run_discovery():

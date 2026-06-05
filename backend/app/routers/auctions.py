@@ -1,10 +1,38 @@
 """Auction API router."""
 
+import json
 import math
+import re
+import datetime
+from pathlib import Path
 
 from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import FileResponse
 
-from app.data.loader import get_auction_by_index, get_auctions_df, search_by_address
+from app.data.loader import get_auction_by_index, get_auctions_df, invalidate_cache, search_by_address
+
+_PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
+_ACTIVE_AUCTION_FILE = _PROJECT_ROOT / "data" / "active_auction_lots.json"
+
+_IT_MONTHS = {
+    "gennaio": 1, "febbraio": 2, "marzo": 3, "aprile": 4,
+    "maggio": 5, "giugno": 6, "luglio": 7, "agosto": 8,
+    "settembre": 9, "ottobre": 10, "novembre": 11, "dicembre": 12,
+}
+
+def _parse_it_date(s: str) -> datetime.date | None:
+    if not s:
+        return None
+    m = re.match(r"(\d+)\s+(\w+)\s+(\d{4})", s.strip().lower())
+    if not m:
+        return None
+    mon = _IT_MONTHS.get(m.group(2))
+    if not mon:
+        return None
+    try:
+        return datetime.date(int(m.group(3)), mon, int(m.group(1)))
+    except ValueError:
+        return None
 
 router = APIRouter(prefix="/auctions", tags=["auctions"])
 
@@ -117,50 +145,156 @@ def nearby_auctions(
     }
 
 
+@router.get("/upcoming")
+def upcoming_auctions(
+    days: int = Query(365, ge=1, le=3650, description="Look-back window in days from today"),
+):
+    """Return auctions whose date falls within the last *days* days (recent/upcoming)."""
+    df = get_auctions_df()
+    today = datetime.date.today()
+    cutoff = today - datetime.timedelta(days=days)
+
+    results = []
+    for idx, row in df.iterrows():
+        d = _parse_it_date(str(row.get("auction_date") or ""))
+        if d is not None and d >= cutoff:
+            item = _row_to_feature(row, idx)
+            item["parsed_date"] = d.isoformat()
+            results.append(item)
+
+    results.sort(key=lambda x: x["parsed_date"], reverse=True)
+    return {"total": len(results), "items": results}
+
+
 @router.get("/trend")
 def price_trend(
     lat: float = Query(..., description="Latitude of the center point"),
     lng: float = Query(..., description="Longitude of the center point"),
-    radius: int = Query(500, ge=1, le=50000, description="Search radius in meters"),
+    radius: int = Query(1000, ge=1, le=50000, description="Search radius in meters"),
 ):
-    """Return price trend data for auctions near a point."""
+    """Return price-per-sqm trend over time for auctions near a point."""
     df = get_auctions_df()
 
-    # Compute distances using Haversine
-    distances = []
-    for idx, row in df.iterrows():
-        d = _haversine(lat, lng, float(row["lat"]), float(row["lng"]))
-        distances.append(d)
-
+    distances = [_haversine(lat, lng, float(r["lat"]), float(r["lng"])) for _, r in df.iterrows()]
     df = df.copy()
     df["distance_m"] = distances
-    nearby_df = df[df["distance_m"] <= radius]
+    nearby_df = df[df["distance_m"] <= radius].copy()
 
-    # Build auction records
-    records = []
+    # Parse dates and build time series grouped by auction date
+    import pandas as pd
+    points: dict[str, dict] = {}
     for idx, row in nearby_df.iterrows():
-        item = _row_to_feature(row, idx)
-        item["distance_m"] = round(float(row["distance_m"]), 1)
-        records.append(item)
+        d = _parse_it_date(str(row.get("auction_date") or ""))
+        if d is None:
+            continue
+        psm = row.get("base_price_per_sqm")
+        key = d.isoformat()
+        bucket = points.setdefault(key, {"prices": [], "ids": []})
+        bucket["ids"].append(int(idx))
+        if not pd.isna(psm):
+            bucket["prices"].append(float(psm))
 
-    # Compute averages using only rows with non-null base_price_per_sqm
+    # Build a lookup of id -> feature for nearby auctions
+    nearby_features = {int(idx): _row_to_feature(row, idx) for idx, row in nearby_df.iterrows()}
+
+    time_series = sorted(
+        [
+            {
+                "date": k,
+                "avg_price_per_sqm": round(sum(v["prices"]) / len(v["prices"]), 2) if v["prices"] else None,
+                "count": len(v["ids"]),
+                "auction_ids": v["ids"],
+                "auctions": [nearby_features[i] for i in v["ids"] if i in nearby_features],
+            }
+            for k, v in points.items()
+        ],
+        key=lambda x: x["date"],
+    )
+
     valid_psm = nearby_df["base_price_per_sqm"].dropna()
     valid_base = nearby_df["base_price_eur"].dropna()
-    valid_final = nearby_df["final_offer_eur"].dropna()
-
-    avg_base_price_eur = round(float(valid_base.mean()), 2) if len(valid_base) > 0 else None
-    avg_final_offer_eur = round(float(valid_final.mean()), 2) if len(valid_final) > 0 else None
-    avg_price_per_sqm = round(float(valid_psm.mean()), 2) if len(valid_psm) > 0 else None
 
     return {
         "center": {"lat": lat, "lng": lng},
         "radius_m": radius,
-        "count": len(records),
-        "avg_base_price_eur": avg_base_price_eur,
-        "avg_final_offer_eur": avg_final_offer_eur,
-        "avg_price_per_sqm": avg_price_per_sqm,
-        "auctions": records,
+        "count": len(nearby_df),
+        "avg_price_per_sqm": round(float(valid_psm.mean()), 2) if len(valid_psm) > 0 else None,
+        "avg_base_price_eur": round(float(valid_base.mean()), 2) if len(valid_base) > 0 else None,
+        "time_series": time_series,
     }
+
+
+_PDF_DIR = _PROJECT_ROOT / "data" / "historical_auction_data"
+
+
+@router.get("/pdf/{filename}")
+def serve_pdf(filename: str):
+    """Serve a historical auction result PDF by filename."""
+    # Prevent path traversal
+    if "/" in filename or "\\" in filename or ".." in filename:
+        raise HTTPException(status_code=400, detail="Invalid filename")
+    path = _PDF_DIR / filename
+    if not path.exists() or path.suffix.lower() != ".pdf":
+        raise HTTPException(status_code=404, detail="PDF not found")
+    return FileResponse(path, media_type="application/pdf", filename=filename)
+
+
+@router.post("/reload")
+def reload_dataset():
+    """Invalidate the in-memory dataset cache so the next request re-reads the file."""
+    invalidate_cache()
+    return {"reloaded": True}
+
+
+_GEOCODING_CACHE_FILE = _PROJECT_ROOT / "data" / "geocoding_cache.json"
+_geo_cache: dict | None = None
+
+
+def _load_geo_cache() -> dict:
+    global _geo_cache
+    if _geo_cache is None and _GEOCODING_CACHE_FILE.exists():
+        try:
+            with open(_GEOCODING_CACHE_FILE, encoding="utf-8") as f:
+                _geo_cache = json.load(f)
+        except Exception:
+            _geo_cache = {}
+    return _geo_cache or {}
+
+
+def _lot_coords(lot: dict) -> tuple[float | None, float | None]:
+    """Look up lat/lng for a lot from the geocoding cache."""
+    cache = _load_geo_cache()
+    city = (lot.get("city") or "MILANO").title()
+    addr = (lot.get("address") or "").title()
+    num = (lot.get("street_number") or "").strip()
+    # Try the same key format used by run_geocoding.py
+    key = f"{addr} {num}, {city}, Italy".strip()
+    entry = cache.get(key)
+    if entry and entry.get("lat") is not None:
+        return entry["lat"], entry["lng"]
+    # Also try without civic number
+    key2 = f"{addr}, {city}, Italy"
+    entry2 = cache.get(key2)
+    if entry2 and entry2.get("lat") is not None:
+        return entry2["lat"], entry2["lng"]
+    return None, None
+
+
+@router.get("/active-auction")
+def get_active_auction():
+    """Return scraped active auction lots, enriched with coordinates from cache."""
+    if not _ACTIVE_AUCTION_FILE.exists():
+        return {"active_auctions": [], "lots": [], "scraped_at": None}
+    try:
+        with open(_ACTIVE_AUCTION_FILE, encoding="utf-8") as f:
+            data = json.load(f)
+        for lot in data.get("lots", []):
+            lat, lng = _lot_coords(lot)
+            lot["lat"] = lat
+            lot["lng"] = lng
+        return data
+    except Exception:
+        raise HTTPException(status_code=500, detail="Failed to read active auction data")
 
 
 @router.get("/{auction_id}")
@@ -187,6 +321,9 @@ def _row_to_feature(row, idx) -> dict:
         "zone_id",
         "base_price_per_sqm",
         "final_offer_eur",
+        "has_box",
+        "source_file",
+        "source_pdf",
     ]:
         val = row.get(col)
         import pandas as pd

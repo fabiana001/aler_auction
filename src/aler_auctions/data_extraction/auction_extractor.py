@@ -113,9 +113,12 @@ class AuctionExtractor:
         col_map = {}
         for i, h in enumerate(headers):
             h_upper = h.upper().strip()
+            # Strip leading non-alphanumeric characters (e.g. "*SUP CAT" -> "SUP CAT")
+            h_clean = re.sub(r'^[^A-Z0-9]+', '', h_upper)
             if h_upper in self.HEADER_MAP:
                 col_map[self.HEADER_MAP[h_upper]] = i
-            # Special case for MQ if part of a longer string
+            elif h_clean in self.HEADER_MAP:
+                col_map[self.HEADER_MAP[h_clean]] = i
             elif "MQ" in h_upper or "SUPERFICIE" in h_upper:
                 col_map["surface_sqm"] = i
             elif "PREZZO" in h_upper:

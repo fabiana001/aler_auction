@@ -33,3 +33,13 @@ export async function fetchTrend(lat, lng, radius) {
   const { data } = await api.get("/auctions/trend", { params: { lat, lng, radius } });
   return data;
 }
+
+export async function fetchUpcoming(days = 365) {
+  const { data } = await api.get("/auctions/upcoming", { params: { days } });
+  return data;
+}
+
+export async function fetchActiveAuction() {
+  const { data } = await api.get("/auctions/active-auction");
+  return data;
+}

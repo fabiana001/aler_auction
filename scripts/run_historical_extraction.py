@@ -6,7 +6,7 @@ to download documents related to past auction results.
 """
 import logging
 from pathlib import Path
-from aler_auctions.historical_client import HistoricalAuctionClient
+from aler_auctions.data_extraction.historical_client import HistoricalAuctionClient
 
 def main():
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")

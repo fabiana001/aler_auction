@@ -12,7 +12,7 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
-PROJECT_ROOT = Path("/Users/fabianalanotte/git/aler_auction")
+PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 MAX_LOG_LINES = 500
 
 PIPELINE_STEPS: dict[str, dict[str, str]] = {
@@ -70,6 +70,12 @@ PIPELINE_STEPS: dict[str, dict[str, str]] = {
         "icon": "bar-chart",
         "emoji": "📊",
     },
+    "active_auction_scraper": {
+        "name": "Active Auction Scraper",
+        "script": "run_active_auction_scraper.py",
+        "icon": "bell",
+        "emoji": "🔔",
+    },
 }
 
 _STEP_ORDER = list(PIPELINE_STEPS.keys())
@@ -115,7 +121,9 @@ class PipelineManager:
         self._steps: dict[str, _StepState] = {
             sid: _StepState(sid, meta) for sid, meta in PIPELINE_STEPS.items()
         }
-        self._running_task: asyncio.Task | None = None
+        # Lock serialises concurrent run_step / run_all calls.
+        # asyncio.Lock is single-threaded safe; locked() reflects real state.
+        self._lock: asyncio.Lock = asyncio.Lock()
         self._last_error: str | None = None
 
     # ------------------------------------------------------------------
@@ -125,38 +133,45 @@ class PipelineManager:
     def get_status(self) -> dict[str, Any]:
         return {
             "steps": [s.to_dict() for s in self._steps.values()],
-            "running": self._running_task is not None and not self._running_task.done(),
+            "running": self._lock.locked(),
             "last_error": self._last_error,
         }
 
     async def run_step(self, step_id: str) -> None:
-        """Run a single pipeline step."""
-        step = self._steps[step_id]
-        await self._execute_step(step)
+        """Run a single pipeline step, blocking concurrent runs."""
+        async with self._lock:
+            step = self._steps[step_id]
+            await self._execute_step(step)
 
     async def run_all(self, from_step: str | None = None) -> None:
         """Run all pipeline steps sequentially, optionally starting from *from_step*."""
-        start_idx = 0
-        if from_step is not None:
-            if from_step not in self._steps:
-                raise ValueError(f"Unknown step: {from_step}")
-            start_idx = _STEP_ORDER.index(from_step)
+        async with self._lock:
+            start_idx = 0
+            if from_step is not None:
+                if from_step not in self._steps:
+                    raise ValueError(f"Unknown step: {from_step}")
+                start_idx = _STEP_ORDER.index(from_step)
 
-        self._last_error = None
+            self._last_error = None
 
-        for sid in _STEP_ORDER[start_idx:]:
-            step = self._steps[sid]
-            await self._execute_step(step)
-            if step.status == "error":
-                self._last_error = f"Step '{step.name}' failed"
-                break
+            for sid in _STEP_ORDER[start_idx:]:
+                step = self._steps[sid]
+                await self._execute_step(step)
+                if step.status == "error":
+                    self._last_error = f"Step '{step.name}' failed"
+                    break
 
     async def stop_step(self, step_id: str) -> None:
-        """Kill a running step."""
+        """Kill a running step. Waits up to 5 s after SIGKILL to avoid zombies."""
         step = self._steps[step_id]
         if step._process is not None and step._process.returncode is None:
             step._process.kill()
-            await step._process.wait()
+            try:
+                await asyncio.wait_for(step._process.wait(), timeout=5.0)
+            except asyncio.TimeoutError:
+                logger.warning(
+                    "Process pid=%s did not exit after SIGKILL — possible zombie", step.pid
+                )
         step.status = "idle"
         step._process = None
         step.finished_at = datetime.now(timezone.utc).isoformat()
@@ -174,12 +189,14 @@ class PipelineManager:
         step.summary = {}
         step.pid = None
 
-        cmd = f"uv run python scripts/{step.script}"
-        logger.info("Starting step %s: %s", step.step_id, cmd)
+        # Use exec (not shell) to avoid shell injection.
+        # step.script is always a value from the hardcoded PIPELINE_STEPS dict.
+        cmd_args = ["uv", "run", "python", f"scripts/{step.script}"]
+        logger.info("Starting step %s: %s", step.step_id, " ".join(cmd_args))
 
         try:
-            proc = await asyncio.create_subprocess_shell(
-                cmd,
+            proc = await asyncio.create_subprocess_exec(
+                *cmd_args,
                 stdout=asyncio.subprocess.PIPE,
                 stderr=asyncio.subprocess.STDOUT,
                 cwd=str(PROJECT_ROOT),
@@ -188,17 +205,29 @@ class PipelineManager:
             step.pid = proc.pid
 
             assert proc.stdout is not None
+            lines_seen = 0
             while True:
                 line = await proc.stdout.readline()
                 if not line:
                     break
                 decoded = line.decode(errors="replace").rstrip()
+                lines_seen += 1
+                if lines_seen == MAX_LOG_LINES:
+                    step.logs.append(
+                        f"[log buffer full at {MAX_LOG_LINES} lines — older lines dropped]"
+                    )
                 step.logs.append(decoded)
 
             await proc.wait()
 
             if proc.returncode == 0:
                 step.status = "done"
+                # After price_analysis completes successfully, invalidate the dataset cache
+                # so the API immediately serves the freshly built dataset.
+                if step.step_id == "price_analysis":
+                    from app.data.loader import invalidate_cache
+                    invalidate_cache()
+                    logger.info("Dataset cache invalidated after price_analysis")
             else:
                 step.status = "error"
                 step.logs.append(f"[exit code {proc.returncode}]")
@@ -223,10 +252,9 @@ class PipelineManager:
         patterns = [
             (r"Found\s+(\d+)\s+snapshots", "snapshots_found"),
             (r"Extracted\s+(\d+)\s+records", "records_extracted"),
-            (r"Total records:\s*(\d+)", "total_records"),
+            (r"Total records extracted:\s*(\d+)", "total_records"),
             (r"(\d+)\s+aste", "auction_count"),
             (r"Successfully\s+saved\s+(\d+)", "saved_count"),
-            (r"Data\s+saved\s+to", "data_saved"),
             (r"(\d+)\s+pages?", "pages_count"),
             (r"Processed\s+(\d+)\s+items", "items_processed"),
             (r"(\d+)\s+locations?\s+geocoded", "geocoded_count"),
@@ -238,11 +266,10 @@ class PipelineManager:
                 m = re.search(regex, line, re.IGNORECASE)
                 if m:
                     val = m.group(1)
-                    # Try int conversion
                     try:
                         summary[key] = int(val)
                     except ValueError:
                         summary[key] = val
-                    break  # one match per line
+                    break
 
         return summary
